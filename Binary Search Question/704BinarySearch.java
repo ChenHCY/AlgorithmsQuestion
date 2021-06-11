@@ -18,33 +18,33 @@ Explanation: 2 does not exist in nums so return -1
 class Solution {
     public int search(int[] nums, int target) 
     {
-        if (nums == null || nums.length == 0)
+        if (nums == null || nums.length == 0) 
         {
-            return -1;
+            return -1; //if the nums is 0 or nums have no length, the output result is -1
         }
         
-        int start = 0;
-        int end = nums.length - 1;
+        int start = 0; //Define the start number
+        int end = nums.length - 1;//Define the end number
         
-        while(start <= end) 
+        while(start <= end) //while loop, it will end  if start > end
         {    
-            int mid = start + (end - start) / 2;
+            int mid = start + (end - start) / 2; // Find the mid number place
             
             if(target == nums[mid] ) 
             {
-                return mid;
+                return mid; //if the mid number value in the nums list is equal target number, the output reselt is mid
             } 
             
             else if(target < nums[mid]) 
             {
-                end = mid - 1;
+                end = mid - 1; //Binary Search: if target value less than the mid value, the end number will move to mid-1
             } 
             
             else 
             {
-                start = mid + 1;
+                start = mid + 1;//Binary Search: if target value large than the mid value, the start number will move to mid+1
             }  
         }
-        return -1;
+        return -1;// nothing can run, just output the result is -1
     }
 }
