@@ -31,10 +31,10 @@ class Solution {
         
         while(right !=  left){
             if(height[left] > height[right]){
-                result = Math.max(height[right] * (right - left), result);
+                result = Math.max(height[right] * (right - left), result); // Find the max value
                 right--;
-            } else{
-                result = Math.max(height[left] * (right - left), result);
+            } else{ // height[left] < height[right]
+                result = Math.max(height[left] * (right - left), result); // Find the max value
                 left++;
             }
         }
