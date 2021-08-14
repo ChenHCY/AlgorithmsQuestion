@@ -18,13 +18,11 @@ class Solution {
         int right = s.length - 1;
         char temp;
         while(left < right){
-            if(left != right){
-                temp = s[left];
-                s[left] = s[right];
-                s[right] = temp;
-                left++;
-                right--;
-            }
+            temp = s[left];
+            s[left] = s[right];
+            s[right] = temp;
+            left++;
+            right--;
         }
     }
 }
