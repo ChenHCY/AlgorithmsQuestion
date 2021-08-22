@@ -1,7 +1,7 @@
 # LeetCode_Chen
 LeetCode Question _Chenyu Yang
 
-# The traversal of binary tree (Preorder, Inorder, Postorder)：
+# The traversal of binary tree (Recursive Method)：
 
 1. Binary Tree Preorder Traversal：
    1. Visit the root node 
