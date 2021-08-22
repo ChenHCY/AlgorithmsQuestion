@@ -1,7 +1,7 @@
 # LeetCode_Chen
 LeetCode Question _Chenyu Yang
 
-# The establishment and traversal of binary tree (preorder traversal, middleorder traversal, postorder traversal)：
+# The traversal of binary tree (preorder traversal, middleorder traversal, postorder traversal)：
 
 1. Binary Tree Preorder Traversal：
    1. Visit the root node 
