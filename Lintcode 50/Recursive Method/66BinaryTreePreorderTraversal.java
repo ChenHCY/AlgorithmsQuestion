@@ -50,9 +50,11 @@ public class Solution {
         if(root == null){
             return;
         }
-        list.add(root.val); // beacuse is Preorder Traversal, so add the Tree Node first
-        preorderTraversal(root.left, list);
-        preorderTraversal(root.right, list);
+       
+       // beacuse this is Preorder Traversal, so follow the 1. Visit the root node 2. Visit the left node 3. Visit the right node
+        list.add(root.val); // 1.  Visit the root node 
+        preorderTraversal(root.left, list); //2. Visit the left node
+        preorderTraversal(root.right, list); // 3. Visit the right node
     }
 
     public List<Integer> preorderTraversal(TreeNode root) {
