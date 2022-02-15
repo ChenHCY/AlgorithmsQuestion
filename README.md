@@ -18,7 +18,8 @@ LeetCode Question _Chenyu Yang
    2. Visit the right node 
    3. Visit the root node
 
-# Java split() and Java trim()： (Linkcode 53.Reverse Words in a String)
+# Java split() and Java trim()： 
+(Linkcode 53.Reverse Words in a String)
 
 1. Java split():
 The method split() splits a String into multiple Strings given the delimiter that separates them. The returned object is an array which contains the split Strings. We can also pass a limit to the number of elements in the returned array.
