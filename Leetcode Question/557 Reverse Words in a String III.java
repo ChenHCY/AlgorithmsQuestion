@@ -40,3 +40,22 @@ class Solution {
         }
     }
 }
+
+/*Use StringBuilder method*/
+
+class Solution {
+    public String reverseWords(String s) {
+        String[] str = s.split(" ");
+        StringBuilder res = new StringBuilder();
+        for(int i = 0; i < str.length; i++){
+            str[i] = new StringBuilder(str[i]).reverse().toString();
+        }
+        for (String a : str){
+            res.append(a + " ");
+        }
+        return res.toString().trim();
+    }
+}
+/* 1. Java中的split函数. split()是一个用来切分字符串的函数
+   2. Java中的trim() 方法 是去除字符串两端的空白
+   3. Java的StringBuilder，是一个可变对象，可以预分配缓冲区，这样，往StringBuilder中新增字符时，不会创建新的临时对象*/
