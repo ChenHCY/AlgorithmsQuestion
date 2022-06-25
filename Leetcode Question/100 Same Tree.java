@@ -52,5 +52,6 @@ class Solution {
         }
         
         return isSameTree(p.left,q.left) && isSameTree(p.right,q.right);
+        //This Question was used Recursion method to check whether TreeNode Q and TreeNode P are same
     }
 }
