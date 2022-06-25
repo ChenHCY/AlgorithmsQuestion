@@ -44,6 +44,6 @@ class Solution {
         }
         
         return symmetric(left.left, right.right) && symmetric(left.right, right.left);
-        
+        // This Question was used Recursion method to check whether every step of treenode is Symmetric
     }
 }
