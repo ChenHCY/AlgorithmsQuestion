@@ -19,11 +19,6 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 // Time complexity：O(n*2)  Space complexity：O(n)
 class Solution {
     public int maxProfit(int[] prices) {
-        
-        if(prices.length <= 1){
-            return 0;
-        }
-        
         int slow = 0;
         int fast = 1;
         List<Integer> list = new ArrayList<Integer>();
