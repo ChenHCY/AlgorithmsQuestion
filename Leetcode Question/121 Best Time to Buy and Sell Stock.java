@@ -16,7 +16,7 @@ Explanation: In this case, no transactions are done and the max profit = 0.
 */
 
 // My Solution: Used "Two pointer" and ArrayList to check and get the maximize profit
-// Time complexity：O(n*2)  Space complexity：O(n)
+// Time complexity：O(n)  Space complexity：O(n)
 class Solution {
     public int maxProfit(int[] prices) {
         int slow = 0;
