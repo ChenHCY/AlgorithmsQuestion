@@ -16,6 +16,8 @@ Input: nums = [1]
 Output: 1
 */
 
+// My solution: use the hashset. HashSet did not allowed same number in the set.
+// Time complexity：O(n)         Space complexity: O(n)
 class Solution {
     public int singleNumber(int[] nums) {
         Set<Integer> set = new HashSet<>();
@@ -26,9 +28,20 @@ class Solution {
             } else{
                 set.remove(num);
             }
-        }
-        
-        return (int)set.iterator().next(); // return all number fro HashSet
-      
+        } 
+        return (int)set.iterator().next(); // return all number fro HashSet      
     }
 }
+
+// Best Solution: Used Bitsie Operator in Java ******  Bistwise XOR (^=) => it can check whether have same number (Twice) in the number list
+// Time complexity：O(n)         Space complexity: O(1)
+class Solution {
+    public int singleNumber(int[] nums) {
+        int res = nums[0];
+        for(int i = 1; i < nums.length; i++){
+            res ^= nums[i];
+        }
+        return res;
+    }
+}
+
