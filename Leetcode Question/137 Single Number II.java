@@ -21,13 +21,17 @@ Each element in nums appears exactly three times except for one element which ap
 class Solution {
     public int singleNumber(int[] nums) {
         HashMap<Integer, Integer> map = new HashMap<>();
+        // HashMap <Key,Value> map;
         int result = 0; // return the result
         int times = 0; // the times of number
         
         for(int num : nums){ // check every number times from nums list
-            map.put(num, map.getOrDefault(num, 0)+ 1); 
+            map.put(num, map.getOrDefault(num, 0) + 1); 
         }
+     //The Java HashMap getOrDefault() method returns the specified default value if the mapping for the specified key is not found in the hashmap. 
+     //Otherwise, the method returns the value corresponding to the specified key. 
         
+        // HashMap <Key,Value> map; => So in here, we use for-loop to check which key's value is only 1 
         for(int key : map.keySet()){ // find the single element
             if(map.get(key) == 1){
                 result = key;
