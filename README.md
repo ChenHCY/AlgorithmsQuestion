@@ -33,3 +33,10 @@ Parameter for Java split():
 2. Java trim(): 
 Java trim() is a built-in function that eliminates leading and trailing spaces.
 
+
+# HashMap：
+(Linkcode 242. Valid Anagram  && Leetcode 137. Single Number II ) 
+
+1. Java HashMap getOrDefault(): this method returns the specified default value if the mapping for the specified key is not found in the hashmap. Otherwise, the method returns the value corresponding to the specified key. 
+
+
