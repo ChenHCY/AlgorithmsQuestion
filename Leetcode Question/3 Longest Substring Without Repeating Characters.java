@@ -19,27 +19,25 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
 */
 class Solution {
     public int lengthOfLongestSubstring(String s) {
-        if(s == null || s.length() == 0)
-        {
-            return 0;
-        }
+        HashSet<Character> set = new HashSet<>(); //hashset did not allowed same element
+        int start = 0; // range start pointer
+        int end = 0; // range end pointer
+        int length = 0; // rang length
         
-        int maxLength = 0; // the longest substring
-        int left = 0;//first pointer
-        int current = 0; // move pointer
-        
-        Set<Character> uniqueCharacters = new HashSet<>();
-        
-        while(current < s.length())
-        {
-            if(uniqueCharacters.add(s.charAt(current))){
-                current++;
-                maxLength = Math.max(maxLength, uniqueCharacters.size());
-            } else{
-                uniqueCharacters.remove(s.charAt(left));
-                left++;
+        //use while-loop traverse each character from the String
+        while (end < s.length()) {
+        // if HashSet can add the character element, means there is not same element in the HashSet
+            if (set.add(s.charAt(end))) {
+                end++; //so move end pointer into next character
+                //Get the length of set that without repeating characters
+                length = Math.max(length, set.size()); 
+            } else { //if HashSet can not add the character element, means there is the same element in the HashSet
+                set.remove(s.charAt(start)); 
+                //remove the character start-point in the start position
+                start++; //move start-pointer into next element
             }
         }
-        return maxLength;
+        
+        return length;
     }
 }
