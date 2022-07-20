@@ -37,40 +37,48 @@ It is guaranteed that the list represents a number that does not have leading ze
  * }
  */
 
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode n1 = l1;
-        ListNode n2 = l2;
-        ListNode head = new ListNode(-1);
+        ListNode head = new ListNode(0);
         ListNode res = head;
-        int digiht = 0;
+        int sum = 0; // Sum of two element add
             
-        while(!(n1 == null & n2 == null)){
-            int v1 = 0;
-            int v2 = 0;
+        while(!(l1 == null & l2 == null)){
+            sum /= 10; //check whether cur Listnode value is large than 10
             
-            if(n1 != null){
-                v1 = n1.val;
-                n1 = n1.next;
+            //if l1 have list node, add the value into sum and move to next
+            if(l1 != null){
+                sum += l1.val;
+                l1 = l1.next;
             } 
             
-            if(n2 != null){
-                v2 = n2.val;
-                n2 = n2.next;
+            //if l2 have list node, add the value into sum and move to next
+            if(l2 != null){
+                sum += l2.val;
+                l2 = l2.next;
             }
             
-            int curNode = v1 + v2 + digiht;
-            //add this listnode into res
-            res.next = new ListNode(curNode % 10); // every node add together can not large than 10
-            res = res.next;
-            //check whether cur Listnode value is large than 10
-            digiht = curNode / 10;
+            // very node add together can not large than 10
+            ListNode temp = new ListNode(sum % 10);
+            head.next = temp; //add this listnode into head 
+            head = head.next; 
+           
         }
         
-        if(digiht > 0){
-            res.next = new ListNode(digiht);
+        if(sum / 10 == 1){
+            head.next = new ListNode(1);
         }
         
-        return head.next;
+        return res.next;
     }
 }
