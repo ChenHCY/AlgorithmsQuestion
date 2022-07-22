@@ -29,7 +29,7 @@ class Solution {
                 set.remove(num);
             }
         } 
-        return (int)set.iterator().next(); // return all number fro HashSet      
+        return (int)set.iterator().next(); // return all number from HashSet      
     }
 }
 
