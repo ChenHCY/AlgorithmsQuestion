@@ -19,26 +19,30 @@ strs[i] consists of only lower-case English letters.
 
 class Solution {
     public String longestCommonPrefix(String[] strs) {
+        if(strs.length == 0){
+            return "";
+        }
         
         String curr = strs[0];
         
-        // recursive all the string list
+        //traverse all the string element from strs[] list
         for(int i = 0; i < strs.length; i++){
-           curr = longestCommon(curr, strs[i]);
+            curr = helper(curr, strs[i]); //check every two strings element
         }
+        
         return curr;
     }
     
-    public String longestCommon(String s, String a){
+    //Used to find the longest common prefix in the betweed two strings
+    public static String helper(String a, String b){
         int i = 0;
         int j = 0;
-        //get how many conmmon number is same
-        while(i < s.length() && j < a.length() && s.charAt(i) == a.charAt(j)){
+        
+        while(i < a.length() && j < b.length() && a.charAt(i) == b.charAt(j)){
             i++;
             j++;
         }
-        
-        //Substring back to the "String"
-        return s.substring(0, i);
+    
+        return a.substring(0, i); // subString is used to create smaller strings from the bigger one. 
     }
 }
