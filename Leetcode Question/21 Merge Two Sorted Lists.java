@@ -28,9 +28,11 @@ Both l1 and l2 are sorted in non-decreasing order.
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+
+//Solution 1: Used While-loop traverse and compare the every listnode value from l1 and l2, then can get a new ListNode list
 class Solution {
     public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode list = new ListNode();
+        ListNode list = new ListNode(); //the new ListNode List
         ListNode result = list;
         
         while(l1 != null || l2 != null) {
@@ -52,5 +54,29 @@ class Solution {
             list = list.next;
         }
         return result.next;
+    }
+}
+
+//Solution 2: used the recursive method ==> do not need use any loop
+
+class Solution {
+    public ListNode mergeTwoLists(ListNode list1, ListNode list2) {
+        //this method is used recursive properties
+        if(list1 == null){
+            return list2;
+        }
+        
+        if(list2 == null){
+            return list1;
+        }
+     
+        //compare the listnode value and continue recursive
+        if(list1.val < list2.val){
+            list1.next = mergeTwoLists(list1.next, list2);
+            return list1;
+        } 
+        
+        list2.next = mergeTwoLists(list1, list2.next);
+        return list2;
     }
 }
