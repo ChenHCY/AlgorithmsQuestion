@@ -40,3 +40,15 @@ Java trim() is a built-in function that eliminates leading and trailing spaces.
 1. Java HashMap getOrDefault(): this method returns the specified default value if the mapping for the specified key is not found in the hashmap. Otherwise, the method returns the value corresponding to the specified key. 
 
 
+# PriorityQueuez:
+(Linkcode 23. Merge k Sorted Lists) 
+
+1.  Java PriorityQueue(int initialCapacity): Creates a PriorityQueue with the specified initial capacity that orders its elements according to their natural ordering.
+
+2. Java PriorityQueue(int initialCapacity, Comparator<E> comparator): Creates a PriorityQueue with the specified initial capacity that orders its elements according to the specified comparator.
+a. Small -> Large: (o1, o2) -> o1.val - o2.val
+b. Large -> Small: (o1, o2) -> o2.val - o1.val
+
+3. Java PriorityQueue(PriorityQueue<E> c): Creates a PriorityQueue containing the elements in the specified priority queue.
+
+
