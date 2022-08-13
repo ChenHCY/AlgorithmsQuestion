@@ -43,8 +43,10 @@ The sum of lists[i].length will not exceed 104
  * }
  */
 
+//Time: O(nlogK) K is the number of Linked Lists
+//Space: O(n)
+
 //Solution 1: Used Divide Conquer Method,  Divide the lists[] list until the size is 2, then Conquer merge sort
-//
 class Solution {
     //the main function
     public ListNode mergeKLists(ListNode[] lists) {
