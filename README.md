@@ -27,8 +27,8 @@ The method split() splits a String into multiple Strings given the delimiter tha
 Grammar for Java split():    public String[] split(String regex, int limit)
 
 Parameter for Java split():     
-   A. regex  - regular expression delimiter.
-   B. limit  - the number of copies to be divided.
+   1. regex  - regular expression delimiter.
+   2. limit  - the number of copies to be divided.
 
 2. Java trim(): 
 Java trim() is a built-in function that eliminates leading and trailing spaces.
@@ -46,8 +46,8 @@ Java trim() is a built-in function that eliminates leading and trailing spaces.
 1.  Java PriorityQueue(int initialCapacity): Creates a PriorityQueue with the specified initial capacity that orders its elements according to their natural ordering.
 
 2. Java PriorityQueue(int initialCapacity, Comparator<E> comparator): Creates a PriorityQueue with the specified initial capacity that orders its elements according to the specified comparator.
-   A. Small -> Large: (o1, o2) -> o1.val - o2.val
-   B. Large -> Small: (o1, o2) -> o2.val - o1.val
+   1. Small -> Large: (o1, o2) -> o1.val - o2.val
+   2. Large -> Small: (o1, o2) -> o2.val - o1.val
 
 3. Java PriorityQueue(PriorityQueue<E> c): Creates a PriorityQueue containing the elements in the specified priority queue.
 
