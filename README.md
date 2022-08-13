@@ -27,8 +27,8 @@ The method split() splits a String into multiple Strings given the delimiter tha
 Grammar for Java split():    public String[] split(String regex, int limit)
 
 Parameter for Java split():     
-   1. regex  - regular expression delimiter.
-   2. limit  - the number of copies to be divided.
+      1. regex  - regular expression delimiter.
+      2. limit  - the number of copies to be divided.
 
 2. Java trim(): 
 Java trim() is a built-in function that eliminates leading and trailing spaces.
