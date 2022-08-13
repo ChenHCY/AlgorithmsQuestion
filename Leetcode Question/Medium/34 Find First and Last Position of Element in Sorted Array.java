@@ -24,6 +24,7 @@ nums is a non-decreasing array.
 */
 
 //Solution 1: Binary Search Method: Used two small function that find the starting and ending position of a given target value.
+//Time: O(n)  Space: O(1)
 class Solution {
     //The main function
     public int[] searchRange(int[] nums, int target) {
@@ -71,7 +72,7 @@ class Solution {
     }
 }
 
-//Solution 2: use a little trick
+//Solution 2: use a little trick  Time: O(logn)  Space: O(1)
 //Example: [5,7,7,8,8,10], target = 8
 //               l   r
 //              e s e s
