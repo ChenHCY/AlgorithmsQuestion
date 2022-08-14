@@ -32,6 +32,7 @@ Explanation: Your function should return k = 5, with the first five elements of 
 It does not matter what you leave beyond the returned k (hence they are underscores).
 */
 
+//Solution 1: Two pointer method: Used one pointer to traverse all the elements, and used the second pointer to save every the numbers without Duplicates
 class Solution {
     public int removeDuplicates(int[] nums) {
         int first = 1;
@@ -39,13 +40,35 @@ class Solution {
         
         while(second < nums.length){
             if(nums[second] != nums[first-1]){
-                nums[first] = nums[second];
+                nums[first] = nums[second]; //remove the duplicates number from the sort array and save every number with once
                 first++;
                 second++;
             } else{
-                second++;
+                second++; // Used one pointer to traverse all the elements
             } 
         }
-        return first;
+        return first; //return every the numbers without Duplicates
+    }
+}
+
+//Solution 2: Two pointer method: Used one pointer to traverse all the elements, and used the second pointer to save every the numbers without Duplicates
+
+class Solution {
+    public int removeDuplicates(int[] nums) {
+        if(nums.length == 0 || nums == null){
+            return 0;
+        }
+        
+        int c = 1; //the length of Sorted Array without Duplicates number
+        
+        for(int i = 1; i < nums.length; i++){
+            if(nums[i-1] != nums[i]){
+                nums[c++] = nums[i]; //remove the duplicates number from the sort array and save every number with once
+                /*For Example: [1, 1, 2, 2, 3, 4, 5, 6] */
+                //           1,2, 3   c 
+                //                          i
+            }
+        }
+        return c;  // return every the numbers without Duplicates
     }
 }
