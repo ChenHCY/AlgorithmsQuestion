@@ -28,7 +28,6 @@ public class Solution {
         // write your code here
         int m = grid.length;
         int n = grid[0].length;
-        int res = 0;
 
         int[][] dp = new int[m][n]; //Dp State 
 
