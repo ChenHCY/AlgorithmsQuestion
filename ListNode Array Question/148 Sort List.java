@@ -57,6 +57,36 @@ class Solution {
         l2.next = mergeSort(l1, l2.next);
         return l2;
     }
+ 
+ /*second merge sort function:
+ //Merge Sort Function: Conquer: Merge Sort every two lits
+    public ListNode mergeSort(ListNode l1, ListNode l2){
+        ListNode dummy = new ListNode();
+        ListNode res = dummy;
+        
+        while(l1 != null || l2 != null){
+            if(l1 != null && l2 != null){
+                if(l1.val < l2.val){
+                    dummy.next = l1;
+                    l1 = l1.next;
+                } else{
+                    dummy.next = l2;
+                    l2 = l2.next;
+                }
+            } else if(l1 == null){
+                dummy.next = l2;
+                l2 = l2.next;
+            } else if(l2 == null){
+                dummy.next = l1;
+                l1 = l1.next;
+            }
+            
+            dummy = dummy.next;
+        }
+        
+        return res.next;
+    }
+ */
     
     //Find mid of ListNode head ==> Divide the ListNode be two small list
     public ListNode getMid(ListNode head){
