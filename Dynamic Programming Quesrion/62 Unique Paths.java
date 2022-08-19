@@ -1,4 +1,4 @@
-/* Leetcode 62. Unique Paths
+/* Leetcode 62. Unique Paths  && Lintcode 114 * Unique Paths
 
 There is a robot on an m x n grid. The robot is initially located at the top-left corner (i.e., grid[0][0]). 
 The robot tries to move to the bottom-right corner (i.e., grid[m - 1][n - 1]). The robot can only move either down or right at any point in time.
@@ -52,5 +52,43 @@ class Solution {
         }
         
         return dp[m-1][n-1]; // Dp answer: The robot tries to move to the bottom-right corner
+    }
+}
+
+//Lintcode 114 Unique Paths:
+public class Solution {
+    /**
+     * @param m: positive integer (1 <= m <= 100)
+     * @param n: positive integer (1 <= n <= 100)
+     * @return: An integer
+     */
+    public int uniquePaths(int m, int n) {
+        // write your code here
+        //Dp state: use dp[i][j] represents the maximum number of paths 
+        int[][] dp = new int[m][n]; // 用 f[i] 或者 f[i][j] 代表在某些特定条件下某个规模更小的问题的答案
+
+        /* Dp function: 大问题如何拆解为小问题 f[i][j] = 通过规模更小的一些状态求 max / min / sum / or 来进行推导
+                        1. through the first row or first column
+                        i = 0 first row ==> dp[i][j] = dp[0][j]   (only one way path)
+                        j = 0 first column ==> dp[i][j] = dp[i][0] (only one way path)
+                        2. The robot can only move either down or right at any point in time. 
+                        down direction: dp[i][j] = dp[i-1][j]
+                        right direction: dp[i][j] = dp[i][j-1]
+                        Total: dp[i][j] = dp[i-1][j] + dp[i][j-1];
+        */
+        dp[0][0] = 1; //Dp initialize: 设定无法再拆解的极限小的状态下的值
+
+        //Traverse all the path solution
+        for(int i = 0; i < m; i++){
+            for(int j = 0; j < n; j++){
+                if(i == 0 || j == 0){
+                    dp[i][j] = 1;
+                } else{
+                    dp[i][j] = dp[i-1][j] + dp[i][j-1];
+                }
+            }
+        }
+
+        return dp[m-1][n-1];//Dp Answer: 最后要求的答案是什么
     }
 }
