@@ -25,8 +25,7 @@ Output: []
  * }
  */
 
-//Solution : Used Merge Sort and "Divide && Conquer" Method
- 
+//Solution 1: Used Merge Sort and "Divide && Conquer" Method
 class Solution {
     public ListNode sortList(ListNode head) {
         if(head == null || head.next == null){
@@ -58,9 +57,26 @@ class Solution {
         return l2;
     }
  
- /*second merge sort function:
- //Merge Sort Function: Conquer: Merge Sort every two lits
-    public ListNode mergeSort(ListNode l1, ListNode l2){
+    //Find mid of ListNode head ==> Divide the ListNode be two small list
+    public ListNode getMid(ListNode head){
+        ListNode mid = null;
+        
+        //Find the mid piovt position and divide it
+        //When head move arrived at the last node, the midPreve arrived at mid position node
+        while(head != null && head.next != null){
+            mid = (mid == null) ? head : mid.next;
+            head = head.next.next; 
+        }
+        
+        ListNode right = mid.next; //open a ListNode get right part
+        mid.next = null; //end recursion, it used to avoid appearing the "stackoverflowerror"
+        return right;
+    }
+}
+************************************************************************************************
+
+//Second Merge Sort Function: Runtime: 23ms
+public ListNode mergeSort(ListNode l1, ListNode l2){
         ListNode dummy = new ListNode();
         ListNode res = dummy;
         
@@ -86,21 +102,24 @@ class Solution {
         
         return res.next;
     }
- */
-    
-    //Find mid of ListNode head ==> Divide the ListNode be two small list
-    public ListNode getMid(ListNode head){
-        ListNode mid = null;
+
+//Third Merge Sort Function: Runtime: 13ms
+    public ListNode mergeSort(ListNode l1, ListNode l2){
+        ListNode dummy = new ListNode();
+        ListNode res = dummy;
         
-        //Find the mid piovt position and divide it
-        //When head move arrived at the last node, the midPreve arrived at mid position node
-        while(head != null && head.next != null){
-            mid = (mid == null) ? head : mid.next;
-            head = head.next.next; 
+        while(l1 != null && l2 != null){
+           if(l1.val < l2.val){
+               dummy.next = l1;
+               l1 = l1.next;
+               dummy = dummy.next;
+            } else{
+               dummy.next = l2;
+               l2 = l2.next;
+               dummy = dummy.next;
+            }
         }
         
-        ListNode right = mid.next; //open a ListNode get right part
-        mid.next = null; //end recursion, it used to avoid appearing the "stackoverflowerror"
-        return right;
+        dummy.next = (l1 != null) ? l1 : l2;
+        return res.next;
     }
-}
