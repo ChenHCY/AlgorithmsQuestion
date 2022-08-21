@@ -6,7 +6,7 @@ Example: Input: int[] nums = [3, 4, 1, 1, 3, 1];
          Output: 3
 */
 
-class HelloWorld {
+class Question1 {
     public static void main(String[] args) {
         int[] nums = new int[]{3, 4, 1, 1, 3, 1};
         System.out.println(solution(nums));
