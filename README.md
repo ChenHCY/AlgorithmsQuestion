@@ -51,4 +51,15 @@ Java trim() is a built-in function that eliminates leading and trailing spaces.
 
 3. Java PriorityQueue(PriorityQueue<E> c): Creates a PriorityQueue containing the elements in the specified priority queue.
 
+# Memorize Search && Dynamic Programming
+(Leetcode 10. Regular Expression Matching)
 
+1. Memorize Search: Memorize Search means saving the calculation result of the function, and returning the saved result directly when accessing through the same parameter next time.
+
+Memoized search can often reduce exponential time complexity down to a polynomial level.
+
+2. Memorize Search = Dynamic Programming: 
+
+a. Memoized search is an implementation method of dynamic programming.
+
+b. Memoized search implements dynamic programming by means of search. 
