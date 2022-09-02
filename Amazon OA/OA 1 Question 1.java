@@ -3,7 +3,7 @@ Change a String format be palindrome, need follow the alphabetical order
 
 Example: 
 Input: "xyxy"
-Output: "xxyy"
+Output: "xyyx"
 */
 //Solution 1: Used bucket to sort and save element
 public class MyClass {
