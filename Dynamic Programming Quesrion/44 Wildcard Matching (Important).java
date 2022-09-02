@@ -50,7 +50,7 @@ class Solution {
         //Dp Initialize:
         dp[0][0] = true;
         
-        //Preprocessing functon for this kinds solution: s = "aab" , p ="c*aab" 
+        //Preprocessing functon for this kinds solution:  
         for(int k = 1; k <= p.length(); k++){
             if(p.charAt(k - 1) == '*'){
                 dp[0][k] = dp[0][k - 1];
