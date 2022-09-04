@@ -13,6 +13,10 @@ if the quotient is strictly greater than 2^31 - 1(Integer.MAX_VALUE), then retur
 if the quotient is strictly less than -2^31(Integer.MIN_VALUE), then return -2^31.
 */
 
+//Time complexity: O(logn)  ==> because in this solution every time decreases half part like binary search, so it's not O(n)
+//Space complexity: O(logn) line 63 while-loop conditions: 
+// Use "<" is O(logn), Or Use "<=" will decrease the space time to be less than O(logn)
+
 class Solution {
     public int divide(int dividend, int divisor) {
         // dividend / divisor = result
@@ -57,7 +61,7 @@ class Solution {
         }
         long sum = divisor;
         long mulitiple = 1;
-        // Use "<=" will decrease the space time to be less than O(logn)
+        // Use "<=" will decrease the space to be less than O(logn)
         while((sum + sum) <= dividend){
             sum = sum + sum;
             mulitiple += mulitiple;
