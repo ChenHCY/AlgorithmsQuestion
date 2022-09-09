@@ -21,24 +21,41 @@ Input: nums = [3,3], target = 6
 Output: [0,1]
  */
 
+//Solution 1:
 class Solution {
     public int[] twoSum(int[] nums, int target) {
       
         int x[] = new int[2];//Define the x be 2 numbers arraylist
-        
-        //hashmap to get result
-        Map<Integer, Integer> result = new HashMap<>();
+        Map<Integer, Integer> result = new HashMap<>(); //HashMap
         
         //used for-loop to go through nums list
         for(int i = 0; i < nums.length; i++){
-            if(result.containsKey(nums[i])) //if the hashmap contains the key value
+            if(result.containsKey(nums[i])) //if can find the nums[i] from the HashMap
             {
-                x[0] = i; //the first number in the x[] is i
-                x[1] = result.get(nums[i]); //the second number in the x[] is nums[i]
+                x[0] = i; //the first number in the x[] is i (current position)
+                x[1] = result.get(nums[i]); //the second number in the x[] is nums[i]'s position from HashMap
                 break;
             }
-            result.put(target - nums[i], i); //put the number "target - nums[i]" in the place "i"
+            result.put(target - nums[i], i); //put the number "target - nums[i]" in the HashMap place "i"
         }
         return x; //output the result x
+    }
+}
+
+//Soultion 2:
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        
+        for(int i = 0; i < nums.length; i++){
+            int temp = target - nums[i];
+            if(map.containsKey(temp)){
+                return new int[]{map.get(temp), i};
+            }
+            
+            map.put(nums[i], i);
+        }
+        return null;
     }
 }
