@@ -20,6 +20,8 @@ Constraints:
 s[i] is '(', or ')'.
 */
 
+//Time: O(n)  Space: O(n)
+
 class Solution {
     public int longestValidParentheses(String s) {
         Stack<Integer> stack = new Stack<>(); //use for save the left parenthese "(" 
@@ -40,7 +42,7 @@ class Solution {
                         res = Math.max(res, i - start); 
                     } else{
                         //this case is used for there are ready have two left parentheses in the stack 
-                        //For example: ( ( ) )  the result is 2
+                        //For example: ( ( ) )  the result is 4  => Need to count the Valid Parentheses in the inner layer first
                         res = Math.max(res, i - stack.peek());
                     }
                 }
