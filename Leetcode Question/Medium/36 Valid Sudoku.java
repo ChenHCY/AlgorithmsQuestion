@@ -42,7 +42,7 @@ board.length == 9
 board[i].length == 9
 board[i][j] is a digit 1-9 or '.'.
 */
-
+//Time: O(n^2)    Space: O(n)
 class Solution {
     public boolean isValidSudoku(char[][] board) {
         //traverse all all the numbers element from 9 x 9 board[][]
