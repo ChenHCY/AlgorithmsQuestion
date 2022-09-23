@@ -98,3 +98,38 @@ class Solution {
         return true;
     }
 }
+
+//SIG OA Question 2: only check the Integer from 9 x 9 Sudoku board is valid
+class Solution {
+    public boolean isValidSudoku(int[][] board) {
+        //traverse all all the numbers element from 9 x 9 board[][]
+        //board[i][j]  ==> first [] is rwo, second [] is column
+        for(int i = 0; i < board.length; i++){
+            HashSet<Integer> row = new HashSet<>(); // row
+            HashSet<Integer> colu = new HashSet<>(); // column
+            HashSet<Integer> boxes = new HashSet<>(); // every 3 x 3 sub-boxes
+            
+            for(int j = 0; j < board[0].length; j++){
+                //Check every row whether have the repetition number 
+                if(!row.add(board[i][j])){
+                    return false;
+                }
+                
+                //Check every column whether have the repetition number 
+                if(!colu.add(board[j][i])){
+                    return false;
+                }
+                
+                //Check every 3 x 3 boxes whether have the repetition number
+                int rowIndex = 3 * (i / 3);
+                int colIndex = 3 * (i % 3);
+                
+                 //Check every 3 x 3 boxes whether have the repetition number
+                if(!boxes.add(board[rowIndex + j / 3][colIndex + j % 3]){
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+}
