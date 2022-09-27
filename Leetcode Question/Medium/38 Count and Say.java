@@ -31,3 +31,33 @@ Constraints:
 1 <= n <= 30
 */
 
+class Solution {
+    public String countAndSay(int n) {
+        // Did not have some easy way, just brute force solution
+        String res = "1"; //use stringbuilder to add in every time
+        int i = 1; //use i-pointer to move
+        while(i < n){
+            int count = 0;
+            char c = res.charAt(0);
+            StringBuilder str = new StringBuilder();
+            
+            //use for-loop to add in every step
+            for(int j = 0; j <= res.length(); j++){
+                if(j != res.length() && res.charAt(j) == c){
+                    count++;
+                } else{
+                    str.append(count);
+                    str.append(c);
+                    if(j != res.length()){
+                        count = 1;
+                        c = res.charAt(j);
+                    }
+                }
+            }
+            
+            res = str.toString();
+            i++;
+        }
+        return res;
+    }
+}
