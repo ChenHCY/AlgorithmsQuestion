@@ -12,24 +12,37 @@ Explanation: The longest increasing subsequence is [1, 2, 3], therefore the leng
 Note that there can be multiple longest increasing subsequences of same length
 */
 
-class solution{
-  public int lengthOfLIS(int[] nums){
-    if(nums.length == 0 || nums == null){
-      return 0;
-    }
-    
-    int[] dp = new int[nums.length];
-    int res = 1
-    
-    for(int i = 0; i < nums.length; i++){
-      for(int j = 0; j < i; j++){
-        if(nums[i] > nums[j]){
-          dp[i] = Math.max(dp[i], dp[j] + 1);
+class Solution {
+    public int lengthOfLIS(int[] nums) {
+        //remove 0
+        if(nums.length == 0 || nums == null){
+            return 0;
         }
-      }
-      res = Math.max(dp[i], res);
+        
+        /*
+        Dp State: use dp[] save the length of increasing subsequence
+        Dp Initialize: dp[0] = 1
+        Dp Function: do[i] = dp[i] + 1  ==> Math.max(res, dp[i])
+        Dp Answer: return res
+        */
+        
+        int[] dp = new int[nums.length]; // dp[] save the length of increasing subsequence
+        int res = 1;
+        Arrays.fill(dp, 1); // Arrays.fill() assigns the specified data type value to each element of the specified range of the specified array
+        
+        //this question is find Longest Increasing Subsequence
+        //traverse and check every current number have how many previous numbers less than it
+        for(int i = 0; i < nums.length; i++){ //i-pointer is means every current element
+            for(int j = 0; j < i; j++){ //so j-pinter is used to check the prev number of current element
+                if(nums[i] > nums[j]){
+                    dp[i] = Math.max(dp[i], dp[j] + 1); //if curr number large than j-pointer number
+                    //add one in the dp[] ==> dp[] save the length of increasing subsequence
+                }
+            }
+            //so compare every i-pointer number's length of Increasing Subsequence
+            res = Math.max(res, dp[i]); //Then find the Longest Increasing Subsequence
+        }
+        
+        return res;
     }
-    
-    return res;
-  }
 }
