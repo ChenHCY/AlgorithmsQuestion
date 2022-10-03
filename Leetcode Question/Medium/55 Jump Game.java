@@ -19,7 +19,8 @@ Constraints:
 1 <= nums.length <= 104
 0 <= nums[i] <= 105
 */
-
+//solution 1: Traversing from front to back, normal thinking
+//Time: O(n)  Space: O(1)
 class Solution {
     public boolean canJump(int[] nums) {
         //remove 0 and null
@@ -51,7 +52,34 @@ class Solution {
                 return true;
             } 
         }
-        
         return false; //can not arrived last index, return false
+    }
+}
+
+//Solution 2 (The fastest time solution): Convenient ideas ==> Traversing from back to front, 
+//Check whether have zero in the nums[] list except last index
+//If have it, means can not arrived last index || if did not have any zero, means can arrived last index
+//Time: O(n)  Space: O(1)
+class Solution {
+    public boolean canJump(int[] nums) {
+        //remove 0 and null
+        if(nums == null || nums.length == 0){
+            return false;
+        }
+        
+        int zero = 0;
+        
+        //Check whether you can arrived last index, so the last index can be zero
+        //nums.length - 1 can be zero
+        //Question Idea: if others elment have zero, means can arrived last index
+        for(int i = nums.length - 2; i >= 0; i--){
+            if(nums[i] > zero){
+                zero = 0;
+            } else{
+                zero += 1;
+            }
+        }
+        
+        return zero == 0; //check whether have zero in the nums[] list except last index
     }
 }
