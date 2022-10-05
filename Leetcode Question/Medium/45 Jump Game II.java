@@ -23,6 +23,7 @@ Constraints:
 */
 
 //Solution 1: Greedy Algorithm ==> save every current position jump maximum value, then check and add into result
+//Time: O(n)  Space: O(1)
 class Solution {
     public int jump(int[] nums) {
         if(nums == null || nums.length < 2){
@@ -47,4 +48,39 @@ class Solution {
 }
 
 //Soulution 2: BFS Method
+//Time: O(n)  Space: O(1)
+/* 2   || i = 0 + 1 
+   3 1 || i = 1 + 1 curMaxt(how many numbers that current level have it) = 2
+   1 4 || i = 2 + 1 curMaxt(how many numbers that current level have it) = 2
+*/
 
+//res is how many levels it will arrived
+class Solution {
+    public int jump(int[] nums) {
+        if(nums == null || nums.length < 2){
+            return 0;
+        }
+        
+        /* 2   || i = 0 + 1 
+           3 1 || i = 1 + 1 
+           1 4 || i = 2 + 1
+        */
+        
+        int level = 0; //the number of jumps to reach nums[n - 1]
+        int curMax = 0; //the maximun jump position of current node
+        int nextMax = 0; //the next level maximum jump position
+        int i = 0;
+        while(curMax - i + 1 > 0){
+            level++; //every time move to next level
+            for(; i <= curMax; i++){ //curMax is the numbers element of current level
+                nextMax = Math.max(nextMax, i + nums[i]); //find and get the next level numbers
+                if(nextMax >= nums.length - 1){ //if nextMaxt more tha nums[] list length
+                    return level; //means it arrived last index.
+                }
+            }
+            curMax = nextMax; //get how many numbers that next levl have it
+        }
+        
+        return 0;
+    }
+}
