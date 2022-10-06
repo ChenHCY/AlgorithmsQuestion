@@ -62,5 +62,45 @@ class Solution {
 }
 
 //Solution 2: Used Backtracking Method without ArrayList contains() function
-//Time: O(n!)   Space: O(n)
-
+//Time: O(n!)   Space: O(n)   ===========> beacuse did not use arraylist contains() function, so the time is O(n!)
+class Solution {
+    public List<List<Integer>> permute(int[] nums) {
+        //Backtracking Method
+        List<List<Integer>> res = new ArrayList<>();
+        //remove 0 and null
+        if(nums.length == 0 || nums == null){
+            return res;
+        }
+        
+        helper(res, nums, 0); //call backtracking method
+        
+        return res;
+    }
+    
+    //backtracking method
+    public static void helper(List<List<Integer>> res, int[] nums, int start){
+        //Add condition 
+        if(start == nums.length){ //if the start arrived nums.length
+            List<Integer> list = new ArrayList<>();
+            for(int num : nums){ //add into list 
+                list.add(num);
+            }
+            res.add(new ArrayList<>(list)); //it means all the number from nums[] have ready add into arraylist
+            return; //so add the list into res arraylist
+        }
+        
+        //Swap every two numbers from nums[] list
+        for(int i = start; i < nums.length; i++){
+            swap(nums, start, i); //swap start position and i-pointer 
+            helper(res, nums, start + 1); //call backtracking
+            swap(nums, start, i); //move back last level
+        }
+    }
+    
+    //Small function: swap the number in the nums[] list
+    public static void swap(int[] nums, int l, int r){
+        int temp = nums[l];
+        nums[l] = nums[r];
+        nums[r] = temp;
+    }
+}
