@@ -24,6 +24,7 @@ Constraints:
 
 //Solution 1: Greedy Algorithm ==> save every current position jump maximum value, then check and add into result
 //Time: O(n)  Space: O(1)
+// Divide a list into several regions by the size of the jump, and find the maximum jump value of each region
 class Solution {
     public int jump(int[] nums) {
         if(nums == null || nums.length < 2){
@@ -31,8 +32,8 @@ class Solution {
         }
         
         int res = 0; //the actually step arrived last index
-        int max = 0; //save the jump position
-        int curMax = 0; //i + nums[i] ==> the 
+        int max = 0; //save the maximum jump position in every current point ==> i + nums[i]
+        int curMax = 0; //actual jump location
         // The theoretical maximum position that can be jumped to
         
         for(int i = 0; i < nums.length - 1; i++){
