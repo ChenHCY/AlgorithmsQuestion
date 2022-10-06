@@ -44,8 +44,9 @@ class Solution {
     public static void helper(List<List<Integer>> res, List<Integer> list, int[] nums){
         //Add condition
         if(list.size() == nums.length){ //if the arraylist length = nums.length
-            res.add(new ArrayList<>(list)); //it means all the number from nums[] have ready add into arraylist
-            return; //so add the list into res arraylist
+            //it means all the number from nums[] have ready add into arraylist 
+            res.add(new ArrayList<>(list)); //so add the list into res arraylist
+            return; // used to exit from a method
         }
         
         //travser the element from nums
