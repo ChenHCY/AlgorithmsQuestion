@@ -86,8 +86,9 @@ class Solution {
             for(int num : nums){ //add into list 
                 list.add(num);
             }
-            res.add(new ArrayList<>(list)); //it means all the number from nums[] have ready add into arraylist
-            return; //so add the list into res arraylist
+            //it means all the number from nums[] have ready add into arraylist 
+            res.add(new ArrayList<>(list)); //so add the list into res arraylist
+            return; // used to exit from a method
         }
         
         //Swap every two numbers from nums[] list
