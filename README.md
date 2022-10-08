@@ -72,4 +72,4 @@ c: 1. Dp State: Use f[i] or f[i][j] to represent the answer to a smaller problem
    3. Dp function: the calculate function of Dp. Like:
    f[i][j] = Derive by finding max / min / sum / or of some smaller state
    
-   4. Dp return: return the dp result
+   4. Dp return: return the dp result. Like: such as f[n][m] or max(f[n][0], f[n][1] … f[n][m])
