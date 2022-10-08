@@ -64,3 +64,12 @@ Memoized search can often reduce exponential time complexity down to a polynomia
 a. Memoized search is an implementation method of dynamic programming.
 
 b. Memoized search implements dynamic programming by means of search. 
+
+c: 1. Dp State: Use f[i] or f[i][j] to represent the answer to a smaller problem under certain conditions
+
+   2. Dp Initialize: Dp start position ==> Like dp[0] = 0
+   
+   3. Dp function: the calculate function of Dp
+   f[i][j] = Derive by finding max / min / sum / or of some smaller state
+   
+   4. Dp return: return the dp result
