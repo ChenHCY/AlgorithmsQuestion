@@ -73,3 +73,16 @@ c: 1. Dp State: Use f[i] or f[i][j] to represent the answer to a smaller problem
    f[i][j] = Derive by finding max / min / sum / or of some smaller state
    
    4. Dp return: return the dp result. Like: such as f[n][m] or max(f[n][0], f[n][1] … f[n][m])
+   
+# Breadth-first search Algorithm
+Step 1: Choose any one node randomly, to start traversing.
+
+Step 2: Visit its adjacent unvisited node.
+
+Step 3: Mark it as visited in the boolean array and display it.
+
+Step 4: Insert the visited node into the queue.
+
+Step 5: If there is no adjacent node, remove the first node from the queue.
+
+Step 6: Repeat the above steps until the queue is empty.
