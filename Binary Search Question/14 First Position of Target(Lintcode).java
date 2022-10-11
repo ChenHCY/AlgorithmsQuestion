@@ -1,6 +1,9 @@
-/** Description
+/* Lintcode 14 · First Position of Target
+
+Description
 Given a sorted array (ascending order) and a target number, find the first index of this number in O(log n)O(logn) time complexity.
 If the target number does not exist in the array, return -1.
+
 Example 1:
 Input:
 tuple = [1,4,4,5,7,7,8,9,9,10]
@@ -29,16 +32,14 @@ public class Solution {
     public int binarySearch(int[] nums, int target) {
         // write your code here
         int left = 0;
-        int right = nums.length - 1;
+        int right = nums.length;
 
-        while(left < right){
+        while(left < right){ //[left, right)
             int mid = (right - left) / 2 + left;
-            if(nums[mid] == target){
-                right = mid;
+            if(nums[mid] >= target){
+                right = mid; //[left, right), so when nums[mid] >= target, right = mid means remove mid position out of area
             } else if(nums[mid] < target){
                 left = mid + 1;
-            } else{
-                right = mid - 1;
             }
         }
 
