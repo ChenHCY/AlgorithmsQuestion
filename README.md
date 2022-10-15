@@ -86,3 +86,10 @@ Step 4: Insert the visited node into the queue.
 Step 5: If there is no adjacent node, remove the first node from the queue.
 
 Step 6: Repeat the above steps until the queue is empty.
+
+# Depth-first search Algorithm
+Step 1: Create a recursive function that takes the index of the node and a visited array.
+
+Step 2: Mark the current node as visited and print the node.
+
+Step 3: Traverse all the adjacent and unmarked nodes and call the recursive function with the index of the adjacent node.
