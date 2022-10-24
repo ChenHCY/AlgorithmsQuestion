@@ -34,6 +34,11 @@ Parameter for Java split():
 2. Java trim(): 
 Java trim() is a built-in function that eliminates leading and trailing spaces.
 
+# Arrays.sort(intervals, (a,b) -> Integer.compare (a[0], b[0])); 
+(Leetcode 56. Merge Intervals)
+The Arrays.sort method has a ton of method signatures. In that method invocation of Arrays.sort, it’s taking 2 parameters; the array and a Comparator. This signature exists so you can provide your own custom comparator, which is exactly what’s happening.
+
+A Comparator defines how to compare 2 objects. In this example, in order to compare two arrays, it will evaluate whether the first element in the array is less than, equal too, or greater than the first element in another array. 
 
 # HashMap：
 (Linkcode 242. Valid Anagram  && Leetcode 137. Single Number II ) 
