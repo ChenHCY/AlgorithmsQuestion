@@ -34,7 +34,7 @@ Parameter for Java split():
 2. Java trim(): 
 Java trim() is a built-in function that eliminates leading and trailing spaces.
 
-# Arrays.sort(intervals, (a,b) -> Integer.compare (a[0], b[0]));:
+# Arrays.sort(intervals, (a,b) -> Integer.compare (a[0], b[0]));
 (Leetcode 56. Merge Intervals) ==> It used for Sort by ascending or decreasing starting point
 
 The Arrays.sort method has a ton of method signatures. In that method invocation of Arrays.sort, it’s taking 2 parameters; the array and a Comparator. This signature exists so you can provide your own custom comparator, which is exactly what’s happening.
@@ -44,7 +44,7 @@ A Comparator defines how to compare 2 objects. In this example, in order to comp
 # LinkedList.toArray() Method: 
 (Medium ==> Linkcode 56. Merge Intervals  && Leetcode 57. Insert Interval) 
 
-LinkedList. toArray() method is used to convert and LinkedList into an Array. It returns the same LinkedList elements but in the form of Array only.Jul
+LinkedList. toArray() method is used to convert and LinkedList into an Array. It returns the same LinkedList elements but in the form of Array only.
 
 The toArray() method of LinkedList/ArrayList is used to return an array containing all the elements in LinkedList/ArrayList in the correct order.
 
