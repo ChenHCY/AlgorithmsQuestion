@@ -41,6 +41,10 @@ The Arrays.sort method has a ton of method signatures. In that method invocation
 
 A Comparator defines how to compare 2 objects. In this example, in order to compare two arrays, it will evaluate whether the first element in the array is less than, equal too, or greater than the first element in another array. 
 
+PS: LinkedList<int[]> list = new LinkedList<>();
+
+===> list.getLast()[1]: it means the last element of the last one int[] array from the LinkList list
+
 # LinkedList.toArray() Method: 
 (Medium ==> Linkcode 56. Merge Intervals  && Leetcode 57. Insert Interval) 
 
