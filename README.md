@@ -53,13 +53,17 @@ LinkedList. toArray() method is used to convert and LinkedList into an Array. It
 The toArray() method of LinkedList/ArrayList is used to return an array containing all the elements in LinkedList/ArrayList in the correct order.
 
 # Stack() with Deque(): 
-Deque(): Deque interface present in java. 
+(Leetcode 71. Simplify Path Stack && Deque Question) 
+Deque(): Deque interface present in java.  
+==> Used pop()(last in) get the top element // And Used the removeLast() can get the bottom element(first in) in the Deque stack
 
 It can either be used as a queue(first-in-first-out/FIFO) or as a stack(last-in-first-out/LIFO).
 
 Stack(): A Stack is a Last In First Out (LIFO) data structure. It supports two basic operations called push and pop. 
 
 The push operation adds an element at the top of the stack, and the pop operation removes an element from the top of the stack.
+
+==> When using this for-each loop to get an element from the stack, it will start at the bottom of Stack(first in - first out)
 
 # HashMap：
 (Linkcode 242. Valid Anagram  && Leetcode 137. Single Number II ) 
