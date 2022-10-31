@@ -46,7 +46,7 @@ class Solution {
         }
         
         //swap every two numbers from nums[] list
-        for(int i = start; i < nums.length; i++){
+        for(int i = start; i < nums.length; i++){ // ==> i-pointer followed the start value change
             swap(nums, start, i); //swap start position and i-pointer 
             helper(res, nums, start + 1); //call backtracking
             swap(nums, start, i); //move back last level
