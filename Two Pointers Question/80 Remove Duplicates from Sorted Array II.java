@@ -14,6 +14,7 @@ Do not allocate extra space for another array. You must do this by modifying
 the input array in-place with O(1) extra memory.
 
 Custom Judge:
+
 The judge will test your solution with the following code:
 int[] nums = [...]; // Input array
 int[] expectedNums = [...]; // The expected answer with correct length
@@ -43,6 +44,7 @@ Constraints:
 nums is sorted in non-decreasing order.
 */
 
+//Solution 1: Two pointer method: Used one pointer to traverse all the elements, and used the second pointer to save every the numbers without Duplicates
 //Time: O(n)   Space: O(1)
 class Solution {
     public int removeDuplicates(int[] nums) {
