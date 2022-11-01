@@ -52,7 +52,6 @@ class Solution {
 }
 
 //Solution 2: Two pointer method: Used one pointer to traverse all the elements, and used the second pointer to save every the numbers without Duplicates
-
 class Solution {
     public int removeDuplicates(int[] nums) {
         if(nums.length == 0 || nums == null){
@@ -62,13 +61,13 @@ class Solution {
         int c = 1; //the length of Sorted Array without Duplicates number
         
         for(int i = 1; i < nums.length; i++){
-            if(nums[i-1] != nums[i]){
-                nums[c++] = nums[i]; //remove the duplicates number from the sort array and save every number with once
+            if(nums[i] != nums[c - 1]){
+                nums[c++] = nums[i]; //remove the duplicates number from the sort array and get every number with once
                 /*For Example: [1, 1, 2, 2, 3, 4, 5, 6] */
-                //           1,2, 3   c 
+                //              1, 2, 3, 4, 5, 6 c 
                 //                          i
             }
         }
-        return c;  // return every the numbers without Duplicates
+        return c;
     }
 }
