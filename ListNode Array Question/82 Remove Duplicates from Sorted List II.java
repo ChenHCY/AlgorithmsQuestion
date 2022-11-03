@@ -38,8 +38,11 @@ class Solution {
         dummy.next = head; //connect dummt with ListNode head
         ListNode curr = dummy;
         
+        /* dummy(curr) -> 1 -> 1 -> 2  ==> curr start at dummy node*/
+        
+        
         //travser all the element ListNode from head
-        //need to save two ListNode before the end
+        //need save two ListNode before end
         while(curr.next != null && curr.next.next != null){
             if(curr.next.val == curr.next.next.val){//if find the duplictates node
                 //save the duplicates node value
@@ -49,6 +52,8 @@ class Solution {
                 }
             } else{ //if is not duplicates
                 curr = curr.next; // move curr pointer into next element node
+                //because need to remove all the duplicates node, so only when the next two list Nodes are the difference 
+                //we can move to cure pointer into the next element node
             }
         }
         
