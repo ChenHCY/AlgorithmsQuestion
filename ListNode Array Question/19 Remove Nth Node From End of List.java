@@ -23,32 +23,43 @@ Output: [1]
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
- 
+//Time: O(n) Space:O(1)
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
-        ListNode curr = head;
-        ListNode next = head.next;
-        ListNode temp = head;
-        int length = 1;
+        /* .next in the left side means connect with others node
+           .next in the right side means the next node of current
+        */
+        //basic dummy node information
+        ListNode dummy = new ListNode(-1); //declare a new ListNode 
+        dummy.next = head; //connect dummy node with head
         
-        while(temp.next != null){
-            temp = temp.next;
-            length++;
-        } // get the length of list node array
+        ListNode prev = dummy;  //
+        ListNode fast = dummy.next; //used to count the length of ListNode head
+        int len = 1;
+        int i = 0;
         
-        if (length == n){
+        //Count the total length of ListNode
+        while(fast.next != null){
+            fast = fast.next;
+            len += 1;
+        }
+        
+        //if need remove first ListNode in the head
+        if(len == n){
             return head.next;
-        } // if first list node need remove
+        }
         
-        int i = 1;
-        while(curr.next != null){
-            if(i == length - n){
-                curr.next = curr.next.next;
-                return head;
+        //travser to find remove the Nth Node From End of List
+        while(prev.next != null){
+            //len - n is used to find the one node before the node needs to be removed
+            if(i == len - n){ 
+                prev.next = prev.next.next; //remove the Nth Node 
+                return dummy.next;
             }
-            curr = curr.next;
-            i++;
-        } // find the node we want remove before
-        return head;
+            prev = prev.next; //if not Nth Node, move into next one
+            i++; //count the length
+        }
+    
+        return dummy.next;
     }
 }
