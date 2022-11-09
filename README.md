@@ -71,22 +71,24 @@ In the postfix version (i.e., i++), the value of i is incremented, but the value
 ==> i++ increments the number after the expression is evaluated.
 
 # Arrays.sort(intervals, (a,b) -> Integer.compare (a[0], b[0]));
-(Leetcode 56. Merge Intervals) ==> It used for Sort by ascending or decreasing starting point
+(Leetcode 56. Merge Intervals && Leetcode 1029. Two City Scheduling) 
+
+==> It used for Sort by ascending or decreasing starting point or the difference value of array
 
 The Arrays.sort method has a ton of method signatures. In that method invocation of Arrays.sort, it’s taking 2 parameters; the array and a Comparator. This signature exists so you can provide your own custom comparator, which is exactly what’s happening.
 
 A Comparator defines how to compare 2 objects. In this example, in order to compare two arrays, it will evaluate whether the first element in the array is less than, equal too, or greater than the first element in another array. 
 
-PS: LinkedList<int[]> list = new LinkedList<>();
-
-===> list.getLast()[1]: it means the last element of the last one int[] array from the LinkList list
-
 For example: Leetcode 1029. Two City Scheduling
 
 Arrays.sort(int[][] arr, (a, b) -> { return a[0] - a[1] - (b[0] - b[1])});
+
 ==> it means Sort the array[] in the ascending order by every first value of a[] - second value of a[]
    1. Small -> Large: (a, b) -> a.val - b.val (Ascending order)
    2. Large -> Small: (a, b) -> b.val - a.val (Descending order)
+
+PS: LinkedList<int[]> list = new LinkedList<>();
+===> list.getLast()[1]: it means the last element of the last one int[] array from the LinkList list
 
 # PriorityQueuez:
 (PriorityQueuez: Leetcode 23. Merge k Sorted Lists) 
