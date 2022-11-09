@@ -77,13 +77,13 @@ In the postfix version (i.e., i++), the value of i is incremented, but the value
 
 The Arrays.sort method has a ton of method signatures. In that method invocation of Arrays.sort, it’s taking 2 parameters; the array and a Comparator. This signature exists so you can provide your own custom comparator, which is exactly what’s happening.
 
-A Comparator defines how to compare 2 objects. In this example, in order to compare two arrays, it will evaluate whether the first element in the array is less than, equal too, or greater than the first element in another array. 
+A Comparator defines how to compare 2 objects. it can evaluate whether the first element in the array is less than, equal to, or greater than the first element in another array, Or whether the difference value of the first array is less, or larger than another array.
+
+==> it means Sort the array[] in the ascending order by every first value of a[] - second value of a[]
 
 For example: Leetcode 1029. Two City Scheduling
 
 Arrays.sort(int[][] arr, (a, b) -> { return a[0] - a[1] - (b[0] - b[1])});
-
-==> it means Sort the array[] in the ascending order by every first value of a[] - second value of a[]
    1. Small -> Large: (a, b) -> a.val - b.val (Ascending order)
    2. Large -> Small: (a, b) -> b.val - a.val (Descending order)
 
