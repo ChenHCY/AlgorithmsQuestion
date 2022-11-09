@@ -68,8 +68,19 @@ The push operation adds an element at the top of the stack, and the pop operatio
 # HashMap：
 (Linkcode 242. Valid Anagram  && Leetcode 137. Single Number II ) 
 
-1. Java HashMap getOrDefault(): this method returns the specified default value if the mapping for the specified key is not found in the hashmap. Otherwise, the method returns the value corresponding to the specified key. 
+1. Java HashMap getOrDefault(): this method returns the specified default value if the mapping for the specified key is not found in the hashmap. Otherwise, the method returns the value corresponding to the specified key.
 
+
+# What is the difference between ++ i and ++ i?
+(Leetcode 1656. Design an Ordered Stream (OOD Question)) 
+
+In the prefix version (i.e., ++i), the value of i is incremented, and the value of the expression is the new value of i.
+
+==>  ++i increments the number before the current expression is evaluted,
+
+In the postfix version (i.e., i++), the value of i is incremented, but the value of the expression is the original value of i.
+
+==> i++ increments the number after the expression is evaluated.
 
 # PriorityQueuez:
 (Leetcode 23. Merge k Sorted Lists) 
