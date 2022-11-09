@@ -34,17 +34,6 @@ Parameter for Java split():
 2. Java trim(): 
 Java trim() is a built-in function that eliminates leading and trailing spaces.
 
-# Arrays.sort(intervals, (a,b) -> Integer.compare (a[0], b[0]));
-(Leetcode 56. Merge Intervals) ==> It used for Sort by ascending or decreasing starting point
-
-The Arrays.sort method has a ton of method signatures. In that method invocation of Arrays.sort, it’s taking 2 parameters; the array and a Comparator. This signature exists so you can provide your own custom comparator, which is exactly what’s happening.
-
-A Comparator defines how to compare 2 objects. In this example, in order to compare two arrays, it will evaluate whether the first element in the array is less than, equal too, or greater than the first element in another array. 
-
-PS: LinkedList<int[]> list = new LinkedList<>();
-
-===> list.getLast()[1]: it means the last element of the last one int[] array from the LinkList list
-
 # LinkedList.toArray() Method: 
 (Medium ==> Linkcode 56. Merge Intervals  && Leetcode 57. Insert Interval) 
 
@@ -70,7 +59,6 @@ The push operation adds an element at the top of the stack, and the pop operatio
 
 1. Java HashMap getOrDefault(): this method returns the specified default value if the mapping for the specified key is not found in the hashmap. Otherwise, the method returns the value corresponding to the specified key.
 
-
 # What is the difference between ++ i and ++ i?
 (Leetcode 1656. Design an Ordered Stream (OOD Question)) 
 
@@ -82,9 +70,26 @@ In the postfix version (i.e., i++), the value of i is incremented, but the value
 
 ==> i++ increments the number after the expression is evaluated.
 
-# PriorityQueuez && Arrays.sort():
+# Arrays.sort(intervals, (a,b) -> Integer.compare (a[0], b[0]));
+(Leetcode 56. Merge Intervals) ==> It used for Sort by ascending or decreasing starting point
+
+The Arrays.sort method has a ton of method signatures. In that method invocation of Arrays.sort, it’s taking 2 parameters; the array and a Comparator. This signature exists so you can provide your own custom comparator, which is exactly what’s happening.
+
+A Comparator defines how to compare 2 objects. In this example, in order to compare two arrays, it will evaluate whether the first element in the array is less than, equal too, or greater than the first element in another array. 
+
+PS: LinkedList<int[]> list = new LinkedList<>();
+
+===> list.getLast()[1]: it means the last element of the last one int[] array from the LinkList list
+
+For example: Leetcode 1029. Two City Scheduling
+
+Arrays.sort(int[][] arr, (a, b) -> { return a[0] - a[1] - (b[0] - b[1])});
+==> it means Sort the array[] in the ascending order by every first value of a[] - second value of a[]
+   1. Small -> Large: (a, b) -> a.val - b.val (Ascending order)
+   2. Large -> Small: (a, b) -> b.val - a.val (Descending order)
+
+# PriorityQueuez:
 (PriorityQueuez: Leetcode 23. Merge k Sorted Lists) 
-(Arrays.sort(): Leetcode 1029. Two City Scheduling) 
 
 1.  Java PriorityQueue(int initialCapacity): Creates a PriorityQueue with the specified initial capacity that orders its elements according to their natural ordering.
 
@@ -93,11 +98,6 @@ In the postfix version (i.e., i++), the value of i is incremented, but the value
    2. Large -> Small: (o1, o2) -> o2.val - o1.val (Descending order)
 
 3. Java PriorityQueue(PriorityQueue<E> c): Creates a PriorityQueue containing the elements in the specified priority queue.
-
-4. Arrays.sort() ==> Arrays.sort(int[][] arr, (a, b) -> { return a[0] - a[1] - (b[0] - b[1])});
-==> it means Sort the array[] in the ascending order by every first value of a[] - second value of a[]
-   1. Small -> Large: (a, b) -> a.val - b.val (Ascending order)
-   2. Large -> Small: (a, b) -> b.val - a.val (Descending order)
 
 # Memorize Search && Dynamic Programming
 (Leetcode 10. Regular Expression Matching)
