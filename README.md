@@ -82,16 +82,22 @@ In the postfix version (i.e., i++), the value of i is incremented, but the value
 
 ==> i++ increments the number after the expression is evaluated.
 
-# PriorityQueuez:
-(Leetcode 23. Merge k Sorted Lists) 
+# PriorityQueuez && Arrays.sort():
+(PriorityQueuez: Leetcode 23. Merge k Sorted Lists) 
+(Arrays.sort(): Leetcode 1029. Two City Scheduling) 
 
 1.  Java PriorityQueue(int initialCapacity): Creates a PriorityQueue with the specified initial capacity that orders its elements according to their natural ordering.
 
 2. Java PriorityQueue(int initialCapacity, Comparator<E> comparator): Creates a PriorityQueue with the specified initial capacity that orders its elements according to the specified comparator.
-   1. Small -> Large: (o1, o2) -> o1.val - o2.val
-   2. Large -> Small: (o1, o2) -> o2.val - o1.val
+   1. Small -> Large: (o1, o2) -> o1.val - o2.val (Ascending order)
+   2. Large -> Small: (o1, o2) -> o2.val - o1.val (Descending order)
 
 3. Java PriorityQueue(PriorityQueue<E> c): Creates a PriorityQueue containing the elements in the specified priority queue.
+
+4. Arrays.sort() ==> Arrays.sort(int[][] arr, (a, b) -> { return a[0] - a[1] - (b[0] - b[1])});
+==> it means Sort the array[] in the ascending order by every first value of a[] - second value of a[]
+   1. Small -> Large: (a, b) -> a.val - b.val (Ascending order)
+   2. Large -> Small: (a, b) -> b.val - a.val (Descending order)
 
 # Memorize Search && Dynamic Programming
 (Leetcode 10. Regular Expression Matching)
