@@ -32,6 +32,8 @@ All the integers of nums are unique.
 nums is sorted and rotated between 1 and n times.
 */
 
+//Time: O(logn)   Space: O(1)
+//Used Binary Search Method
 class Solution {
     public int findMin(int[] nums) {
         //remove the base case
@@ -43,6 +45,9 @@ class Solution {
         int left = 0;
         int right = nums.length - 1;
         
+        //compare the nums[mid] with nums[right] value ==> beacuse the before is in ascending order to rotated
+        //So the minimum should at the small value range part
+        //==>[left, mid] or [mid, right] ==> used to move two pointer(left and right)
         while(left < right){
             int mid = left + (right - left) / 2;
             
