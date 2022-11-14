@@ -29,3 +29,63 @@ You may only use constant extra space.
 The recursive approach is fine. You may assume implicit stack space does not count as extra space for this problem.
 */
 
+/*
+// Definition for a Node.
+class Node {
+    public int val;
+    public Node left;
+    public Node right;
+    public Node next;
+
+    public Node() {}
+    
+    public Node(int _val) {
+        val = _val;
+    }
+
+    public Node(int _val, Node _left, Node _right, Node _next) {
+        val = _val;
+        left = _left;
+        right = _right;
+        next = _next;
+    }
+};
+*/
+
+//Time: O(n)   Space: O(n)
+class Solution {
+    public Node connect(Node root) {
+        if(root == null){
+            return root;
+        }
+        
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root); //add the root first
+        
+        while(!queue.isEmpty()){
+            int size = queue.size();
+            
+            while(size != 0){
+                size--;
+                Node node = queue.poll();
+                
+                if(size == 0){
+                    node.next = null;
+                } else{
+                    node.next = queue.peek();
+                }
+                
+                //add the next level nodes:
+                if(node.left != null){
+                    queue.offer(node.left);
+                } 
+                
+                if(node.right != null){
+                    queue.offer(node.right);
+                }
+            }
+        }
+        
+        return root;
+    }
+}
