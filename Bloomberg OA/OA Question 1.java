@@ -1,4 +1,4 @@
-/*
+/* Question:
 
 012345678
 bloomberg
@@ -21,17 +21,16 @@ bloomberg
 
 */
 
-/* 1. Ues hashmap to save the character with char position
-   2. need remove string range
-   ==> stringbuilder delete(start, end);
-   3. for-loop to travser the string
-  
-  
+/* 1. Used boolean[] to make sure the remove character
+   2. add the element did not need remove into StringBuilder
+   ==> StrungBuilder sb.add(s.charAt(i)) ==> Used for-loop
+   3. return output ==> sb.toString()
+Example:
 s    = bloomberg 
 flex = tfffftftf
-   
-   
+     
 */
+
 import java.util.*;
 public class Main{
     
@@ -63,6 +62,7 @@ public class Main{
         return sb.toString();
     }
     
+  //Main function
     public static void main(String[] args){
         String s = "bloomberg";
         int[][] arr = new int[][]{{2, 4}, {1, 3}, {6, 6}, {8, 8}};
