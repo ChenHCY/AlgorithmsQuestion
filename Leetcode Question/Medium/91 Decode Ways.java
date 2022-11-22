@@ -1,44 +1,38 @@
 /* Leetcode 91. Decode Ways
-Given a reference of a node in a connected undirected graph.
-Return a deep copy (clone) of the graph.
-Each node in the graph contains a value (int) and a list (List[Node]) of its neighbors.
+A message containing letters from A-Z can be encoded into numbers using the following mapping:
 
-class Node {
-    public int val;
-    public List<Node> neighbors;
-}
- 
-Test case format:
-For simplicity, each node's value is the same as the node's index (1-indexed). For example, the first node with val == 1, 
-the second node with val == 2, and so on. The graph is represented in the test case using an adjacency list.
-An adjacency list is a collection of unordered lists used to represent a finite graph. Each list describes the set of neighbors of a node in the graph.
-The given node will always be the first node with val = 1. You must return the copy of the given node as a reference to the cloned graph.
+'A' -> "1"
+'B' -> "2"
+...
+'Z' -> "26"
+
+To decode an encoded message, all the digits must be grouped then mapped back into letters 
+using the reverse of the mapping above (there may be multiple ways). For example, "11106" can be mapped into:
+
+"AAJF" with the grouping (1 1 10 6)
+"KJF" with the grouping (11 10 6)
+Note that the grouping (1 11 06) is invalid because "06" cannot be mapped into 'F' since "6" is different from "06".
+
+Given a string s containing only digits, return the number of ways to decode it.
+The test cases are generated so that the answer fits in a 32-bit integer.
 
 Example 1:
-Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
-Output: [[2,4],[1,3],[2,4],[1,3]]
-Explanation: There are 4 nodes in the graph.
-1st node (val = 1)'s neighbors are 2nd node (val = 2) and 4th node (val = 4).
-2nd node (val = 2)'s neighbors are 1st node (val = 1) and 3rd node (val = 3).
-3rd node (val = 3)'s neighbors are 2nd node (val = 2) and 4th node (val = 4).
-4th node (val = 4)'s neighbors are 1st node (val = 1) and 3rd node (val = 3).
+Input: s = "12"
+Output: 2
+Explanation: "12" could be decoded as "AB" (1 2) or "L" (12).
 
 Example 2:
-Input: adjList = [[]]
-Output: [[]]
-Explanation: Note that the input contains one empty list. The graph consists of only one node with val = 1 and it does not have any neighbors.
+Input: s = "226"
+Output: 3
+Explanation: "226" could be decoded as "BZ" (2 26), "VF" (22 6), or "BBF" (2 2 6).
 
 Example 3:
-Input: adjList = []
-Output: []
-Explanation: This an empty graph, it does not have any nodes.
-*/
-
-
+Input: s = "06"
+Output: 0
+Explanation: "06" cannot be mapped to "F" because of the leading zero ("6" is different from "06").
  
 Constraints:
-The number of nodes in the graph is in the range [0, 100].
-1 <= Node.val <= 100
-Node.val is unique for each node.
-There are no repeated edges and no self-loops in the graph.
-The Graph is connected and all nodes can be visited starting from the given node.
+1 <= s.length <= 100
+s contains only digits and may contain leading zero(s).
+*/
+
