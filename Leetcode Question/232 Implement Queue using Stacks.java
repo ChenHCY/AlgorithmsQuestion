@@ -44,16 +44,19 @@ class MyQueue {
     }
     
     // Pushes element x to the back of the queue.
-    public void push(int x) {
-        Stack<Integer> s2 = new Stack<Integer>();
-        while(s1.size() > 0){ //
-            s2.push(s1.pop()); // add the s1 remove element into s2
+   public void push(int x) {
+        Stack<Integer> stack2 = new Stack<Integer>();
+        //For example: 1 2 3
+        
+        //used for add the third element number
+        while(stack.size() > 0){
+            stack2.add(stack.pop()); /*2 1*/
         }
         
-        s2.push(x); // add the element into s2
+        stack2.add(x); // 3 ==> /*2 1*/ == /*3 2 1*/
         
-        while(s2.size() > 0){ // if s2 size large than 0
-            s1.push(s2.pop()); // add the s2 remove elemnt into s1
+        while(stack2.size() > 0){
+            stack.add(stack2.pop());/* 1 2 3*/
         }
     } // Because The Stack class represents a Last-In-First-Out (LIFO) stack of objects. 
     // But In here request implement the First-In-First-Out (FIFO) queue by using two stacks
