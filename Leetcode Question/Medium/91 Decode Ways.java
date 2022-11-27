@@ -36,3 +36,30 @@ Constraints:
 s contains only digits and may contain leading zero(s).
 */
 
+class Solution {
+    public int numDecodings(String s) {
+        if(s == null || s.length() == 0){
+            return 0;
+        }
+        //used dp method
+        int[] dp = new int[s.length() + 1]; //Dp State
+        dp[0] = 1; //Dp Initialize
+        dp[1] = s.charAt(0) == '0' ? 0 : 1;
+        
+        //Dp function
+        for(int i = 2; i < dp.length; i++){
+            int first = Integer.valueOf(s.substring(i - 1, i)); // start at i-1+1=i, and end at i
+            int second = Integer.valueOf(s.substring(i - 2, i)); // start at i-2+1=i-1; and end at i
+            
+            if(first >= 1 && first <= 9){
+                dp[i] = dp[i-1];
+            }
+            
+            if(second >= 10 && second <= 26){
+                dp[i] += dp[i-2];
+            }
+        }
+        
+        return dp[dp.length - 1]; // Dp return:
+    }
+}
