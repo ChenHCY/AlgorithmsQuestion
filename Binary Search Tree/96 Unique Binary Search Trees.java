@@ -20,15 +20,22 @@ Constraints:
 //Dp Method
 class Solution {
     public int numTrees(int n) {
+        //Dp State
         int[] dp = new int[n + 1];
+        //Dp Initialize:
         dp[0] = 1;
 
+        //Dp function: 
         for(int i = 1; i < dp.length; i++){
             for(int j = 0; j < i; j++){
-                dp[i] += dp[j] * dp[i - j - 1];
+                //we can assume i be root in every time
+                //dp[j] is the value less than root(i) value part (the number of situations)
+                //dp[i - j - 1] is the value larget than root{i} value part (the number of situations)
+                dp[i] += dp[j] * dp[i - j - 1]; //then get the total number of situations
             }
         }
         
+        //Dp return: return the dp result
         return dp[dp.length - 1];
     }
 }
