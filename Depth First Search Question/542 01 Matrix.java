@@ -24,25 +24,36 @@ There is at least one 0 in mat.
 
 class Solution {
     public int[][] updateMatrix(int[][] mat) {
-        int result[][] = new int[mat.length][mat[0].length];
-        for(int i=0;i<mat.length;i++) {
-            for(int j=0;j<mat[0].length;j++) {
-                if(mat[i][j]==0) {
-                    dfs(mat,result,i,j, 0);
+        //Used a int[][] array res to save the distance of the nearest 0 for each cell.
+        int[][] res = new int[mat.length][mat[0].length];
+
+        //for-loop to travser all the element cell
+        for(int i = 0; i < mat.length; i++){ //i ==> x row
+            for(int j = 0; j < mat[0].length; j++){ //j ==> y column
+                //start at 0 to find 1
+                if(mat[i][j] == 0){
+                    dfs(mat, res, i, j, 0); // call dfs function
                 }
             }
         }
-        return result;
+        //output and return the result
+        return res;
     }
-    private void dfs(int[][] mat, int[][] result, int i, int j, int currentDistance) {
-        if(i<0||j<0||i==mat.length||j==mat[0].length) 
+
+    //dfs function
+    public void dfs(int[][] mat, int[][] res, int x, int y, int currDistance){
+        //the exit contidion
+        if(x < 0 || y < 0 || x > mat.length - 1|| y > mat[0].length - 1){
             return;
-        if(currentDistance ==0 || mat[i][j]==1 && (result[i][j]==0 || result[i][j] > currentDistance)) {
-            result[i][j] = currentDistance;
-            dfs(mat,result,i+1,j,currentDistance+1);
-            dfs(mat,result,i,j+1,currentDistance+1);
-            dfs(mat,result,i-1,j,currentDistance+1);
-            dfs(mat,result,i,j-1,currentDistance+1);
+        }
+
+        //main function
+        if((currDistance == 0 || mat[x][y] == 1) && (res[x][y] == 0 || res[x][y] > currDistance)){
+            res[x][y] = currDistance; // renew the new distance of the nearest 0 for current cell.
+            dfs(mat, res, x + 1, y, currDistance + 1); // left
+            dfs(mat, res, x - 1, y, currDistance + 1); // right
+            dfs(mat, res, x, y + 1, currDistance + 1); // top
+            dfs(mat, res, x, y - 1, currDistance + 1); // down
         }
     }
 }
