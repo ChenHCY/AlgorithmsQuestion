@@ -26,8 +26,3 @@ Constraints:
 s consists of digits only.
 */
 
-class Solution {
-    public List<String> restoreIpAddresses(String s) {
-        
-    }
-}
