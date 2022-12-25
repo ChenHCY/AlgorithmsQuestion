@@ -123,7 +123,9 @@ c: 1. Dp State: Use f[i] or f[i][j] to represent the answer to a smaller problem
    
    4. Dp return: return the dp result. Like: such as f[n][m] or max(f[n][0], f[n][1] … f[n][m])
    
-# Breadth-first search Algorithm
+# Breadth-first search Algorithm：
+DFS算法就是回溯算法的思想，迭代的实现中往往需要「栈」这种数据结构用来回退，递归的实现中往往是在递归出口的位置得到全局的解。
+
 Step 1: Choose any one node randomly, to start traversing.
 
 Step 2: Visit its adjacent unvisited node.
@@ -137,11 +139,17 @@ Step 5: If there is no adjacent node, remove the first node from the queue.
 Step 6: Repeat the above steps until the queue is empty.
 
 # Depth-first search Algorithm
+BFS 的核心思想就是把一些问题解空间抽象在一个图中，从一个点开始，向四周开始扩散。
+一般来说，我们用迭代写 BFS 算法都是用「队列」这种数据结构，每次将一个节点周围的所有节点加入队列。如果是递归实现，则递归返回的是子问题的解。
+
 Step 1: Create a recursive function that takes the index of the node and a visited array.
 
 Step 2: Mark the current node as visited and print the node.
 
 Step 3: Traverse all the adjacent and unmarked nodes and call the recursive function with the index of the adjacent node.
+
+# The Difference in BFS with DFS
+BFS 相对 DFS 的最主要的区别是：BFS 找到的路径一定是最短的，但代价就是空间复杂度比 DFS 大很多。
 
 # How to answered Object-Oriented Design Interview Questions
 1. Clarify the requirements: Make sure you understand the expectations of the interviewer. Ask clarifying questions if at all necessary — the interviewer will not mind, and will likely appreciate it. For example, “are you looking for me to demonstrate the structure of a solution, or to fully implement it?” Doing this here will take about 5–10 seconds, but save tremendous amounts of time later.
