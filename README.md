@@ -124,7 +124,8 @@ c: 1. Dp State: Use f[i] or f[i][j] to represent the answer to a smaller problem
    4. Dp return: return the dp result. Like: such as f[n][m] or max(f[n][0], f[n][1] … f[n][m])
    
 # Breadth-first search Algorithm：
-DFS算法就是回溯算法的思想，迭代的实现中往往需要「栈」这种数据结构用来回退，递归的实现中往往是在递归出口的位置得到全局的解。
+BFS 的核心思想就是把一些问题解空间抽象在一个图中，从一个点开始，向四周开始扩散。
+一般来说，我们用迭代写 BFS 算法都是用「队列」这种数据结构，每次将一个节点周围的所有节点加入队列。如果是递归实现，则递归返回的是子问题的解。
 
 Step 1: Choose any one node randomly, to start traversing.
 
@@ -139,8 +140,7 @@ Step 5: If there is no adjacent node, remove the first node from the queue.
 Step 6: Repeat the above steps until the queue is empty.
 
 # Depth-first search Algorithm
-BFS 的核心思想就是把一些问题解空间抽象在一个图中，从一个点开始，向四周开始扩散。
-一般来说，我们用迭代写 BFS 算法都是用「队列」这种数据结构，每次将一个节点周围的所有节点加入队列。如果是递归实现，则递归返回的是子问题的解。
+DFS算法就是回溯算法的思想，迭代的实现中往往需要「栈」这种数据结构用来回退，递归的实现中往往是在递归出口的位置得到全局的解。
 
 Step 1: Create a recursive function that takes the index of the node and a visited array.
 
