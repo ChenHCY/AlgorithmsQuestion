@@ -53,10 +53,11 @@ class Solution {
             //check whether can find number in the arraylist
             if(list.contains(nums[i])){
                 continue; //if contains same number, continue move forward
+            } else{
+                list.add(nums[i]); //add the number with not contains into arraylist
+                helper(res, list, nums); //call backtracking move forward to next number in the nums[] list
+                list.remove(list.size() - 1); //backtracking method: come back in last level and number
             }
-            list.add(nums[i]); //add the number with not contains into arraylist
-            helper(res, list, nums); //call backtracking move forward to next number in the nums[] list
-            list.remove(list.size() - 1); //backtracking method: come back in last level and number
         }
     }
 }
