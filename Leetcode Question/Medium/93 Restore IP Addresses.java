@@ -26,3 +26,62 @@ Constraints:
 s consists of digits only.
 */
 
+//Time: O(n!) ==> n is length of String s
+//Space: The wrost Space is O(n!)
+//Used backtracking though to check and find every correct ip address
+
+class Solution {
+    public List<String> restoreIpAddresses(String s) {
+        List<String> res = new ArrayList<>();
+        List<String> curr = new ArrayList<>();
+
+        //call backtracking method
+        backtracking(res, curr, s);
+
+        return res;
+    }
+
+    //backtracking function
+    public static void backtracking(List<String> res, List<String> curr, String s){
+        //exit and add condition
+        if(curr.size() == 4){  // Every IP address have 4 number parts
+            if(s.length() == 0){ //arrived last element in the String s == IP address is valid
+
+                StringBuilder sb = new StringBuilder(); // ==> Used for create IP address with String format
+                
+                //Every IP address have 4 number parts
+                for(int i = 0; i < 4; i++){ 
+                    sb.append(curr.get(i)); //add one number part into StringBuilder IP address
+                    if(i < 3){
+                        sb.append("."); // there is "." in the middle of ip address
+                    }
+                }
+
+                //add the correct ip address string into res list
+                res.add(sb.substring(0, sb.length()).toString()); 
+            }
+            return; // stop the function and remove back
+        }
+
+        //Main for-loop to travser all element 
+        for(int i = 1; i <= 3 && i <= s.length(); i++){
+            String numberPart = s.substring(0, i);
+
+            //if number Parts is more than 2, it cannot have leading zeros
+            if(numberPart.length() > 1 && numberPart.startsWith("0")){
+                continue;
+            }
+
+            //Each integer is between 0 and 255
+            int value = Integer.valueOf(numberPart);
+            
+            if(value < 0 || value > 255){
+                continue;
+            } else{
+                curr.add(numberPart); // add the number part into curr list
+                backtracking(res, curr, s.substring(i)); //call backtracking function and move to next level
+                curr.remove(curr.size() - 1); // remove and back to perivous level
+            }
+        }
+    }
+}
