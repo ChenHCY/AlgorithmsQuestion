@@ -148,8 +148,13 @@ Step 2: Mark the current node as visited and print the node.
 
 Step 3: Traverse all the adjacent and unmarked nodes and call the recursive function with the index of the adjacent node.
 
-# The Difference in BFS with DFS
-BFS 相对 DFS 的最主要的区别是：BFS 找到的路径一定是最短的，但代价就是空间复杂度比 DFS 大很多。
+# The Difference in BFS with DFS 
+BFS 相对 DFS 的最主要的区别是：BFS 可以找到最短距离，但代价就是空间复杂度比 DFS 大很多。
+
+# 为什么 BFS 可以找到最短距离，DFS 不行吗？
+BFS 的逻辑是，depth 每增加一次，队列中的所有节点都向前迈一步，这保证了第一次到达终点的时候，走的步数是最少的。
+
+所以BFS 可以找到最短距离，空间复杂度高。但DFS 的空间复杂度较低。
 
 # How to answered Object-Oriented Design Interview Questions
 1. Clarify the requirements: Make sure you understand the expectations of the interviewer. Ask clarifying questions if at all necessary — the interviewer will not mind, and will likely appreciate it. For example, “are you looking for me to demonstrate the structure of a solution, or to fully implement it?” Doing this here will take about 5–10 seconds, but save tremendous amounts of time later.
