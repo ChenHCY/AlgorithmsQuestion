@@ -49,7 +49,8 @@ class Solution {
         int numB = 0; //cows: correct Digits with wrong position
         String res = "";
         HashMap<Character, Integer> map = new HashMap<>();
-
+        
+         //For-loop to find the how many bulls(numA)
         for(int i = 0; i < secret.length(); i++){
             if(secret.charAt(i) != guess.charAt(i)){
                 map.put(secret.charAt(i), map.getOrDefault(secret.charAt(i), 0) + 1);
@@ -57,7 +58,8 @@ class Solution {
                 numA += 1;
             }
         }
-
+        
+        //For-loop to find the how many cows(numB)
         for(int j = 0; j < guess.length(); j++){
             char g = guess.charAt(j);
             char s = secret.charAt(j);
