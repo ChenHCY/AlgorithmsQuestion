@@ -18,6 +18,11 @@ Data Structures and Algorithms Question and OA Question review
    1. Visit the left node 
    2. Visit the right node 
    3. Visit the root node
+   
+ # Long.ParseLong(String)方法：把string中的一段字符串转化为Integer值
+ Long.ParseLong(String)方法，将 string 参数解析为有符号十进制 long，字符串中的字符必须都是十进制数字。
+ 
+==》 Long.parseLong(s.substring(start, end + 1))
 
 # Java split() and Java trim()： 
 (Linkcode 53.Reverse Words in a String)
