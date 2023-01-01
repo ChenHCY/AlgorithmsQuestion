@@ -19,10 +19,15 @@ Data Structures and Algorithms Question and OA Question review
    2. Visit the right node 
    3. Visit the root node
    
- # Long.ParseLong(String)方法：把string中的一段字符串转化为Integer值
- Long.ParseLong(String)方法，将 string 参数解析为有符号十进制 long，字符串中的字符必须都是十进制数字。
+ # Long.ParseLong(String) && Long.ValueOf(String) 
+ 
+ 参数String表示，指定 String 的值的 Long 对象。该参数被解释为表示一个有符号的十进制 long，该值与用该参数作为参数的 parseLong(java.lang.String) 方法得到的值非常相似
+ 
+1. Long.ParseLong(String): 把string中的一段字符串转化为有符号十进制 long，字符串中的字符必须都是十进制数字。
  
 ==》 Long.parseLong(s.substring(start, end + 1))
+
+2. Long.ValueOf(String): String表示，指定 String 的值的 Long 对象。该参数被解释为表示一个有符号的十进制 long，该值与用该参数作为参数的 parseLong(java.lang.String) 方法得到的值非常相似
 
 # Java split() and Java trim()： 
 (Linkcode 53.Reverse Words in a String)
