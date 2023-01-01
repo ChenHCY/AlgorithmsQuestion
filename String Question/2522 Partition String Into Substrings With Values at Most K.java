@@ -50,6 +50,8 @@ class Solution {
                 end++; //get the end position of substring range value is less or equal to K
             }
           
+         //Long.ParseLong(String)方法，将 string 参数解析为有符号十进制 long，字符串中的字符必须都是十进制数字。
+         
             res++; //count how many substrings in a good partition of s 
 
             //There is no good partition for this string.
