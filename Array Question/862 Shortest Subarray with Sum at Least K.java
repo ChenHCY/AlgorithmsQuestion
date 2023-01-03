@@ -55,3 +55,36 @@ class Solution {
         return minLength;
     }
 }
+
+
+//Correct Solution: Used Deque + Prefix sum
+//Prefix sum[] save the sum of range in the nums[] array ==> can save much time
+//Deque: save the index of prefixSum ==> Used to find the range length
+class Solution {
+    public int shortestSubarray(int[] nums, int k) {
+        int minLength = Integer.MAX_VALUE;
+        int n = nums.length;
+        Deque<Integer> deque = new LinkedList<>();
+        long[] prefixSum = new long[n + 1];
+
+        deque.offerLast(0); //every time add in the last position of deque
+        
+        for(int i = 0; i < n; i++){
+            prefixSum[i + 1] = prefixSum[i] + nums[i]; //save the prefixSum of nums[]
+
+            //
+            while(!deque.isEmpty() && prefixSum[deque.peekLast()] >= prefixSum[i + 1]){
+                deque.pollLast();
+            }
+
+            deque.offerLast(i + 1);
+
+            while (!deque.isEmpty() && prefixSum[i + 1] - prefixSum[deque.peekFirst()] >= k) {
+                minLength = Math.min(minLength, i - deque.peekFirst() + 1);
+                deque.pollFirst();
+            }
+        }
+
+        return minLength == Integer.MAX_VALUE ? -1 : minLength;
+    }
+}
