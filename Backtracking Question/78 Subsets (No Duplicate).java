@@ -38,9 +38,9 @@ class Solution {
 
         //main for-loop to travser all the element from nums[] array
         for(int i = index; i < nums.length; i++){
-            list.add(nums[i]);
+            list.add(nums[i]); //add the element into list
             backtracking(res, list, nums, i + 1);
-            list.remove(list.size() - 1);
+            list.remove(list.size() - 1); //remove last element we add(remove back)   
         }
     }
 }
