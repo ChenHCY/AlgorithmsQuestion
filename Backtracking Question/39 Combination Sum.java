@@ -59,7 +59,7 @@ class Solution {
         for(int i = index; i < candidates.length; i++){
             list.add(candidates[i]); //add the current value into list
             helper(res, list, candidates, target - candidates[i], i); //call Backtracking function move to next elelment
-            list.remove(list.size() - 1); // remove the every step target 
+            list.remove(list.size() - 1);  // remove and back to previous step
         }
     }
 }
@@ -95,7 +95,7 @@ class Solution {
             if(target >= 0){
                 list.add(candidates[i]);  //add the current value into list
                 backtracking(res, list, candidates, target, i); //call Backtracking function move to next elelment
-                list.remove(list.size() - 1);  // remove the every step target 
+                list.remove(list.size() - 1);  // remove and back to previous step
             }
             target += candidates[i]; //add the value back into target
         }
