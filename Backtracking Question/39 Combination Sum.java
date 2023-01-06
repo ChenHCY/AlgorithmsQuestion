@@ -31,6 +31,8 @@ All elements of candidates are distinct.
 1 <= target <= 40 
 */
 
+//My Solution: 5ms  Beats 46.73%
+//Time: O(n * m) ==> m is the candidates size      Space: O(n)
 class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> res = new ArrayList<>();
@@ -58,6 +60,44 @@ class Solution {
             list.add(candidates[i]); //add the current value into list
             helper(res, list, candidates, target - candidates[i], i); //call Backtracking function move to next elelment
             list.remove(list.size() - 1); // remove the every step target 
+        }
+    }
+}
+
+//The best time solution: 0ms  Beats 100%      **********************************
+//Time: O(n)     Space: O(n)
+class Solution {
+    public List<List<Integer>> combinationSum(int[] candidates, int target) {
+        List<List<Integer>> res = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
+
+        //basic case
+        if(candidates.length == 0){
+            return res;
+        }
+
+        //call backtracking function
+        backtracking(res, list, candidates, target, 0);
+        return res;
+    }
+
+    //backtracking function ===> "Start" was used to delete duplicate numbers Combination
+    public void backtracking(List<List<Integer>> res, List<Integer> list, int[] candidates, int target, int start){
+        //exit and add condition
+        if(target == 0){
+            res.add(new ArrayList<>(list)); //add the them into res list 
+            return; //exit the backtracking function
+        }
+
+        //main for loop to travser all the element from candidates array
+        for(int i = start; i < candidates.length; i++){
+            target -= candidates[i];
+            if(target >= 0){
+                list.add(candidates[i]);  //add the current value into list
+                backtracking(res, list, candidates, target, i); //call Backtracking function move to next elelment
+                list.remove(list.size() - 1);  // remove the every step target 
+            }
+            target += candidates[i]; //add the value back into target
         }
     }
 }
