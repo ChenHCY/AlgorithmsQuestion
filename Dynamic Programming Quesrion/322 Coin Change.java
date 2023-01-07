@@ -26,7 +26,10 @@ Constraints:
 0 <= amount <= 104
 */
 //Used Memorize Search (dp method)
-//Time: O(n) 
+//Time: O(n^2)
+// 一维动态规划时间复杂度一般有O(n)和O(n^2)两种，时间复杂度取决于状态转移方程。
+// 如果第i个状态的确定需要利用前i-1个状态，即dp[i]由dp[i-1],dp[i-2],...,dp[0]的取值共同决定，那么此时的时间复杂度为O(n^2)。
+
 class Solution {
     public int coinChange(int[] coins, int amount) {
         //Memorize Search Method and dp method
