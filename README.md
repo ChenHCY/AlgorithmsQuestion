@@ -111,6 +111,11 @@ PS: LinkedList<int[]> list = new LinkedList<>();
 
 3. Java PriorityQueue(PriorityQueue<E> c): Creates a PriorityQueue containing the elements in the specified priority queue.
 
+# 迭代和递归的区别
+递归: 递归是一个树结构，从字面可以其理解为重复“递推”和“回归”的过程，当“递推”到达底部时就会开始“回归”，其过程相当于树的深度优先遍历。
+
+迭代：迭代是一个环结构，从初始状态开始，每次迭代都遍历这个环，并更新状态，多次迭代直到到达结束状态。
+
 # Memorize Search && Dynamic Programming
 (Leetcode 10. Regular Expression Matching)
 
