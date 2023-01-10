@@ -38,6 +38,15 @@ p and q will exist in the tree.
  *     TreeNode(int x) { val = x; }
  * }
  */
+
+/* 解题思路：
+1. 如果 root 为 null 或者如果 root 是 p 或者如果 root 是 q 那么返回 root
+2. 对左子树和右子树进行递归调用
+  a. 如果左子树递归调用给出空值，这意味着我们不能在左子树中找到 p或者q， ==> LCA唯有可能存在于右子树部分
+  b. 如果右子树递归调用给出空值，这意味着我们不能在右子树上找到 p或者q， ==> LCA唯有可能存在于左子树部分
+3. 如果左右子树的递归调用都能得到具体的值（不为null），==> 则表示这个root一定是 Lowest Common Ancestor（LCA）
+*/
+
 class Solution {
     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
         //base case
@@ -45,7 +54,7 @@ class Solution {
             return root;
         }
       
-        //recursion method and move to traverse every level of the Binary Tree
+        //递归调用，recursion method and move to traverse every level of the Binary Tree
         //connect the every level of binary tree
         TreeNode left = lowestCommonAncestor(root.left, p, q);
         TreeNode right = lowestCommonAncestor(root.right, p, q);
