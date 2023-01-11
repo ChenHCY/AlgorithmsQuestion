@@ -23,6 +23,7 @@ Constraints:
 nums is guaranteed to be rotated at some pivot.
 -104 <= target <= 104
 */
+
 //Time: O(n)   Space: O(1)
 class Solution {
     public boolean search(int[] nums, int target) {
@@ -32,12 +33,13 @@ class Solution {
         while(left <= right){
             int mid = left + (right - left) / 2;
             
+            //find the target value
             if(nums[mid] == target){
                 return true;
             }
             
-            //the range of [left, mid] is increasing array
-            if(nums[left] < nums[mid]){
+            //find the increasing range 
+            if(nums[left] < nums[mid]){ //the range of [left, mid] is increasing array
                 if(nums[left] <= target && target < nums[mid]){
                     right = mid - 1;
                 } else{
@@ -49,9 +51,9 @@ class Solution {
                 } else{
                     right = mid - 1;
                 }
-            } else{ //when the nums[left] == nums[mid], move the left-pointer into next element
-                left += 1;
-            }
+            } else{ // nums[left] = nums[mid] == beacuse there maybe have duplicate number and nums[] is not increasing array
+                left += 1; 
+            } //For example: nums = [1,0,1,1,1] target = 0 ==> can not use if(nums[left] <= nums[mid])
         }
         
         return false;
