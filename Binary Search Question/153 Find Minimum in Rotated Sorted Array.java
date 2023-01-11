@@ -47,15 +47,16 @@ class Solution {
         
         //compare the nums[mid] with nums[right] value ==> beacuse the before is in ascending order to rotated
         //So the minimum should at the small value range part
-        //==>[left, mid] or [mid, right] ==> used to move two pointer(left and right)
+        //==>[left, mid] or (mid, right] ==> used to move two pointer(left and right)
         while(left < right){
             int mid = left + (right - left) / 2;
-            
-            if(nums[mid] < nums[right]){
-                right = mid;
-            } else {
+            //need find the min number and this is rotated array
+            //if nums[mid] > nums[right]; the min number should in the (mid right]
+            if(nums[mid] > nums[right]){
                 left = mid + 1;
-            } 
+            } else{ //if nums[mid] <= nums[right], the min number should in the [left mid]
+                right = mid; // beacuse we can not sure whether the nums[mid] is minimum or not
+            }
         }
         
         return nums[left];
