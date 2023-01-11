@@ -24,6 +24,19 @@ nums is guaranteed to be rotated at some pivot.
 -104 <= target <= 104
 */
 
+/* 解题思路：
+
+双指针的方法，重点是两个指针如何缩小范围
+
+   1. 要找到那一块区域是递增的。[left, mid) or [mid, right]
+   2. 然后if-statement 检查 target是否存在于这个区间
+      a. 如果是的， ==> 移动另一个指针
+      b. 如果不是， ==> 移动本身的指针
+   3. 因为nums[]不是纯递增数列，并且数组可能存在重复的数字
+      For example: nums = [1,0,1,1,1] target = 0 
+      所以nums[left] = nums[mid] 需要单独列为一直情况 ==》 直接舍弃
+*/
+
 //Time: O(n)   Space: O(1)
 class Solution {
     public boolean search(int[] nums, int target) {
