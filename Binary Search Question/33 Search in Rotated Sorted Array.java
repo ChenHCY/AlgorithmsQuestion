@@ -30,13 +30,14 @@ nums is an ascending array that is possibly rotated.
 
 /*   解题思路：
 
-双指针的方法，重点是找到哪一块区域是纯递增的，然后移动两个指针来缩小范围。
+二分法的思路，重点是找到哪一块区域是纯递增的，然后移动二分法的两个指针来缩小范围 ==> 最后找到target的位置。
 
-     1. 要找到那一块区域是递增的。[left, mid) or [mid, right]
+     1. 因为nums[]是旋转的递增数列，所以可以通过比较nums[left]和nums[mid]的大小，
+        ==》 来找到那一块区域是递增的。[left, mid) or [mid, right]
+        
      2. 然后if-statement 检查 target是否存在于这个区间
-      a. 如果是的， ==> 移动另一个指针
-      b. 如果不是， ==> 移动本身的指针
-
+      a. 如果是的， ==> 移动另一个指针 缩小范围
+      b. 如果不是， ==> 移动本身的指针 缩小范围
 */
 
 //Time: O(n)   Space: O(1)
