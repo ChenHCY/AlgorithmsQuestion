@@ -26,7 +26,7 @@ nums is guaranteed to be rotated at some pivot.
 
 /* 解题思路：
 
-双指针的方法，重点是两个指针如何缩小范围
+二分法的思路，重点是找到哪一块区域是递增的，然后移动二分法的两个指针来缩小范围 ==> 最后检查是否存在target值
 
    1. 要找到那一块区域是递增的。[left, mid) or [mid, right]
    2. 然后if-statement 检查 target是否存在于这个区间
