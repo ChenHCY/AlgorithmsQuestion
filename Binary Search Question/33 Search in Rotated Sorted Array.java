@@ -28,6 +28,18 @@ nums is an ascending array that is possibly rotated.
 -104 <= target <= 104
 */
 
+/*   解题思路：
+
+双指针的方法，重点是找到哪一块区域是纯递增的，然后移动两个指针来缩小范围。
+
+     1. 要找到那一块区域是递增的。[left, mid) or [mid, right]
+     2. 然后if-statement 检查 target是否存在于这个区间
+      a. 如果是的， ==> 移动另一个指针
+      b. 如果不是， ==> 移动本身的指针
+
+*/
+
+//Time: O(n)   Space: O(1)
 class Solution {
     public int search(int[] nums, int target) {
         if(nums == null || nums.length == 0){
