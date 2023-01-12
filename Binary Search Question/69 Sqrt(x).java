@@ -20,6 +20,10 @@ class Solution {
         long right = x;
         long left = 0;
         
+         //For example: x = 8, The square root of 8 is 2.82842
+        // left = 2, right = 4 ==> mid = 3, ==> need stop here and return to output left-pointer value
+        //so while-loop condition should be: left < right - 1
+        
         while(left + 1 < right){
             long mid = left + (right - left) / 2;;
             long target = mid * mid;
