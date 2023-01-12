@@ -18,6 +18,12 @@ Data Structures and Algorithms Question and OA Question review
    1. Visit the left node 
    2. Visit the right node 
    3. Visit the root node
+ 
+ 
+ # What is a JavaScript event loop?
+The event loop is an architectural design pattern that allows code to run asynchronously on the javascript engines and makes it possible for code to execute blocking instructions first and when available execute asynchronous functions
+
+事件循环是一种架构设计模式，它允许代码在 javascript 引擎上异步运行，并使代码可以先执行阻塞指令，并在可用时执行异步函数
    
  # Long.ParseLong(String) && Long.ValueOf(String) 
  
