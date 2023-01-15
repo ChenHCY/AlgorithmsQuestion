@@ -35,7 +35,7 @@ The event loop is an architectural design pattern that allows code to run asynch
 
 2. Long.ValueOf(String): String表示，指定 String 的值的 Long 对象。该参数被解释为表示一个有符号的十进制 long，该值与用该参数作为参数的 parseLong(java.lang.String) 方法得到的值非常相似
 
-# Java split() and Java trim()： 
+# Java split() and Java trim() and Math.celi()： 
 (Linkcode 53.Reverse Words in a String)
 
 1. Java split():
@@ -49,6 +49,8 @@ Parameter for Java split():
 
 2. Java trim(): 
 Java trim() is a built-in function that eliminates leading and trailing spaces.
+
+3. Math.celi(): ceil方法的功能是向上取整。有任何小数 都向前取到大一位的整数
 
 # LinkedList.toArray() Method: 
 (Medium ==> Linkcode 56. Merge Intervals  && Leetcode 57. Insert Interval) 
@@ -116,6 +118,8 @@ PS: LinkedList<int[]> list = new LinkedList<>();
    2. Large -> Small: (o1, o2) -> o2.val - o1.val (Descending order)
 
 3. Java PriorityQueue(PriorityQueue<E> c): Creates a PriorityQueue containing the elements in the specified priority queue.
+
+4. PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder()); ==> 按反转的顺序对于数组进行排序
 
 # 迭代和递归的区别
 递归: 递归是一个树结构，从字面可以其理解为重复“递推”和“回归”的过程，当“递推”到达底部时就会开始“回归”，其过程相当于树的深度优先遍历。
