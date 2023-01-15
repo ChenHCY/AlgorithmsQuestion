@@ -54,33 +54,40 @@ class Solution {
     }
 }
 
-//The fast Solution Time: O(log(n))   Space: O(1)
+//The fast Solution ==> Used Binary Search Method Time:  O(log(n))   Space: O(1)
 class Solution {
     public int maximumCount(int[] nums) {
+        //base case
+        if (nums[0] > 0 || nums[nums.length - 1] < 0) {
+            return nums.length;
+        }
+
         int positiveNumber = 0;
         int negativeNumber = 0;
         
+        //Binary Search Method pointer
         int left = 0;
         int right = nums.length - 1;
         
-        //find the last negative element position
+        //find the first element is not negative
         while(left < right){
             int mid = left + (right - left) / 2;
             
             if(nums[mid] < 0){
-                left = mid;
+                left = mid + 1;
             } else{
-                right = mid - 1;
+                right = mid;
             }
         }
-        
+        //use the position to count how may the negative numbers in the nums[] array
         negativeNumber = left;
         
-        //find the first positive element position
+        //find the first positive element position without value is 0
         while (left < nums.length && nums[left] == 0) {
              left++;
         }
-        positiveNumber = nums.length - left;
+        //use the position to count how may the positive numbers in the nums[] array
+        positiveNumber = nums.length - left; 
         
         return negativeNumber > positiveNumber ? negativeNumber : positiveNumber;
     }
