@@ -57,6 +57,7 @@ class Solution {
             res += temp;
 
             double num = (double)temp / 3;
+         //Math.ceil  ==> ceil方法的功能是向上取整, 有任何小数，均取到大一位的整数
             queue.add((int)Math.ceil(num)); // replace nums[i] with ceil(nums[i] / 3).
         }
 
