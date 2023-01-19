@@ -58,8 +58,10 @@ class Solution {
         if(i < 0 || i >= row || j < 0 || j >= colum || grid[i][j] == '#'){
             return;
         }
-        
-        grid[i][j] = '#'; //it means this cell 1 has visited before.
+        // Mark the land viewed, to avoid add duplicate islands
+        grid[i][j] = '#'; //it means this space 1 has visited before.
+      
+        //move to next grid spaces
         dfs(grid, row, colum, i - 1, j); //down
         dfs(grid, row, colum, i + 1, j); //up
         dfs(grid, row, colum, i, j - 1);//left
