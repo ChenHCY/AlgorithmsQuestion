@@ -24,6 +24,17 @@ Data Structures and Algorithms Question and OA Question review
 The event loop is an architectural design pattern that allows code to run asynchronously on the javascript engines and makes it possible for code to execute blocking instructions first and when available execute asynchronous functions
 
 事件循环是一种架构设计模式，它允许代码在 javascript 引擎上异步运行，并使代码可以先执行阻塞指令，并在可用时执行异步函数
+
+ # Java HashMap computeIfAbsent() 方法
+computeIfAbsent() 方法对 hashMap 中指定 key 的值进行重新计算，如果不存在这个 key，则添加到 hashMap 中。
+
+computeIfAbsent() 方法的语法为：(DFS / Leetcode 1443)
+
+hashmap.computeIfAbsent(K key, Function remappingFunction)
+
+hashmap.computeIfAbsent(start, value -> new ArrayList<Integer>()).add(end);
+
+key - 键  /  remappingFunction - 重新映射函数，用于重新计算值
    
  # Long.ParseLong(String) && Long.ValueOf(String) 
  
