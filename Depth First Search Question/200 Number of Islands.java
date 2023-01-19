@@ -55,11 +55,11 @@ class Solution {
     
     private static void dfs(char[][] grid, int row, int colum, int i, int j){
         //the exit condition of dfs
-        if(i < 0 || i >= row || j < 0 || j >= colum || grid[i][j] == '0'){
+        if(i < 0 || i >= row || j < 0 || j >= colum || grid[i][j] == '#'){
             return;
         }
         
-        grid[i][j] = '0'; //?
+        grid[i][j] = '#'; //it means this cell 1 has visited before.
         dfs(grid, row, colum, i - 1, j); //down
         dfs(grid, row, colum, i + 1, j); //up
         dfs(grid, row, colum, i, j - 1);//left
