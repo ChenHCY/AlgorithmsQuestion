@@ -68,13 +68,14 @@ class Solution {
                 l2 = l2.next;
             }
             
-            // very node add together can not large than 10
+            // Every node add together can not large than 10
             ListNode temp = new ListNode(sum % 10);
             head.next = temp; //add this listnode into head 
             head = head.next; 
            
         }
-        
+     
+         //if there still need one more digit carry 总和还需要往前进一位
         if(sum / 10 == 1){
             head.next = new ListNode(1);
         }
