@@ -90,7 +90,7 @@ class Solution {
         //2. connect the every node with their neighbors node
         connectNode(node, map, visited);
 
-        return map.get(node); //return the clone graph
+        return map.get(node); //return the clone graph ==》 最后返回老节点在hashmap中的对应，也就是所有新节点组成的graph
     }
 
     //copy the every node value withe empty neighbors list
