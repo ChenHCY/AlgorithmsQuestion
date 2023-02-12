@@ -73,7 +73,7 @@ Constraints:
 
 最后 ==》 输出一个Long类型值的res
 */
-
+//Time: O(n)   Space: O(1)
 class Solution {
     public long findTheArrayConcVal(int[] nums) {
         int left = 0;
