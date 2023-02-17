@@ -35,7 +35,7 @@ we need find the fair pair(i, j) that value is lower <= nums[i] + nums[j] <= upp
 
 */
 
-//Time complexity: O(n∗logn) + O(2n) = O(n∗logn)  Space complexity: O(1)O(1)O(1)
+//Time complexity: O(n∗logn) + O(2n) = O(n∗logn)  Space complexity: O(1)
 class Solution {
     public long countFairPairs(int[] nums, int lower, int upper) {
         Arrays.sort(nums);
