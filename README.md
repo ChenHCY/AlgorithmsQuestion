@@ -2,7 +2,7 @@
 
 Data Structures and Algorithms Question and OA Question review
 
-# The traversal of binary tree (Recursive Method)：==》递归方法
+# 二叉树的前序 中序 后序 遍历。递归方法
 
 1. Binary Tree Preorder Traversal (DLR)：
    1. Visit the root node 
