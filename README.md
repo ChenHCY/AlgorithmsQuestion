@@ -2,24 +2,39 @@
 
 Data Structures and Algorithms Question and OA Question review
 
-# The traversal of binary tree (Recursive Method)：
+# The traversal of binary tree (Recursive Method)：==》递归方法
 
 1. Binary Tree Preorder Traversal (DLR)：
    1. Visit the root node 
    2. Visit the left node
    3. Visit the right node
+   
+先序遍历可以想象成，从树根开始绕着整棵树的外围转一圈，经过结点的顺序就是先序遍历的顺序先序遍历结果
+
+==》从根节点开始，根节点 -> 左节点 -> 右节点  
   
 2. Binary Tree Inorder Traversal (LDR)：
    1. Visit the left node 
    2. Visit the root node
    3. Visit the right node
-  
+
+中序遍历可以想象成，按树画好的左右位置投影下来就可以了, 
+
+==》从左节点开始，左节点 -> 根节点 -> 右节点  
+
 3. Binary Tree Postorder Traversal (LRD)：
    1. Visit the left node 
    2. Visit the right node 
    3. Visit the root node
  
+后序遍历就像是“剪葡萄”，我们要把一串葡萄剪成一颗一颗的。
+
+如果发现一剪刀就能剪下的葡萄（必须是一颗葡萄），就把它剪下来，组成的就是后序遍历了。
+
+==》从左节点开始，左节点 -> 右节点 -> 根节点
  
+详细连接：http://www.hangdaowangluo.com/archives/2979
+
  # What is a JavaScript event loop?
 The event loop is an architectural design pattern that allows code to run asynchronously on the javascript engines and makes it possible for code to execute blocking instructions first and when available execute asynchronous functions
 
