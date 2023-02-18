@@ -44,6 +44,8 @@ The number of nodes in the tree is in the range [2, 100].
 然后再通过for-loop进行遍历查找，就能得到任意两个节点之间的最小差异
 
 */
+
+//Time: O(n)  Space:O(n）
 class Solution {
     public int minDiffInBST(TreeNode root) {
         List<Integer> res = new ArrayList<>();
