@@ -53,7 +53,7 @@ class Solution {
         }
 
         //.next in the left side means pointer connect
-        //.next in the right side means move into next node
+        //.next in the right side means the next node of the curr node
         List<ListNode> list = new ArrayList<>();
         while(head != null){
             list.add(head);
