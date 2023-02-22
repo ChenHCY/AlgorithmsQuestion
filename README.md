@@ -51,7 +51,9 @@ For example: ==> hashmap.computeIfAbsent(start, value -> new ArrayList<Integer>(
 
  # Stack()的声明选择
  
- LinkedList ArrayDeque 都能作为stack的 声明
+ LinkedList ArrayDeque 都能作为stack的 声明 ==》时间使用比new Stack()更少 
+   
+ 因为stack()是从vector进行的扩展，最好不要使用stack()
  
  区别：LinkedList可以让null作为元素， ArrayDeque不可以允许元素为非空
    
