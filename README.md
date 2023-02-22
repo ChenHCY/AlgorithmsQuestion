@@ -48,6 +48,12 @@ computeIfAbsent() 方法的语法为：hashmap.computeIfAbsent(K key, Function r
 key - 键  /  remappingFunction - 重新映射函数，用于重新计算值
 
 For example: ==> hashmap.computeIfAbsent(start, value -> new ArrayList<Integer>()).add(end);
+
+ # Stack()的声明选择
+ 
+ LinkedList ArrayDeque 都能作为stack的 声明
+ 
+ 区别：LinkedList可以让null作为元素， ArrayDeque不可以允许元素为非空
    
  # Long.ParseLong(String) && Long.ValueOf(String) 
  
