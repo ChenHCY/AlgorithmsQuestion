@@ -63,6 +63,7 @@ Constraints:
 
 */
 
+//Time： O(NlogN)   Space： O(N)
 class Solution {
     public int lastStoneWeight(int[] stones) {
         //通过使用优先队列来对于stones[]进行排序 (a, b) -> b - a 降序排列
