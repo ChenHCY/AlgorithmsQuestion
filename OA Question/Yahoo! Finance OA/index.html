@@ -1,0 +1,60 @@
+<!--
+Using the provided API, which returns a list of users and their attributes, please create a list of cards that each represent a user.
+Only the cards for the first 3 users should be shown. When the user clicks on the "More" button, the 3 more cards will be appended to the list,
+and the "Less" button will be enabled. When all 10 users have been shown, the "More" button should be disabled, and only the "Less" button is enabled.
+
+Avoid using any 3rd party libraries - we want to see you write your own custom JS.
+
+Design concept: https://freeimage.host/i/screen-shot-2022-12-02-43250-pm.HqGIBXs
+
+API: https://jsonplaceholder.typicode.com/users
+-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+    <script type="module" src="/src/main.js"></script>
+    <title>HTML | CoderPad</title>
+  </head>
+
+
+  <script type="text/javascript" language= "javascript" src ="user.json"></script>
+
+  <script>
+    %(function() {
+      var user = [];
+
+      $.getJSON('user.json', function(data){
+        var boxA
+        
+      });
+    });
+  </script>
+
+
+  <body>
+
+<section class = "box" id = "box">
+  <div class= "topArea">
+    <p> <%=user.name </p>
+  </div>
+
+  <div class = "row">
+    <div class = "bottomArea">
+        
+    </div>
+
+    <div class = "bottomArea">
+
+    </div>
+  </div>
+  
+
+</section>
+
+
+
+  </body>
+</html>

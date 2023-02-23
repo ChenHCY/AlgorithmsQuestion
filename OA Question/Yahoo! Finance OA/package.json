@@ -1,0 +1,9 @@
+{
+    "name": "vanilla-html-css-js-template",
+    "private": true,
+    "version": "0.0.0",
+    "devDependencies": {
+      "typescript": "^4.7.4",
+      "vite": "^3.0.4"
+    }
+  }
