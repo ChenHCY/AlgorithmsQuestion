@@ -1,0 +1,93 @@
+html, body {
+    height: 100%;
+    margin: 0;
+  }
+  
+  #app {
+    font-family: 'Roboto', Arial, sans-serif;
+    color: #353C4E;
+    background: #F0F2F4;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    font-size: 1.2rem;
+  }
+  
+  #header {
+    background: white;
+    padding: 1rem 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  #header > div > img {
+    height: 1.75rem;
+  }
+  
+  #header > div > span {
+    vertical-align: super;
+  }
+  
+  #content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+  }
+  
+  #content > img {
+    height: 45vh;
+  }
+  
+  #content > p {
+    font-size: 2rem;
+  }
+  
+  #footer {
+    margin-bottom: 10vh;
+    text-align: center;
+  }
+  
+  /*Box layout*/
+  
+  .box{
+    background-color: white;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .box .topArea{
+    padding: 2rem;
+    border-style: solid;
+    border-color: black;
+  }
+  
+  .box .topArea .h3{
+    font-size: 2rem;
+    line-height: 1.5;
+    color: black;
+  }
+  
+  .box .topArea .p{
+    font-size: 0.5rem;
+    line-height: 1.5;
+    color: gray;
+  }
+  
+  .box .bottomArea{
+    padding: 2rem;
+    border-style: solid;
+    border-color: black;
+  }
+  
+  .box .bottomArea .p{
+    font-size: 1rem;
+    line-height: 1.5;
+    color: black;
+  }
+  
+  
