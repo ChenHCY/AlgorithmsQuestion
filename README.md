@@ -56,6 +56,15 @@ For example: ==> hashmap.computeIfAbsent(start, value -> new ArrayList<Integer>(
  因为stack()是从vector进行的扩展，最好不要使用stack()
  
  区别：LinkedList可以让null作为元素， ArrayDeque不可以允许元素为非空
+ 
+ #拓扑排序的定义
+ 
+ 拓扑排序的作用就是检查图中的路径和是否存在环 ==> 这也是拓扑排序的基础
+ 
+ 扑排序的的意思就是把一幅图「拉平」，而且这个「拉平」的图里面，所有箭头方向都是一致的
+ 所以有环的情况下是无法进行拓扑排序的，必须是“有向无环图(Directed Acyclic Graph)”
+ 
+ ==》如何进行拓扑排序 ==》 其实将后序遍历的结果进行反转，就是拓扑排序的结果。
    
  # Long.ParseLong(String) && Long.ValueOf(String) 
  
