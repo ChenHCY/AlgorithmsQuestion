@@ -65,6 +65,8 @@ For example: ==> hashmap.computeIfAbsent(start, value -> new ArrayList<Integer>(
  所以有环的情况下是无法进行拓扑排序的，必须是“有向无环图(Directed Acyclic Graph)”
  
  ==》如何进行拓扑排序 ==》 其实将后序遍历的结果进行反转，就是拓扑排序的结果。
+ 
+ ==》二叉树的后序遍历：当左右子树的节点都被装到结果列表里面了，根节点才会被装进去
    
  # Long.ParseLong(String) && Long.ValueOf(String) 
  
