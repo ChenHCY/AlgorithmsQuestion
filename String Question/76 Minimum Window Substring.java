@@ -49,7 +49,8 @@ Step 1. 查找右指针的字母是否存在于String t(hashmap containsKey()) =
 
 ==》每次right+=1，这样可以找到一个窗口能拥有所有String t字母的长度
 
-Step 2：开始优化这个窗口的长度 ==》  while(len <= 0) len代表窗口中是否存在所有的String t的字母
+Step 2：开始优化这个窗口的长度 ==》  while(len <= 0) len代表窗口中存在所有的String t的字母种类数量 
+    ==》 len <= 0 表示这个窗口内有所有string t的字母
 
 查找左指针的字母是否存在于String t(hashmap containsKey())
 
@@ -99,16 +100,18 @@ class Solution {
                 }
             }
 
-            while(len <= 0){
+            while(len <= 0){ //当表示这个窗口内有所有string t的字母时，缩小左边窗口，来找到最小的长度
                 char currL = s.charAt(left); // get the character of left pointer
+                //如果缩小的左指针对应的字母是存在于String t当中，则加回对应字母的数量
                 if(map.containsKey(currL)){ //if string t also have currL character
-                    map.put(currL, map.get(currL) + 1);
+                    map.put(currL, map.get(currL) + 1); //则加回对应字母的数量
                     if(map.get(currL) >= 1) {
-                        len += 1;
+                        len += 1; //则加回对应字母的数量，和存在的字母种类
                     }
                 }
 
                 //count the length of window
+                //如果缩小的左指针对应的字母不存在于String t中，则计算新的长度
                 if(right - left + 1 < res){
                     start = left;
                     res = right - left + 1;
