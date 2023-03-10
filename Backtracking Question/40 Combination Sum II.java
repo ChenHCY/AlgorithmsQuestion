@@ -55,7 +55,7 @@ class Solution {
         }
         
         for(int i = index; i < candidates.length; i++){
-            //do the eliminate duplicates numbers
+            //Eliminate duplicates numbers Combination 消除重复的数字组合
             if(i != index && candidates[i] == candidates[i - 1]){
                 continue; 
             } // when there are duplicate numbers in the candidate's list, only save one kind of Combination to output
