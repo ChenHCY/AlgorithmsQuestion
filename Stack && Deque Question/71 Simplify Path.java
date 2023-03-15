@@ -37,12 +37,13 @@ path is a valid absolute Unix path.
 */
 
 //Solution one: Used Deque Method ==> It can either be used as a queue(first-in-first-out/FIFO) or as a stack(last-in-first-out/LIFO).
-//Time Complexity: O(N)    Space Complexity: O(N)
+//Time Complexity: O(N)    Space Complexity: O(N)  
+//ArrayDeque的运行速度比Stack更快，所以现在通常来说是用Deque的
 class Solution {
     public String simplifyPath(String path) {
         //Used the Deque to save the path file
         //first in first out ==> 
-        Deque<String> stack = new ArrayDeque<String>();
+        ArrayDeque<String> stack = new ArrayDeque<>();
         //Split the String path with "/" and save into a String array
         String[] file = path.split("/"); 
         
@@ -51,9 +52,7 @@ class Solution {
             // A no-op for a "." or an empty string
             if(str.length() == 0 || str.equals(".")){
                 continue;
-            } 
-            
-            if(str.equals("..")){ //if meet "..", it need remove previous one path
+            } else if(str.equals("..")){ //if meet "..", it need remove previous one path
                 if (!stack.isEmpty()) {
                     stack.pop(); //Deque first in last one, pop() can get the top element
                 }
@@ -63,17 +62,17 @@ class Solution {
         }
         
         
-        //save the data element into StringBuilder
+        //Save the data element into StringBuilder
         StringBuilder res = new StringBuilder();
-        res.append("/");
-        while(stack.size() > 0){
-            res.append(stack.removeLast());
-            if(stack.size() > 0){
-                res.append("/");
-            }
+        //When using this for-each loop to get an element from the stack, 
+        //it will start at the bottom of Stack(first in - first out)
+        while(!stack.isEmpty()){
+            res.append("/");
+            res.append(stack.pollLast());
         }
         
-        return res.toString(); //output the string format
+        //if there is "/../" ==> it res length is 0, and will return "/"
+        return res.length() > 0 ? res.toString() : "/"; //output the string format
     }
 }
 
