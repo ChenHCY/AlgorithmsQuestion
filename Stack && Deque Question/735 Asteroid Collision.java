@@ -60,7 +60,8 @@ class Solution {
                 stack.pop();
             } else if(stack.peek() < -asteroids[index]){
                 stack.pop();
-                continue;
+                //continue语句用于循环语句中，作用是不执行循环体剩余部分，直接进行下次循环。
+                continue; //Example: [-2,-2,1,-2]
             }
             index++;
         }
