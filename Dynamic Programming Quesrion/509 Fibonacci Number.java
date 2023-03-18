@@ -29,28 +29,31 @@ Constraints:
 0 <= n <= 30
 */
 
-/* 思路： 
-  
-DP method
-   1. Dp 数组 和 下标的含义：
-   2. 递推公式：
-   3. DP数组的初始化：
-   4. 确定遍历的顺序：
-   5. 举例推导DP数组：
+/* 思路： DP method
+        1. Dp 数组 和 下标的含义（dp[i] 定义为什么）：Fibonacci 数列中 第i个数字的值
+        2. 递推公式 (状态转移方程)： dp[i] = dp[i - 1] + dp[i - 2]
+        3. DP数组的初始化 (DP方程递推基础值)：dp[0] = 1  dp[1] = 1
+        4. 确定遍历的顺序：从递推公式中可以看出，遍历顺序一定是从前往后进行
+        5. 举例推导DP数组：验证DP方程是否附后题意
 */
 
 class Solution {
     public int fib(int n) {
+        //base case
         if(n <= 1){
             return n;
         }
 
+        // Dp 数组 和 下标的含义 （dp[i] 定义为什么）
         int[] dp = new int[n + 1];
+
+        //DP数组的初始化
         dp[0] = 0;
         dp[1] = 1;
 
+        //确定遍历的顺序
         for(int i = 2; i <= n; i++){
-            dp[i] = dp[i - 1] + dp[i - 2];
+            dp[i] = dp[i - 1] + dp[i - 2]; // 递推公式 (状态转移方程)
         }
 
         return dp[n];
