@@ -83,32 +83,32 @@ class Solution {
     public int shortestSubarray(int[] nums, int k) {
         int minLength = Integer.MAX_VALUE;
         int n = nums.length;
-        Deque<Integer> deque = new LinkedList<>(); //Deque 是 先进后出
+        Deque<Integer> deque = new LinkedList<>();
         long[] prefixSum = new long[n + 1];
 
-        deque.offerLast(0); //every time add in the last position of deque，放在最右边
-        
+        //first count the prefixsum of nums[] array
         for(int i = 0; i < n; i++){
-            //Save the prefixSum of every element in nums[] array
-            prefixSum[i + 1] = prefixSum[i] + nums[i];  // 因为需要求出子数组的和, 可以用前缀和预先处理, 方便查找子数组的和
+            prefixSum[i + 1] = prefixSum[i] + nums[i];
+        }
 
-            //renew the dequeu element and deleate the element not need it ==> 保证deque的单调递增，
-            //已知 A < B < endRangePointer, 如果可以找到 A前缀和 >= B前缀和，那么 endRangePointer - B前缀和 >= endRange - A前缀和 更有可能 >= K  
-            //所以说明 B作为起点的subarray，sum更大，长度也更短 ==> 所以删除之前保留在deque里面的A点值
-            while(!deque.isEmpty() && prefixSum[deque.peekLast()] >= prefixSum[i + 1]){
+        //main travser
+        //renew the dequeu element and deleate the element not need it ==> 保证deque的单调递增，
+        //已知 A < B < endRangePointer, 如果可以找到 A前缀和 >= B前缀和，那么 endRangePointer - B前缀和 >= endRange - A前缀和 更有可能 >= K  
+        //所以说明 B作为起点的subarray，sum更大，长度也更短 ==> 所以删除之前保留在deque里面的A点值
+        for(int i = 0; i < prefixSum.length; i++){
+            long currSum = prefixSum[i]; //get the frist sum element
+            while(!deque.isEmpty() && prefixSum[deque.peekLast()] >= currSum){
                 deque.pollLast(); //所以需要一个单调队列来存放, 遍历到比队列尾对应的前缀和小的时候, 弹出队尾
             } //因为Deque里面储存的计算前缀和的坐标，我们希望找到一个，坐标更新，值越小的index。
 
-            // deque.offerLast(0); So i in the nums[] array means i+1 in prefixSum array
-            deque.offerLast(i + 1); //因为deque已经存在了一个0， 所以nums[]中的坐标i 意味着 prefirxSum[]中的 i+1坐标
-
             //renew the min length of Shortest Subarray  with Sum at Least K
-            while (!deque.isEmpty() && prefixSum[i + 1] - prefixSum[deque.peekFirst()] >= k) {
-                minLength = Math.min(minLength, i - deque.peekFirst() + 1);
+            while(!deque.isEmpty() && currSum - prefixSum[deque.peekFirst()] >= k){
+                minLength = Math.min( minLength, i - deque.peekFirst());
                 deque.pollFirst(); //used for check all the element in deque list
             }
+            deque.offerLast(i);
         }
-     
+
         //最后需要判断是否存在结果满足 k
         return minLength == Integer.MAX_VALUE ? -1 : minLength;
     }
