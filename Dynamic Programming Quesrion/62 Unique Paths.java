@@ -23,10 +23,20 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
 Constraints:
 1 <= m, n <= 100
 */
+
+
+ /* 思路： DP method
+        1. Dp 数组 和 下标的含义：每到达一个格子可能存在的路径情况
+        2. 递推公式：因为机器人只能向下 和 向右移动, 所以：
+            a. dp[i][0] = 1  && dp[0][j] = 1 ==> 第一行 和 第一列的情况
+            b. dp[i][j] = dp[i][0] + dp[0][j]; ==> 其他的格子情况(非第一行第一列) ==> dp[i][j] = dp[i][j - 1] + dp[i - 1][j];
+        3. DP数组的初始化：dp[0][0] = 1; 因为机器人从左上第一个格子开始走，所以开始就是一种情况
+        4. 确定遍历的顺序：从前往后遍历
+        5. 举例推导DP数组：
+*/
+
 class Solution {
     public int uniquePaths(int m, int n) {
-        int[][] dp = new int[m][n]; // Dp state: represents the maximum number of paths 
-      
         // i is row, j is colum
         /*Dp function: 1. through first row or first colum
                        dp[i][j] = dp[0][j] ==> i = 0 first row only one path
@@ -36,22 +46,26 @@ class Solution {
                        dp[i][j] = dp[i][j-1] ==> right direction
         */
       
-        // The robot is initially located at the top-left corner (i.e., grid[0][0]). 
-        dp[0][0] = 1; // Dp Initialize start position 
-        
-        //Traverse all the path solution
+        int[][] dp = new int[m][n];
+
+        //第一行
         for(int i = 0; i < m; i++){
-            for(int j = 0; j < n; j++){
-                // For the first row dp[0][j], or the first column dp[i][0], there is only one path.
-                if(i == 0 || j == 0){
-                    dp[i][j] = 1; //so it means that the path is always one
-                } else{ //The robot can only move either down or right at any point in time.
-                    dp[i][j] = dp[i-1][j] + dp[i][j-1];
-                }
-            }
+            dp[i][0] = 1;
+        }
+
+        //第一列
+        for(int j = 0; j < n; j++){
+            dp[0][j] = 1;
         }
         
-        return dp[m-1][n-1]; // Dp answer: The robot tries to move to the bottom-right corner
+        //其他的格子情况(非第一行第一列)
+        for(int i = 1; i < m; i++){
+            for(int j = 1; j < n; j++){
+                dp[i][j] = dp[i - 1][j] + dp[i][j-1];
+            }
+        }
+
+        return dp[m - 1][n - 1];
     }
 }
 
