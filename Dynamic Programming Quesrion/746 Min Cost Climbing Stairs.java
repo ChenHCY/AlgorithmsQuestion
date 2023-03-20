@@ -44,25 +44,31 @@ Constraints:
  dp[i] = cost[i] + Math.min(dp[i-1], dp[i-2]); ==》 每一层加上的一定是当前层前两级阶梯的最小值
 
 */
-//Time: O(n)  Space: O(n)
+
+
 class Solution {
     public int minCostClimbingStairs(int[] cost) {
+    /* 思路： DP method
+        1. Dp 数组 和 下标的含义：每达到一个楼梯需要的最少花费
+        2. 递推公式：dp[i] = Math.min(dp[i-2], dp[i-1]) + cost[i]
+        3. DP数组的初始化：dp[0] = cost[0]   /  dp[1] = cost[1]
+        4. 确定遍历的顺序：从前往后进行遍历
+        5. 举例推导DP数组
+     */
+
         if(cost.length == 0){
             return 0;
         }
 
-        //call dp 
         int[] dp = new int[cost.length];
-        dp[0] = cost[0]; // the 0th step
-        dp[1] = cost[1]; // the 1th step
+        dp[0] = cost[0];
+        dp[1] = cost[1];
 
-        //travser all the steps from cost start at 2th step
         for(int i = 2; i < cost.length; i++){
-            //beacuse can climb one or two steps. so need judge and find the minvalue step
-            dp[i] = cost[i] + Math.min(dp[i-1], dp[i-2]);
-        } 
+            dp[i] = Math.min(dp[i - 2], dp[i - 1]) + cost[i];
+        }
 
-        //beacuse can climb one or two steps. so need judge and find the minvalue step
         return Math.min(dp[cost.length - 1], dp[cost.length - 2]);
+
     }
 }
