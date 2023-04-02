@@ -35,6 +35,13 @@ Data Structures and Algorithms Question and OA Question review
  
 详细连接：http://www.hangdaowangluo.com/archives/2979
 
+
+ # String.contains() function
+ 
+ 可以直接用来在一个string中查找是否存在另外一个string。
+ 
+==> String temp = "01"; ==> "0" + temp "1" = "0011"
+
  # What is a JavaScript event loop?
 The event loop is an architectural design pattern that allows code to run asynchronously on the javascript engines and makes it possible for code to execute blocking instructions first and when available execute asynchronous functions
 
