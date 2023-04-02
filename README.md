@@ -36,9 +36,9 @@ Data Structures and Algorithms Question and OA Question review
 详细连接：http://www.hangdaowangluo.com/archives/2979
 
 
- # String.contains() function
+ # String.contains() in Java / String.includes() in JavaScript
  
- 可以直接用来在一个string中查找是否存在另外一个string。
+ 这两个function可以直接用来在一个string中查找是否存在另外一个string。
  
 ==> String temp = "01"; ==> "0" + temp "1" = "0011"
 
