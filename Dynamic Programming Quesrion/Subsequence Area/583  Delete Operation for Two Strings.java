@@ -48,6 +48,17 @@ word1 and word2 consist of only lowercase English letters.
     5. 举例推导DP数组
 */
 
+
+/*     复杂度分析
+时间复杂度：O(mn)，其中 m 和 n 分别是字符串 text 1 和 text 2 的长度。
+==> 二维DP的计算有m+1 和 n+1 行， 需要对于DP中的每一个元素都进行计算
+
+空间复杂度：O(mn)，其中 m 和 n 分别是字符串 text 1 和 text 2 的长度。
+==> 二维DP的计算有m+1 和 n+1 行， 需要对于DP中的每一个元素都进行储存
+
+GitBook: 详细分析
+*/
+
 class Solution {
     public int minDistance(String word1, String word2) {
         int m = word1.length();
