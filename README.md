@@ -35,6 +35,13 @@ Data Structures and Algorithms Question and OA Question review
  
 详细连接：http://www.hangdaowangluo.com/archives/2979
 
+# Subsequence vs Substring vs Subarray
+
+Subsequence(子序列): 子序列是一个字符序列，这些字符可能不连续，但出现的顺序与它们在原始字符串中出现的顺序相同。 ==> 子序列是保留其元素顺序的序列的子集。
+
+Substring(子字符串): 子字符串是字符串中连续的字符序列。==> 子字符串是较大字符串中字符的连续子集。
+
+Subarray(子数组):  子数组是数组的连续部分。==> 子数组是数组中元素的连续子集。
 
  # String.contains() in Java / String.includes() in JavaScript
  
