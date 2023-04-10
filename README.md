@@ -134,6 +134,8 @@ The push operation adds an element at the top of the stack, and the pop operatio
 
 1. Java HashMap getOrDefault(): this method returns the specified default value if the mapping for the specified key is not found in the hashmap. Otherwise, the method returns the value corresponding to the specified key.
 
+2. Java HashMap map.entrySet()：HashMap is a data structure that stores data in key-value pairs. The entrySet() method in HashMap returns a set of all the key-value pairs in the map. ==》 entrySet()中的方法返回HashMap映射中所有键值对的集合。
+
 # What is the difference between ++ i and ++ i?
 (Leetcode 1656. Design an Ordered Stream (OOD Question)) 
 
