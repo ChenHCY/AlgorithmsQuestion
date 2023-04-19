@@ -65,6 +65,7 @@ For Example: nums1 index is 0,  nums2 index: 1
 4. 依次进行，进行 k 轮。 ==》 最后得到nums1[] 和 nums2[] 能组成的前K对小的组合
 */
 
+//Time: O(klogk)  Space: O(k)
 class Solution {
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> res = new ArrayList<>();
