@@ -50,7 +50,7 @@ class Solution {
 
 
 //Solution 2: 归并排序 Used PriorityQueue 优先队列 来对于 matrix中的值进行排序
-//每行都拿出来一个，然后依次进行比较
+//每行都拿出来一个，然后依次进行比较 ==> 每次K值减1 /当k==0的时候，表示这个数字就是matrix中第kth小的数字
 // 时间复杂度：O(klogn)，归并 k 次，每次堆中插入和弹出的操作时间复杂度均为 logn。
 // 空间复杂度：O(n)，堆的大小始终为 n。
 class Solution {
