@@ -51,6 +51,8 @@ The depth of the tree will not exceed 10.
  *     }
  * }
  */
+
+//Time: O(n)   Space: O(1)
 class Solution {
     public int sumNumbers(TreeNode root) {
         int res = dfsCountSum(root, 0);
