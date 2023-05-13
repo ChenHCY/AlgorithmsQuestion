@@ -55,22 +55,24 @@ class Solution {
 //Correct solution: ===> Time: O(n)  Space: O(N)
 class Solution {
     public int[] productExceptSelf(int[] nums) {
-        int[] res = new int[nums.length];
-        int left = 1;
+        int n = nums.length;
+        int[] res = new int[n];
+        res[0] = 1;
         int right = 1;
-        
-        //Left product lists:
-        for(int i = 0; i < nums.length; i++){
-            res[i] = left;
-            left *= nums[i];
+
+        //首先从左往右遍历一次，进行乘法
+        //==》计算当前number，左边的部分的乘法
+        for(int i = 1; i < nums.length; i++){
+            res[i] = res[i - 1] * nums[i - 1];
         }
-        
-        //right product lists:
-        for(int i = nums.length - 1; i >= 0; i--){
-            res[i] *= right;
-            right *= nums[i];
+
+        //再从右往左遍历一次，进行乘法
+        //==》计算当前number, 右边部分的乘法
+        for(int j = n - 1; j >= 0; j--){
+            res[j] *= right;
+            right *= nums[j];
         }
-        
+
         return res;
     }
 }
