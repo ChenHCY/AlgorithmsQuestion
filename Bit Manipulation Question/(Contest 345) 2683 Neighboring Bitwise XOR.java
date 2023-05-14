@@ -41,6 +41,9 @@ n == derived.length
 The values in derived are either 0's or 1's
 */
 
+//==> Bitwise XOR(^)： 二进制运算符，在coding中用"^"表示。返回输入值的异位。
+//==> 一样数字的返回 '0' / 不一样的数字返回 '1'
+
 //Solution 1: 首先通过相邻位置的异运算XOR，根据derived[]生成对应的original[]
 //然后在验证这个original[] XOR异运算之后 得到的derived是否一样 ==》一样 return true / 不一样 return false
 //Time: O(n) Space: O(n)
@@ -69,7 +72,8 @@ class Solution {
 
 //Solution 2: 
 //首先假设 original[] = [a,b,c,d,e], 所以t derived[] = [a ^ b, b ^ c, c ^ d, d ^ e, e ^ a]
-//因为 a ^ b ^ b ^ c ^ c ^ d ^ d ^ e ^ e ^ a = 0
+//因为 Bitwise XOR(^)： 二进制运算符,  一样数字的返回 '0' / 不一样的数字返回 '1'
+//所以对于 derived[]  全部数字进行XOR异运算， a ^ b ^ b ^ c ^ c ^ d ^ d ^ e ^ e ^ a = 0
 // ==》 所以如果我们对于 derived[]  全部数字， 使用XOR的进行异运算，总的结果应该为0
 //Time: O(1)  Space: O(1)
 class Solution {
