@@ -2,6 +2,19 @@
 
 Data Structures and Algorithms Question and OA Question review
 
+# Bit Manipulation in Java
+==> Bitwise XOR(^)： 二进制运算符，在coding中用"^"表示。返回输入值的异位。
+
+`一样数字的返回 '0' / 不一样的数字返回 '1'`
+
+For Example: original[] = [a,b,c,d,e], 所以 derived[] = [a ^ b, b ^ c, c ^ d, d ^ e, e ^ a]
+
+==> 因为 Bitwise XOR(^)： 二进制运算符,  一样数字的返回 '0' / 不一样的数字返回 '1'
+
+==> 所以对于 derived[]  全部数字进行XOR异运算， a ^ b ^ b ^ c ^ c ^ d ^ d ^ e ^ e ^ a 都有重复的，答案应该为 0
+
+==> 所以如果我们对于 derived[]  全部数字， 使用XOR的进行异运算，总的结果应该为0
+
 # 二叉树的前序 中序 后序 遍历。递归方法
 
 1. Binary Tree Preorder Traversal (DLR)：
