@@ -46,14 +46,18 @@ All the values of primes are unique and sorted in ascending order.
     ==> 在超级丑数列表上前进，一开始都在下标 0，然后 每一次可能选出多干个指针, 让它们各前进一步，不回头。
     
     如果下一个超级丑数要选择 primes[j] 作为质因数，基于之前的哪一个丑数，选过之后就移到下一个丑数（不能移到下下一个，因为下下一个肯定更大）。
+ 
+ Leetcode: https://leetcode.cn/problems/super-ugly-number/solution/dong-tai-gui-hua-java-by-liweiwei1419-1yna/
 */
 //Time: O(n*m) n是需要输出的第nth个丑数 m是primes[]的长度
 //Space: O(n + m) bucketSort[] array是m size的空间复杂度， DP队列是n size的空间复杂度 ==》所以总的是 O (n + m)
 class Solution {
     public int nthSuperUglyNumber(int n, int[] primes) {
         //ugly number的特性，每次最小的数 * primes number里面的数 得到的数一定是ugly number
-        int pLength = primes.length;
-        //空间复杂度m, m是primes[]的长度
+        int pLength = primes.length;  //空间复杂度m, m是primes[]的长度
+     
+         //相当于每个primens中number element都有自己单独的指针poingter 来统计使用的次数，
+        // 从而确认这个primes number产生的下一个值需要基于dp的index,
         int[] bucketSort = new int[pLength]; //buckSort 用来统计primes中的每个number 使用的次数
       
 
