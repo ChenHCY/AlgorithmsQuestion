@@ -43,8 +43,11 @@ class Solution {
         //删除掉这个桶中的首字母，如果长度为1，表示当前string是string s的子字符串
         //如果长度不为1，删除掉首字母之后，再次根据新的首字母放入对应的桶中
         for(char c : s.toCharArray()){
+            // 在JAVA 10中 引入了 “var” key words，可以自动判断数据类型
+            // 所以在这里也可以写成 var pq = stack[c - 'a']; 也是取出对应队列的string
             Deque<String> pq = stack[c - 'a']; //根据首字母 取出对应桶中所有的string
-            for(int i = pq.size(); i > 0; i--){
+            
+         for(int i = pq.size(); i > 0; i--){
                 //拿出桶中的第一个string
                 String tempStr = pq.pollFirst();
                 //如果这个string只剩下一个字母，一定是string s的substring
