@@ -17,6 +17,12 @@ For Example: original[] = [a,b,c,d,e], 所以 derived[] = [a ^ b, b ^ c, c ^ d, 
 
 # 二叉树的前序 中序 后序 遍历。递归方法
 
+前序遍历：打印 - 左 - 右
+中序遍历：左 - 打印 - 右
+后序遍历：左 - 右 - 打印
+
+==》递归的思路：
+
 1. Binary Tree Preorder Traversal (DLR)：
    1. Visit the root node 
    2. Visit the left node
@@ -24,7 +30,7 @@ For Example: original[] = [a,b,c,d,e], 所以 derived[] = [a ^ b, b ^ c, c ^ d, 
    
 先序遍历可以想象成，从树根开始绕着整棵树的外围转一圈，经过结点的顺序就是先序遍历的顺序先序遍历结果
 
-==》从根节点开始，根节点 -> 左节点 -> 右节点  
+==》从根节点开始，根节点 -> 左节点 -> 右节点  ==> 前序遍历：打印 - 左 - 右
   
 2. Binary Tree Inorder Traversal (LDR)：
    1. Visit the left node 
@@ -33,7 +39,7 @@ For Example: original[] = [a,b,c,d,e], 所以 derived[] = [a ^ b, b ^ c, c ^ d, 
 
 中序遍历可以想象成，按树画好的左右位置投影下来就可以了, 
 
-==》从左节点开始，左节点 -> 根节点 -> 右节点  
+==》从左节点开始，左节点 -> 根节点 -> 右节点  ==> 中序遍历：左 - 打印 - 右
 
 3. Binary Tree Postorder Traversal (LRD)：
    1. Visit the left node 
@@ -44,7 +50,7 @@ For Example: original[] = [a,b,c,d,e], 所以 derived[] = [a ^ b, b ^ c, c ^ d, 
 
 如果发现一剪刀就能剪下的葡萄（必须是一颗葡萄），就把它剪下来，组成的就是后序遍历了。
 
-==》从左节点开始，左节点 -> 右节点 -> 根节点
+==》从左节点开始，左节点 -> 右节点 -> 根节点 ==> 后序遍历：左 - 右 - 打印
  
 详细连接：http://www.hangdaowangluo.com/archives/2979
 
