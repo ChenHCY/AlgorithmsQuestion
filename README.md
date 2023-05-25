@@ -91,6 +91,24 @@ Substring(子字符串): 子字符串是字符串中连续的字符序列。==> 
 
 Subarray(子数组):  子数组是数组的连续部分。==> 子数组是数组中元素的连续子集。
 
+# String.contains() in Java / String.includes() in JavaScript
+ 
+这两个function可以直接用来在一个string中查找是否存在另外一个string。
+
+==> String temp = "01"; ==> "0" + temp + "1" = "0011"
+
+```JavaScript
+//String.contains(): ==> boolean contains(CharSequence sequence)
+String str = "Hello, world!";
+boolean containsWorld = str.contains("world");
+System.out.println(containsWorld); // Output: true
+
+//String.includes(): ==> str.includes(searchString [, position]) ==> `position`参数指定字符串中开始搜索的位置
+const str = "Hello, world!";
+const containsWorld = str.includes("world");
+console.log(containsWorld); // Output: true
+```
+
  # Java HashMap computeIfAbsent() 方法 (DFS / Leetcode 1443)
 computeIfAbsent() 方法对 hashMap 中指定 key 的值进行重新计算，如果不存在这个 key，则添加到 hashMap 中。
 
