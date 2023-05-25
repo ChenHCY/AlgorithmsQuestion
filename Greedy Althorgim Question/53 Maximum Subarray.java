@@ -21,6 +21,15 @@ Constraints:
 Follow up: If you have figured out the O(n) solution, try coding another solution using the divide and conquer approach, which is more subtle.
 */
 
+/*
+所以如果当我们在array[]中遇到负数时，一定是拉低sum的 ==> 这就是贪心贪的地方
+
+==> 局部最优：当前“连续和”为负数的时候立刻放弃，从下一个元素重新计算“连续和”
+
+==> 推导到的全局最优：选取最大“连续和”
+
+*/
+
 //Time: O(N)  Space: O(1)
 class Solution {
     public int maxSubArray(int[] nums) {
