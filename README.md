@@ -5,6 +5,8 @@ Data Structures and Algorithms Question and OA Question review
 # Memorize Search && Dynamic Programming
 (Leetcode 10. Regular Expression Matching && Leetcode 1048. Longest String Chain)
 
+==> 记忆化搜索就是保存函数的计算结果，下次通过相同的参数访问时直接返回保存的结果。
+
 1. Memorize Search: Memorize Search means saving the calculation result of the function, and returning the saved result directly when accessing through the same parameter next time.
 
 Memoized search can often reduce exponential time complexity down to a polynomial level.
