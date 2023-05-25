@@ -91,17 +91,6 @@ Substring(子字符串): 子字符串是字符串中连续的字符序列。==> 
 
 Subarray(子数组):  子数组是数组的连续部分。==> 子数组是数组中元素的连续子集。
 
- # String.contains() in Java / String.includes() in JavaScript
- 
- 这两个function可以直接用来在一个string中查找是否存在另外一个string。
- 
-==> String temp = "01"; ==> "0" + temp "1" = "0011"
-
- # What is a JavaScript event loop?
-The event loop is an architectural design pattern that allows code to run asynchronously on the javascript engines and makes it possible for code to execute blocking instructions first and when available execute asynchronous functions
-
-事件循环是一种架构设计模式，它允许代码在 javascript 引擎上异步运行，并使代码可以先执行阻塞指令，并在可用时执行异步函数
-
  # Java HashMap computeIfAbsent() 方法 (DFS / Leetcode 1443)
 computeIfAbsent() 方法对 hashMap 中指定 key 的值进行重新计算，如果不存在这个 key，则添加到 hashMap 中。
 
