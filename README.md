@@ -2,6 +2,33 @@
 
 Data Structures and Algorithms Question and OA Question review
 
+# Memorize Search && Dynamic Programming
+(Leetcode 10. Regular Expression Matching && Leetcode 1048. Longest String Chain)
+
+1. Memorize Search: Memorize Search means saving the calculation result of the function, and returning the saved result directly when accessing through the same parameter next time.
+
+Memoized search can often reduce exponential time complexity down to a polynomial level.
+
+2. Memorize Search = Dynamic Programming: 
+
+a. Memoized search is an implementation method of dynamic programming.
+
+b. Memoized search implements dynamic programming by means of search. 
+
+c: 1. Dp State: Use f[i] or f[i][j] to represent the answer to a smaller problem under certain conditions
+
+   2. Dp Initialize: Dp start position ==> Like dp[0] = 0
+   
+   3. Dp function: the calculate function of Dp. Like:
+   f[i][j] = Derive by finding max / min / sum / or of some smaller state
+   
+   4. Dp return: return the dp result. Like: such as f[n][m] or max(f[n][0], f[n][1] … f[n][m])
+  
+# Dp Time Complexity:
+一维动态规划时间复杂度一般有 O(n) 和 O(n^2) 两种，时间复杂度取决于状态转移方程。
+
+如果第i个状态的确定需要利用前i-1个状态，即dp[i]由dp[i-1],dp[i-2],...,dp[0]的取值共同决定，那么此时的时间复杂度为O(n^2)。
+
 # Bit Manipulation in Java
 ==> Bitwise XOR(^)： 二进制运算符，在coding中用"^"表示。返回输入值的异位。
 
@@ -203,33 +230,6 @@ PS: LinkedList<int[]> list = new LinkedList<>();
 递归: 递归是一个树结构，从字面可以其理解为重复“递推”和“回归”的过程，当“递推”到达底部时就会开始“回归”，其过程相当于树的深度优先遍历。
 
 迭代：迭代是一个环结构，从初始状态开始，每次迭代都遍历这个环，并更新状态，多次迭代直到到达结束状态。
-
-# Memorize Search && Dynamic Programming
-(Leetcode 10. Regular Expression Matching)
-
-1. Memorize Search: Memorize Search means saving the calculation result of the function, and returning the saved result directly when accessing through the same parameter next time.
-
-Memoized search can often reduce exponential time complexity down to a polynomial level.
-
-2. Memorize Search = Dynamic Programming: 
-
-a. Memoized search is an implementation method of dynamic programming.
-
-b. Memoized search implements dynamic programming by means of search. 
-
-c: 1. Dp State: Use f[i] or f[i][j] to represent the answer to a smaller problem under certain conditions
-
-   2. Dp Initialize: Dp start position ==> Like dp[0] = 0
-   
-   3. Dp function: the calculate function of Dp. Like:
-   f[i][j] = Derive by finding max / min / sum / or of some smaller state
-   
-   4. Dp return: return the dp result. Like: such as f[n][m] or max(f[n][0], f[n][1] … f[n][m])
-  
-# Dp Time Complexity:
-一维动态规划时间复杂度一般有O(n)和O(n^2)两种，时间复杂度取决于状态转移方程。
-
-如果第i个状态的确定需要利用前i-1个状态，即dp[i]由dp[i-1],dp[i-2],...,dp[0]的取值共同决定，那么此时的时间复杂度为O(n^2)。
    
 # Breadth-first search Algorithm：
 BFS 的核心思想就是把一些问题解空间抽象在一个图中，从一个点开始，向四周开始扩散。
