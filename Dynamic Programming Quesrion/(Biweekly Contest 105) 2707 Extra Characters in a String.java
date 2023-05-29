@@ -27,6 +27,8 @@ dictionary[i] and s consists of only lowercase English letters
 dictionary contains distinct words
 */
 
+//This question is similar to Leetcode 139. Word Break
+
 class Solution {
     public int minExtraChar(String s, String[] dictionary) {
         int n = s.length();
