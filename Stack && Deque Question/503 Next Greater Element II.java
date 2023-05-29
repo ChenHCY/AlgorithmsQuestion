@@ -25,7 +25,7 @@ Constraints:
 1 <= nums.length <= 10^4
 -10^9 <= nums[i] <= 10^9
 */
-
+//Time: O(n)  Space: O(n)
 class Solution {
     public int[] nextGreaterElements(int[] nums) {
         //通过 % 的方式 来达到循环搜索的效果
