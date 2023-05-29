@@ -32,7 +32,7 @@ class Solution {
         int n = s.length();
         
         //Need Used DP method
-        //it saved whether the character from string s have used in dictionary
+        //这里面存储的是String s除开dictionary[]以外，还剩余的字符数量
          int[] dp = new int[s.length() + 1];
 
         HashSet<String> set = new HashSet<>();
