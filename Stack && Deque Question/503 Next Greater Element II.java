@@ -43,6 +43,7 @@ class Solution {
         for(int i = 0; i < n * 2; i++){
            //当单调栈里面存在数字的index，并且对应的数字小于目前的数字
            //则使用这个index在res[]中完成更新
+         //使用while, 存在间隔很多天才获得更大值的情况。所以进行更新时，要更新当前stack里面的所有index值
             while(!stack.isEmpty() && nums[stack.peekLast()] < nums[i % n]){
                 //System.out.println(stack.peek());
                 res[stack.pollLast()] = nums[i % n]; 
