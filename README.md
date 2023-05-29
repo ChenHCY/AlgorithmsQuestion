@@ -44,6 +44,18 @@ For Example: original[] = [a,b,c,d,e], 所以 derived[] = [a ^ b, b ^ c, c ^ d, 
 
 ==> 所以如果我们对于 derived[]  全部数字， 使用XOR的进行异运算，总的结果应该为0
 
+# Arrays.stream(nums).max().getAsInt() in Java
+==> 以 int 形式提供 nums 数组中的最大值。 如果数组为空，它将抛出 NoSuchElementException。
+
+==> 此表达式轻松更简单的查找 nums整数数组中的最大integer值。
+
+1. `Arrays.stream(nums)`：这部分从 nums 数组创建一个stream。 Arrays.stream() 方法用于将数组转换为stream，允许对其元素执行各种操作。
+
+2.  `max()`: 此方法在流上调用并返回表示stream中最大元素的 OptionalInt。方法比较流中的元素并返回最大值。
+
+3. `getAsInt()`：此方法在 max() 返回的 OptionalInt 对象上调用。 它从 OptionalInt 中检索值（如果存在）并将其作为 int 返回。 
+==> 如果 OptionalInt 为空（即，在流中未找到最大值），它会抛出 NoSuchElementException。 但是，如果您确信流包含至少一个元素，则可以安全地调用 getAsInt()。
+
 # 二叉树的前序 中序 后序 遍历。递归方法
 
 ·前序遍历：打印 - 左 - 右
