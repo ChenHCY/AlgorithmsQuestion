@@ -50,6 +50,9 @@ root is a valid binary search tree.
  *     }
  * }
  */
+
+//Time: O(h) h is the height of Binary Search Tree root
+//Space: O(1)
 class Solution {
     //此题在一个Binary Tree中删除指定的节点值
     public TreeNode deleteNode(TreeNode root, int key) { 
