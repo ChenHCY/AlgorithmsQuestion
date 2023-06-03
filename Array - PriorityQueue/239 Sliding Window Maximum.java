@@ -35,6 +35,7 @@ Constraints:
 */
 
 //PriorityQueue 优先队列可以自动按照单调递减进行排序
+//Time: O(nlogn)  Space: O(n)
 class Solution {
     //此题是输出一个array里面 从左往右。每一个长度为K的滑动窗口最大值，每次滑动一位
     // ArrayDeque + 单调栈 
