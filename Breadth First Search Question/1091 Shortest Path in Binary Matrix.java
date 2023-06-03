@@ -59,7 +59,7 @@ class Solution {
 
         //BFS的解题模板，使用Queue进行层级分层,
         //Queue队列里面存储的是，grid[][] 对应的坐标
-        Queue<int[]> queue = new ArrayDeque<>();
+        Queue<int[]> queue = new LinkedList<>();
         queue.offer(new int[]{0, 0}); //放入起始点的坐标
 
         //起始点，(0, 0); 每个格子都是1个长度
