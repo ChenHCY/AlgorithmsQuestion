@@ -33,7 +33,7 @@ Constraints:
 -10^4 <= nums[i] <= 10^4
 1 <= k <= nums.length
 */
-
+//Time: O(n)  Space: O(n)
 class Solution {
     //此题是输出一个array里面 从左往右。每一个长度为K的滑动窗口最大值，每次滑动一位
     // ArrayDeque + 单调栈 
