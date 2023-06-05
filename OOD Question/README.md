@@ -1,5 +1,7 @@
 # Object Oriented Design (OOD)
 
+# The key concepts in OOD:
+
 1. Object(对象): 对象是表示具有 属性properties and 方法 methods 的 实体类(class).
 
 ==> Every object has its own state(变量), and can interact（交互）with 其他的 object
@@ -22,7 +24,7 @@
 
 ==> 使用Encapsulation (封装) 和 Polymorphism (多态性) 意味着，子类可以使用“area()”方法来找到该形状的面积公式。
 
-6. Abstraction (多态性):  Data abstraction is the process of hiding certain details and showing only essential information to the user.
+6. Abstraction (抽象):  Data abstraction is the process of hiding certain details and showing only essential information to the user.
 Abstraction can be achieved with either abstract classes or interfaces.
 
 ==> Java 中的抽象是向用户隐藏实现细节并仅向用户显示功能的过程。它可以通过使用抽象类、方法和接口来实现。抽象类是一个不能自己实例化的类，只能由具体类继承。
@@ -43,3 +45,23 @@ Abstraction can be achieved with either abstract classes or interfaces.
 
 ![7e1d1468388e856a40aca0b9324fd24](https://github.com/ChenHCY/AlgorithmsQuestion/assets/60770401/052cd68a-3078-4603-abe1-27144d46a903)
 
+# Each principle within the SOLID acronym
+1. Single Responsibility Principle (SRP): 单一职责原则 (SRP)指出一个class 应该只有一个改变的理由。 
+
+==> 这意味着一个class 应该有 single responsibility 或 purpose，而不应该负责多个不相关的 tasks。
+
+2. Open-Closed Principle (OCP): 开闭原则 (OCP) 规定软件实体（class、modules、function）应该对 extension open，对 modification修改关闭。 
+
+==> 这意味着可以在不修改其现有代码的情况下扩展软件组件的行为。
+
+3. Liskov Substitution Principle (LSP): Liskov 替换原则 (LSP) 指出superclass的 object 应该可以用其子类的对象替换，而不影响程序的正确性。
+
+==> 这意味着子类应该能够与其基类互换使用。 该原则确保继承层次结构的设计方式能够保留超类的行为契约。
+
+4. Interface Segregation Principle (ISP): 接口隔离原则 (ISP)：ISP 声明不应强迫客户端依赖于它们不使用的接口。 
+
+==> 这意味着不应强制类使用不需要的方法来实现接口。
+
+5. Dependency Inversion Principle (DIP): 依赖倒置原则（DIP）指出高层modules不应该依赖低层modules； 两者都应该依赖于Abstraction抽象。 
+
+==> 这意味着calss 应该依赖于 Abstraction抽象（interfaces or abstract classes), 而不是具体的实现(concrete implementations)。
