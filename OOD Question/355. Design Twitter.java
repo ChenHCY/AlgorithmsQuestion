@@ -45,6 +45,8 @@ At most 3 * 104 calls will be made to postTweet, getNewsFeed, follow, and unfoll
 ==》然后通过整合链表来达成getNewsFeed()的不同用户查看前10条推特的要求
 */
 
+//详细解释： https://leetcode.cn/problems/design-twitter/solution/mian-xiang-dui-xiang-she-ji-he-bing-k-ge-you-xu-li/
+
 class Twitter {
     //因为view the twitter 需要按时间排序，所以需要变量timeStamp来记录发帖时间
     private static int timeStamp = 0;
