@@ -1,4 +1,4 @@
-# Object Oriented Design (OOD)
+Object Oriented Design (OOD)
 
 # The key concepts in OOD:
 
