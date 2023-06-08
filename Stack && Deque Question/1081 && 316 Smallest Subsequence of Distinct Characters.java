@@ -1,4 +1,4 @@
-/* Leetcode 1081. Smallest Subsequence of Distinct Characters
+/* Leetcode 1081. Smallest Subsequence of Distinct Characters && 316. Remove Duplicate Letters
 
 Given a string s, return the lexicographically smallest
  
