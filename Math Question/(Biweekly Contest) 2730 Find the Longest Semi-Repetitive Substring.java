@@ -32,24 +32,33 @@ Constraints:
 1 <= s.length <= 50
 '0' <= s[i] <= '9'
 */
-
+//Time: O(N)  Space: O(1)
 class Solution {
     public int longestSemiRepetitiveSubstring(String s) {
-        int fre = 0;
-        int res = 0;
-        for(int i = 1; i < s.length(); i++){
-            if(fre < 1 && s.charAt(i) == s.charAt(i-1)){
-                fre++;
-            }
-            else if(fre == 1 && s.charAt(i) == s.charAt(i-1)){
-                res = i;
-                break;
-            }
-        }
+        int n = s.length();
+        int res = 1;
+        int left = 0;
+        int count = 0;
         
-        if(fre == 0){
-            return s.length();
+        //main for-loop
+        for(int right = 0; right < s.length(); right++){
+            //移动右指针 当遇到重复数字的时候，进行统计
+            if(right > 0 && s.charAt(right - 1) == s.charAt(right)){
+                count += 1;
+            }
+            //如果当前这个滑动窗口内有两对重复的数字
+            while(count > 1){
+                //移动左指针直到，里面只剩一个重复数字
+                if(right > left && s.charAt(left) == s.charAt(left + 1)){
+                    count -= 1;
+                }
+                left++;
+            }
+
+            //每次进行更新
+            res = Math.max(res, right - left + 1);
         }
+
         return res;
     }
 }
