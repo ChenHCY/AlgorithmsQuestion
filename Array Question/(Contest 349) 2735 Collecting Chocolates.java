@@ -28,3 +28,41 @@ Constraints:
 1 <= nums[i] <= 10^9
 1 <= x <= 10^9
 */
+
+class Solution {
+    //计算得到收集所有巧克力需要的最低成本, 可以进行一次操作来减小巧克力的收集成本
+    //第i种巧克力，不操作时的代价为nums[i]，
+    // 操作一次的代价为min(nums[i], nums[i-1])，操作两次的代价为min(nums[i], nums[i-1], nums[i-2])
+    public long minCost(int[] nums, int x) {
+        int n =nums.length;
+        long res =  Long.MAX_VALUE;
+        
+        //dp method: 储存的第i种巧克力经过第j次操作后，需要的成本
+        long[][] dp = new long[n][n];
+
+        for(int i = 0; i < n; i++){
+            //如果不进行任何操作，收集第i种巧克力的成本就是nums[i]
+            dp[i][0] = nums[i];
+            //然后计算第j次操作之后，收集巧克力的成本
+            for(int j = 1; j < n; j++){
+                dp[i][j] = Math.min(dp[i][j - 1], nums[(i - j + n) % n]);
+            }
+        }
+
+        //这里已经分别得到了每种巧克力，分别经过n此操作之后，需要的收集成本
+        for(int j = 0; j < n; j++){
+            long cost = 0; //收集所有巧克力的总成本
+            //i表示巧克力 j表示操作的次数
+            //统计每次操作之后，收集所有巧克力的总成本
+            for(int i = 0; i < n; i++){
+                cost += dp[i][j];
+            }
+            //j表示操作的次数
+            cost += (long) j * (long)x; //每次操作的损耗成本也要加入到总的收集成本中
+            //然后比较，找到最小的收集成本
+            res = Math.min(res, cost);
+        }
+
+        return res;
+    }
+}
