@@ -22,6 +22,7 @@ private class Node{
 
 1. 定义一个根结点root作为整棵树的查找起点。 `private Node root;`
 ```Java
+private Node root
 public Trie() {
     root = new Node(); 
 }
