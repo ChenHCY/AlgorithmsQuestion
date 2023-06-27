@@ -26,7 +26,8 @@ After applying operation [2, 4, 3]:
 After applying operation [0, 2, -2]:
 [-2, 0, 3, 5, 3 ]
 */
-
+// Time complexity: O(n + k), where n is the length, and k is the number of `updates[][]` operations.
+// Space complexity: O(n)
 public class Solution {
     /**
      * @param length: the length of the array
