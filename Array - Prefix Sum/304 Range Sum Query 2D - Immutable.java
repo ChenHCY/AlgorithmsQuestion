@@ -35,7 +35,8 @@ n == matrix[i].length
 0 <= col1 <= col2 < n
 At most 104 calls will be made to sumRegion.
 */
-
+//Time: O(n∗m) => 预处理前缀和数组需要对原数组进行线性扫描, 计算结果为O(1)
+//Space: O(n*m) => 创建了一个m * n长度的 二维前缀和数组
 class NumMatrix {
     // 「二维前缀和」解决的是二维矩阵中的矩形区域求和问题。
     int[][] PrefixSum; //对于 martix 中的建立前缀和
