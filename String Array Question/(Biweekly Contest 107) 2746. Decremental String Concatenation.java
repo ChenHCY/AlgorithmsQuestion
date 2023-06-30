@@ -48,3 +48,60 @@ Constraints:
 Each character in words[i] is an English lowercase letter
 */
 
+class Solution {
+    // 此题是对于一个长度为n的字符串数组，执行n - 1 次合并, 如果合并的连接处有相同的字母则消除
+    // 最后找到能组成的最短字符串长度
+    HashMap<String, Integer> map = new HashMap<>();
+
+    //dfs(i, first, last)的定义为，在words列表中，从第i+1个字符串到最后一个字符串 的字符串列表 
+    // 与「起始字符为first，结束字符为last」字符 join 时，能够贡献多少的最小join长度。
+
+    public int minimizeConcatenatedLength(String[] words) {
+        String word = words[0];
+        return dfs(words, 0,  word.charAt(0), word.charAt(word.length() - 1)) + word.length();
+    }
+
+    // ["cb","ac","a","b","a","abb","a","caa","aa"]
+    //dfs(i, first, last)  first是当前字符串的开头字母, last是当前字符串的最后一个字母 
+    public int dfs(String[] words, int index, char first, char last){
+        //exit condition
+        if(index == words.length - 1){
+            return 0; // 如果运行到了words[]数组的最后一个字符串
+        }
+        // 用index, first字符串, last字符串, 创建一个新的字符串 
+        String key = index + "," + first + "," + last;
+        if(map.containsKey(key)){
+            return map.get(key); //返回之前已经储存在hashmap中从first字符串到last字符串能组成的最小字符串长度
+        }
+
+        //开始进行合并
+        char[] nexts = words[index + 1].toCharArray(); //把第index+1个String字符串的字母组成array
+        int minLen = Integer.MAX_VALUE;
+
+        //如果当前字符串的最后一个字母 和 下一个字符串的第一个字母一样，且 拼接在一起时，则需要消除
+        //例子："ac"(index) + "cb""(index + 1) 拼接，拼接处字符相同时，贡献长度 就是 words[index + 1] "ac" 的长度减1
+        if(last == nexts[0]){ //每次传递到下一层时，要renew新的开头字母和结尾字母
+            minLen = Math.min(minLen, dfs(words, index + 1, first, nexts[nexts.length - 1]) + nexts.length - 1);
+        } else{
+        //如果当前字符串的最后一个字母 和 下一个字符串的第一个字母一样，但“没有”拼接在一起时，则不用消除
+        //例子："ac"(index) + "cb"(index + 1) 拼接，拼接处字符不相同时，贡献长度 就是 words[index + 1] "ac" 的长度
+            minLen = Math.min(minLen, dfs(words, index + 1, first, nexts[nexts.length - 1]) + nexts.length);
+            //每次传递到下一层时，要renew新的开头字母和结尾字母
+        }
+
+        //如果当前字符串的第一个字母 和 下一个字符串的最后一个字母一样，且拼接在一起时，则需要消除
+         //例子： "ac" + "cb" 拼接，拼接处字符相同时，贡献长度就是 words[index + 1]  "cb"的长度减1
+        if(first == nexts[nexts.length - 1]){
+            minLen = Math.min(minLen, dfs(words, index + 1, nexts[0], last) + nexts.length - 1);
+        } else{
+          //如果当前字符串的第一个字母 和 下一个字符串的最后一个字母一样，但“没有”拼接在一起时，则需要消除
+          //例子： "ac" + "cb" 拼接，拼接处字符不相同时，贡献长度就是 words[index + 1]  "cb"的长度
+            minLen = Math.min(minLen, dfs(words, index + 1, nexts[0], last) + nexts.length);
+        }
+        
+        //然后把得到的长度和对应的字符串 存入到HashMap中 方便后续查找
+        map.put(key, minLen);
+
+        return minLen; //输出最小的字符串长度
+    }
+}
