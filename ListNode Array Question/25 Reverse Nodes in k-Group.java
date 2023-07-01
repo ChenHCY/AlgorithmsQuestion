@@ -71,31 +71,34 @@ class Solution {
 //Solution 2: 
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
+        //base case, 如果当前区域的节点数只剩下一个，或 根本不存在这个节点
         if(head == null || head.next == null){
             return head;
         }
-        
+
         int count = 0;
-        ListNode current = head;
-        
-        //move the count-pointer and current listNode
-        while(count != k && current != null){
-            current = current.next;
+        ListNode curr = head;
+        //每次找到一个range, 里面包含k个节点
+        while(count != k && curr != null){
             count += 1;
+            curr = curr.next;
         }
         
         if(count == k){
-            current = reverseKGroup(current, k);
-            while(count > 0){
+            //下一个区域的链表节点
+            curr = reverseKGroup(curr, k);
+            
+            //反转当前这个range里面的链表节点
+            while(count > 0){ //因为有k个节点，所以反转k次
                 ListNode temp = head.next;
-                head.next = current;
-                current = head;
-                head = temp;
+                head.next = curr;
+                curr = head; //把下一个区域的节点curr 移动一位，继续反转
+                head = temp; //把当前区域的head节点，移动一位，继续反转
                 count--;
             }
-            head = current;
+            head = curr;
         }
-        
-        return head;
+
+        return head; //输出反转完成的链表
     }
 }
