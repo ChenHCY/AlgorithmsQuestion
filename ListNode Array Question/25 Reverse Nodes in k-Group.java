@@ -30,6 +30,45 @@ The number of nodes in the list is n.
  * }
  */
 
+//Solution 1: 
+class Solution {
+    public ListNode reverseKGroup(ListNode head, int k) {
+        //the base case
+        if(head == null){
+            return null;
+        }
+
+        ListNode a = head;
+        ListNode b = head;
+
+        for(int i = 0; i < k; i++){
+            if(b == null){
+                return head;
+            }
+            b = b.next; //移动b指针，直到range里面有k个节点
+        }
+
+        ListNode newHead = reverse(a, b); //反转当前range里面的节点
+        
+        a.next = reverseKGroup(b, k); // 递归反转后续链表并连接起来
+        
+        return newHead;
+    }
+    //Reverse the ListNode of range [a, b）
+    //反转 [a, b) 区域的 链表节点
+    private ListNode reverse(ListNode a, ListNode b){
+        ListNode pre = null;
+        while(a != b){
+            ListNode next = a.next;
+            a.next = pre;
+            pre = a;
+            a = next;
+        }
+        return pre;
+    }
+}
+
+//Solution 2: 
 class Solution {
     public ListNode reverseKGroup(ListNode head, int k) {
         if(head == null || head.next == null){
