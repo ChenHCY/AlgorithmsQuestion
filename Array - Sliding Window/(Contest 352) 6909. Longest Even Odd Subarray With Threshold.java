@@ -44,6 +44,8 @@ Constraints:
 1 <= threshold <= 100
 
 */
+//Solution 1： 枚举，计算每一个可能成为子数组开头 数字的最长符合要求长度，然后进行比较
+//Time: O(n^2)   Space: O(1)
 class Solution {
     public int longestAlternatingSubarray(int[] nums, int threshold) {
         int n = nums.length;
@@ -62,6 +64,34 @@ class Solution {
                 maxLen = Math.max(maxLen, currLen);
             }
         }
+        return maxLen;
+    }
+}
+
+//Solution 2: 分组循环，按照要求进行分组，然后找到每个分组内最大符合要求的子数组长度
+//Time: O(n)   Space: O(1)
+class Solution {
+    public int longestAlternatingSubarray(int[] nums, int threshold) {
+        int n = nums.length;
+        int maxLen = 0;
+        int i = 0;
+        //分组循环，[2 3 4 5 | 1 | 2 2 1 2] k = 6
+        while(i < n){
+            //不符合要求的数字
+            if(nums[i] % 2 != 0 || nums[i] > threshold){
+                i++;
+                continue;
+            }
+            int j = i;
+            int currLen = 1;
+            i += 1;
+            while(i < n && nums[i] % 2 != nums[i - 1] % 2 && nums[i] <= threshold){
+                currLen = i - j + 1;
+                i++;
+            }
+            maxLen = Math.max(maxLen, currLen);
+        }
+        
         return maxLen;
     }
 }
