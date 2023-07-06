@@ -161,6 +161,11 @@ int compare(T o1, T o2);
 ==> 简单来说：Comparator就是一个可以比较两个object顺序的接口，我们可以根据对象的特定属性或标准定义自己的比较逻辑。
 
 # Collections.sort and Comparator in Java 
+在此示例中，该Person class 具有 name 和 age属性。我们创建一个objet list: Person(people)，
+
+然后age使用 AgeComparator自定义 `Comparator` 实现根据属性对`objet list`进行排序
+
+=> 使得 object list(people list) 按照 age年龄 的升序进行排序
 ```Java
 public class Person {
     private String name;
