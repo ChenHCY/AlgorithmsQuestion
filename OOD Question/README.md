@@ -46,7 +46,7 @@ Abstraction can be achieved with either abstract classes or interfaces.
 ![7e1d1468388e856a40aca0b9324fd24](https://github.com/ChenHCY/AlgorithmsQuestion/assets/60770401/052cd68a-3078-4603-abe1-27144d46a903)
 
 # Each principle within the SOLID acronym
-1. Single Responsibility Principle (SRP): 单一职责原则 (SRP)指出一个class 应该只有一个改变的理由。 
+1. Single Responsibility Principle (SRP): 单一职责原则 (SRP) 指出一个class 应该只有一个改变的理由。 
 
 ==> 这意味着一个class 应该有 single responsibility 或 purpose，而不应该负责多个不相关的 tasks。
 
