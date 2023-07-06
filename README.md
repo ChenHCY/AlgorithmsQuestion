@@ -130,6 +130,67 @@ key - 键  /  remappingFunction - 重新映射函数，用于重新计算值
 
 For example: ==> hashmap.computeIfAbsent(start, value -> new ArrayList<Integer>()).add(end);
 
+
+# Collections.sort in JAVA
+Java中的方法 `Collections.sort()` 用于对 object list进行升序排序。它是java.util.Collections的一部分，提供了一种对实现该List接口的集合进行排序的便捷方法。
+
+`Collections.sort()` 方法将一个List对象作为输入，并根据元素的自然顺序对其进行升序排序。
+
+列表中的元素必须实现该`Comparator` interface 接口，该接口为对象可以让我们自定义顺序或条件对列表进行排序。
+
+==》`Collections.sort()` 方法就地修改原始列表，并且不会创建新的排序列表。
+
+# Java Comparator and compare() 
+In Java, the `Comparator` interface is used for custom object comparison.  在Java中，该Comparator接口用于自定义对象比较。
+
+`Comparator` interface 接口 有一个名为compare()的abstract method，该方法比较两个对象并返回一个整数值，指示它们的相对顺序。
+
+compare()的格式：
+```Jaca
+int compare(T o1, T o2);
+//T: represents the type of objects being compared.
+//The compare() method takes two objects o1 and o2 of type T
+
+//=> returns an integer value based on the comparison result:
+
+1. If o1 is considered less than o2, a negative integer is returned.
+2. If o1 is considered greater than o2, a positive integer is returned.
+3. If o1 is considered equal to o2, zero is returned.
+```
+
+==> 简单来说：Comparator就是一个可以比较两个object顺序的接口，我们可以根据对象的特定属性或标准定义自己的比较逻辑。
+
+# Collections.sort and Comparator in Java 
+```Java
+public class Person {
+    private String name;
+    private int age;
+
+    // constructor, getters, setters
+
+    public static void main(String[] args) {
+        List<Person> people = new ArrayList<>();
+        people.add(new Person("Alice", 25));
+        people.add(new Person("Bob", 30));
+        people.add(new Person("Charlie", 20));
+
+        System.out.println("Before sorting: " + people);
+
+        // Sort based on age using a custom Comparator
+        Collections.sort(people, new AgeComparator());
+
+        System.out.println("After sorting: " + people);
+    }
+}
+
+class AgeComparator implements Comparator<Person> {
+    @Override
+    public int compare(Person p1, Person p2) {
+        return p1.getAge() - p2.getAge();
+    }
+}
+```
+
  # Stack()的声明选择
  
  LinkedList ArrayDeque 都能作为stack的 声明 ==》时间使用比new Stack()更少 
@@ -196,7 +257,7 @@ The push operation adds an element at the top of the stack, and the pop operatio
 
 ==> When using this for-each loop to get an element from the stack, it will start at the bottom of Stack(first in - first out)
 
-# HashMap：
+# HashMap in JAVA
 (Linkcode 242. Valid Anagram  && Leetcode 137. Single Number II ) 
 
 1. Java HashMap getOrDefault(): this method returns the specified default value if the mapping for the specified key is not found in the hashmap. Otherwise, the method returns the value corresponding to the specified key.
