@@ -5,6 +5,8 @@ Trie树也称字典树，因为其效率很高，所以在在字符串查找、�
 
 定义结点Node里包含一个isWord(表示这个结点是否是一个单词的结尾)和一个大小为26的next。
 
+![Trie](https://github.com/ChenHCY/AlgorithmsQuestion/assets/60770401/5a07c857-7e11-46dc-a599-f71fcdd7b8fd)
+
 ==> 基础模板： 可以包含插入、查找和查找前缀三个方法。
 ```Java
 private class Node{
