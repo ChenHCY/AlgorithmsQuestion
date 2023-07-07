@@ -24,6 +24,16 @@ words[i] consists of lowercase English letters.
 All the strings of words are unique.
 */
 
+/* 此题是查找 words[]里面所有的字符串，有哪些是能在board上面查找到的
+
+所以我们对于 words[]里面所有的String字符串 来建立字典树Tire，
+
+然后DFS深度优先搜索 遍历board里面的每一个格子，检查是否存在于字典树中，然后向四个方向扩散能否到达字典树的底端 （形成需要的字符串）
+
+==》最后StirngBuilder 记录每一个能到达底端的字符串String, 存入结果list
+
+*/
+
 class Solution {
     class TrieNode {
         boolean isWord = false; //表示这个结点是否为一个单词的结尾
