@@ -37,7 +37,7 @@ All the strings of words are unique.
 class Solution {
     class TrieNode {
         boolean isWord = false; //表示这个结点是否为一个单词的结尾
-        TrieNode[] next = new TrieNode[26]; // next[]表示这个结点的下一个26个字母节点
+        TrieNode[] next = new TrieNode[26]; // next[]表示这个结点的下一个26个字母节点对应是数字
     }
 
     int[][] dirs = new int[][]{{-1, 0}, {1, 0}, {0, -1}, {0, 1}}; //dfs的移动方向
@@ -68,12 +68,12 @@ class Solution {
             char[] arr = word.toCharArray();
             TrieNode curr = root;
             for (char c : arr) {
-                 // 依次添加每个字母
-                 // 如果curr下一个结点中没有当前字符，则增加新结点到下一个next[pos]
-                if (curr.next[c - 'a'] == null) { //如果当前节点后面没有，则新开一个空间
-                    curr.next[c - 'a'] = new TrieNode();
+                // 依次添加每个字母 => 找到每个字母的index位置
+                // 如果当前字母的index位置 之前没有使用过, 把当前字母的index位置, 创建一个新的字典树节点
+                if (curr.next[c - 'a'] == null) { //如果当前字母的index位置 之前没有使用过
+                    curr.next[c - 'a'] = new TrieNode(); //把当前字母的index位置, 创建一个新的字典树节点
                 }
-                curr = curr.next[c - 'a']; //把所有的字母链接在一起 形成树状的字典树
+                curr = curr.next[c - 'a']; //移动当前节点指针到下一层
             }
             curr.isWord = true; //结束，标记正确的形成了一个字符串
         }
