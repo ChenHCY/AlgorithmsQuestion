@@ -83,7 +83,7 @@ class Solution {
     public int shortestSubarray(int[] nums, int k) {
         int minLength = Integer.MAX_VALUE;
         int n = nums.length;
-        Deque<Integer> deque = new LinkedList<>();
+        Deque<Integer> deque = new ArrayDeque<>(); //里面储存的是遍历数组的index坐标
         long[] prefixSum = new long[n + 1];
 
         //first count the prefixsum of nums[] array
@@ -97,15 +97,17 @@ class Solution {
         //所以说明 B作为起点的subarray，sum更大，长度也更短 ==> 所以删除之前保留在deque里面的A点值
         for(int i = 0; i < prefixSum.length; i++){
             long currSum = prefixSum[i]; //get the frist sum element
+
             while(!deque.isEmpty() && prefixSum[deque.peekLast()] >= currSum){
-                deque.pollLast(); //所以需要一个单调队列来存放, 遍历到比队列尾对应的前缀和小的时候, 弹出队尾
-            } //因为Deque里面储存的计算前缀和的坐标，我们希望找到一个，坐标更新，值越小的index。
+                deque.pollLast(); //所以需要一个单调队列来存放, 遍历到比队列尾对应的前缀和小的时候, 弹出队尾的index
+            } //因为Deque里面储存的计算前缀和的坐标，我们希望找到一个坐标更新: 区域值更大，但index值越小。
 
             //renew the min length of Shortest Subarray  with Sum at Least K
             while(!deque.isEmpty() && currSum - prefixSum[deque.peekFirst()] >= k){
                 minLength = Math.min( minLength, i - deque.peekFirst());
                 deque.pollFirst(); //used for check all the element in deque list
             }
+
             deque.offerLast(i);
         }
 
