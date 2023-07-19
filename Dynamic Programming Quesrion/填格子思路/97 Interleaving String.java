@@ -33,19 +33,20 @@ Output: true
  /* DP状态方程： dp[i,j] 表示 s1 前i个字符 能与 s2前j个字符 组成 s3 前 i+j 个字符；
         1. dp[0][0] = true; 前置格子标记为true
         
-        2. 检查和标记 String s1 中 和 String s3 一样的字母 
+        2. 初始化第一列 dp[i][0] 检查和标记 String s1 中 和 String s3 一样的字母 
         ==> if j = 0: dp[i][0] = s1[0-i) equals s3[0,i) 如果遇到false, 后面格子都为false
         
-        3. 检查和标记 String s2 中 和 String s3 一样的字母
+        3. 初始化第一行 dp[0][j] 检查和标记 String s2 中 和 String s3 一样的字母
         ==> if i = 0: dp[0][j] = s2[0-j) equals s3[0,j) 如果遇到false, 后面格子都为false
 
         4. 其他情况：遍历整个matrix，能否找到 一条从 左上 到达 右下 的 True 路径
-        ==> 到达任意一个点 (i，j):  => 可以是选择 s1[i-1] 到达, 从 [i-1,j）点 向下 移动一步 到 [i,j]
-                                  => 可以是选择 s2[j-1] 到达， 从 [i, j-1] 点 向右 移动一步 到 [i, j]
+        ==> 到达任意一个点 (i，j):  => 可以是选择 s1[i-1] 到达, 从 [i-1,j）点 向下 移动一步 到 [i,j] 
+                                  => 可以是选择 s2[j-1] 到达， 从 [i, j-1] 点 向右 移动一步 到 [i, j] 
         ==> 所以当前坐标[i, j]位置能否组成String s3: 
         dp[i][j] = (dp[i - 1][j] && s1.charAt(i - 1) == s3.charAt(i + j - 1)) || (dp[i][j - 1] && s2.charAt(i - 1) == s3.charAt(i + j - 1))
 */
-
+//思路： https://leetcode.cn/problems/interleaving-string/solution/lei-si-lu-jing-wen-ti-zhao-zhun-zhuang-tai-fang-ch/
+// 
 class Solution {
     //填格子的过程，检查String s1 和 s2 每一个字母 哪些是和String s3相等的
     //然后遍历整个matrix，能否找到 一条从 左上 到达 右下 的 True 路径
