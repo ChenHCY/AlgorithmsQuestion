@@ -46,7 +46,7 @@ class Solution {
         return checkBalance(root, min, max);
     }
 
-    //small function
+    //DFS function, 检查每个节点的值 是否 超过了二叉树的左小右大的特性 区间值
     public static boolean checkBalance(TreeNode root, long min, long max){
         if(root == null){
             return true;
