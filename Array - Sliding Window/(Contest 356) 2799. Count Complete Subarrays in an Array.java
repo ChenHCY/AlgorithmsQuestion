@@ -28,7 +28,7 @@ Constraints:
 1 <= nums[i] <= 2000
 
 */
-
+//子数组是不能截断，必须连续的数组
 class Solution {
     public int countCompleteSubarrays(int[] nums) {
         int n = nums.length;
