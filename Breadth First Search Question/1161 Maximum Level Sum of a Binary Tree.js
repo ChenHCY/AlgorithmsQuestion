@@ -42,7 +42,10 @@ The number of nodes in the tree is in the range [1, 10^4].
  */
 
 //Solution 1: 使用BFS宽度优先搜索, 对于二叉树进行分层遍历 ==> 计算每一个层级的节点，最多比较得到最大的层级总和sum 和 对应的层级level
-//Time: O(n)  Space: O(n)
+///Space: O(n) => 因为我们是对于二叉树的每一个层级进行遍历，也就是把每个层级的节点加入到Queue中 然后在一个一个提取出来，所以需要的最大的额外空间就是二叉树最后一层的节点数量2^h
+// ==> 因为二叉树的数量是和层级等比增大的： 1+2+4+8+...+2^h = n 使用等比队列求和(the sum of geometric sequence) 公式 => 2^(h+1) = n + 1 
+// ==> 2^(h+1) = n + 1  => 2^h * 2 = n + 1 => 2^h = (n+1) / 2 => 因为二叉树底层的node数量是2^h 所以使用n来形容空间复杂度就是 O((n+1)/2) => worst case: O(n)
+//Time: O(n)
 class Solution {
     public int maxLevelSum(TreeNode root) {
         if(root == null){
