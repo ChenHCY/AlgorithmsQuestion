@@ -35,6 +35,56 @@ grid.length == grid[i].length == 3
 Sum of grid is equal to 9.
 */
 
+//迭代写法
+//Time: O(3 ^ (n^2))
+//Space: O(n)
+class Solution {
+    public int minimumMoves(int[][] grid) {
+        int res = Integer.MAX_VALUE;
+        int count = 0; //记录grid里面没有石头的格子数量
+
+        //开始统计grid里面没有石头的格子数量
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if(grid[i][j] == 0){
+                    count++;
+                }
+            }
+        }
+
+        //the exit case, 如果没有了石头数量为0的格子了，不需要继续移动
+        if(count == 0){
+            return 0;
+        }
+
+        //主遍历：遍历整个grid 查找得到石头数量为0的格子
+        //然后再次遍历查找石头数量大于1的格子
+        // ==> 使用曼哈顿公式，计算需要移动步数
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                if(grid[i][j] == 0){
+                    for(int x = 0; x < 3; x++){
+                        for(int y = 0; y < 3; y++){
+                            if(grid[x][y] > 1){
+                                int dis = Math.abs(i - x) + Math.abs(j - y);
+                                grid[x][y]--;
+                                grid[i][j] = 1;
+                                res = Math.min(res, dis + minimumMoves(grid));
+                                grid[x][y]++;
+                                grid[i][j] = 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        return res;
+    }
+}
+
+
+//递归写法
 //Time: O(3 ^ (n^2))
 //Space: O(n)
 class Solution {
