@@ -51,7 +51,7 @@ Constraints:
 1 <= maxHeights[i] <= 10^9
 
 */
-
+//Time: O(n^2)   Space: O(1）
 class Solution {
     public long maximumSumOfHeights(List<Integer> maxHeights) {
         long res = 0;
