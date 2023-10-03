@@ -38,7 +38,8 @@ class Solution {
     public int alternatingSubarray(int[] nums) {
         int n = nums.length;
         int maxLen = Integer.MIN_VALUE;
-
+        
+        // i是起点，j是交替数组的结点
         for(int i = 0; i < n; i++){
             for(int j = i + 1; j < n && nums[j] - nums[i] == (j - i) % 2; j++){
                 maxLen = Math.max(maxLen, j - i + 1);
