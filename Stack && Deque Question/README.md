@@ -1,6 +1,6 @@
 # stack() in Java
 
-a. Stack is a legacy class in Java that represents a Last-In-First-Out (LIFO) stack of objects. **先进后出**
+a. `Stack` is a legacy class in Java that represents a Last-In-First-Out (LIFO) stack of objects. **先进后出**
 
 b. 内置函数
 · `push()`: to push an element onto the stack
