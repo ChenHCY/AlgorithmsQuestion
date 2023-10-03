@@ -1,3 +1,26 @@
+# stack() in Java
+
+a. Stack is a legacy class in Java that represents a Last-In-First-Out (LIFO) stack of objects. **先进后出**
+
+b. 内置函数
+· `push()`: to push an element onto the stack
+· `pop()`: to remove and return the top element
+· `peek()`: to view the top element without removing it 
+· `empty()`: to check if the stack is empty
+
+# ArrayDeque() in Java
+ArrayDeque is a more modern and versatile class for implementing stacks and queues in Java. **最常用的实现堆栈**
+
+a. `ArrayDeque` implements a dynamic array-based double-ended queue, which means it can efficiently add and remove elements from both ends (front and rear).
+
+b. 
+· `push()`: to push an element onto the array deque
+· `pop()`: to remove and return the top element
+· `peek()`: to view the top element without removing it 
+· `empty()`: to check if the array deque is empty
+
+c. `ArrayDeque` generally offers better performance than `Stack` due to its non-synchronized nature.
+
 # ArrayDeque 比 stack的优势
 a. 数据结构选择:
 
