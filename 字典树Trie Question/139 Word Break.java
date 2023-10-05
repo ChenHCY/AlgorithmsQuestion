@@ -44,14 +44,18 @@ class Solution {
         boolean[] dp = new boolean[n + 1]; //记录String s里面组成的子字符串，能否在wordDict中找到
         dp[n] = true;
 
+        /*i是从后往前进行查找移动 j是每次都从i开始向后移动*/
         for(int i = n - 1; i >= 0; i--){
             TrieNode curr = root; //提取当前的字典树根节点
             for(int j = i; j < n; j++){
                 int currIndex = s.charAt(j) - 'a';
+                
                 //如果当前层级不存在这个这个字母的节点
                 if(curr.next[currIndex] == null){ //字典树中不存在该后续节点 直接退出本次循环
                     break; //跳出循环
                 }
+
+                //当已经找一个完整的string时，表示i后面的字符串可以拆分成字典中的单词，跳出循环，继续移动i指针
                 if(curr.next[currIndex].isWord == true){
                     // dp[i] 为true 表示i后面的字符串可以拆分成字典中的单词 直接退出本次循环
                     dp[i] = dp[j + 1];
