@@ -38,12 +38,41 @@ Constraints:
 1 <= nums.length <= 10^5
 1 <= nums[i] <= 10^9
 */
+//优化版本 ==》 减少了hashset部分运算
+class Solution {
+    public int minOperations(int[] nums) {
+        int n = nums.length;
+        int uniqueLength = 1; //去掉重复数字后剩余的array长度
+        Arrays.sort(nums); //按照升序排列
 
+        //去重，去掉重复的数字
+        for (int i = 1; i < n; i++) {
+            if(nums[i - 1] != nums[i]){
+                nums[uniqueLength] = nums[i];
+                uniqueLength++;
+            }
+        }
+        
+        int left = 0;
+        int maxSave = 0;
+        //规则：区域的最大值-最小值不能超过nums.length - 1，我们已经按照升序排列，所以right指针指向的都是最大值
+        for(int right = 0; right < uniqueLength; right++){
+            while(nums[right] - nums[left] > n - 1){
+                left++;
+            } 
+            maxSave = Math.max(maxSave, right - left + 1);
+        }
+
+        return n - maxSave;
+    }
+}
+
+//基础版本**************************************
 class Solution {
     public int minOperations(int[] nums) {
         int n = nums.length;
         HashSet<Integer> set = new HashSet<>();
-        //去重
+         //去重，去掉重复的数字
         for (int x : nums) {
             set.add(x);
         }
@@ -61,6 +90,7 @@ class Solution {
         Arrays.sort(unique); //按照升序排列
 
         for(int right = 0; right < len; right++){
+            //规则：区域的最大值-最小值不能超过nums.length - 1，我们已经按照升序排列，所以right指针指向的都是最大值
             while(unique[right] - unique[left] > n - 1){
                 left++;
             }
