@@ -4,8 +4,8 @@ You are given a 0-indexed array nums of integers.
 
 A triplet of indices (i, j, k) is a mountain if:
 
-· i < j < k
-· nums[i] < nums[j] and nums[k] < nums[j]
+   · i < j < k
+   · nums[i] < nums[j] and nums[k] < nums[j]
 
 Return the minimum possible sum of a mountain triplet of nums. If no such triplet exists, return -1.
 
@@ -41,7 +41,8 @@ Constraints:
 */
 
 /*思路：由于数组长度很小，所以直接三个for-loop 控制 i, j, k的位置，然后找到满足条件的最小sum*/
-
+//Time: O(n^3)  ==> 三个嵌套的for-loop
+//Space: O(1)  没有开任何新的数组空间
 class Solution {
     public int minimumSum(int[] nums) {
         int n = nums.length;
