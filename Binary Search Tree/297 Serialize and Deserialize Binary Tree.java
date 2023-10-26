@@ -1,4 +1,5 @@
 /* Leetcode 297. Serialize and Deserialize Binary Tree
+
 Serialization is the process of converting a data structure or object into a sequence of bits so that it can 
 be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later 
 in the same or another computer environment.
@@ -33,9 +34,19 @@ The number of nodes in the tree is in the range [0, 104].
     3. 从Queue中提取节点值，进行组装tree，==> 把这些值加入到 root二叉树 里面对应的点位
 */
 
+/**
+ * Definition for a binary tree node.
+ * public class TreeNode {
+ *     int val;
+ *     TreeNode left;
+ *     TreeNode right;
+ *     TreeNode(int x) { val = x; }
+ * }
+ */
 public class Codec {
-
+    
     // Encodes a tree to a single string.
+    // 序列化：把一个root二叉树 转换为 一个string
     //BFS Method
     public String serialize(TreeNode root) {
         //Use StringBuilder to serialize root to be String format
@@ -44,7 +55,10 @@ public class Codec {
         if(root == null){
             return "";
         }
-        //BFS method list
+
+        // BFS method list, 
+        // 这里使用LinkedList(而不是ArrayDeque)的原因是，我们要记录 节点值为null  的情况
+        // ==》ArrayDeque did not allowed to save NULL value
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
 
@@ -61,7 +75,8 @@ public class Codec {
             //add the node value into string
             sb.append(node.val + " ");
 
-            //move to next level
+            // 把当前节点的左子树节点 和 右子树节点 加入到queue队列中
+            // move to next level, 继续进行序列化
             queue.offer(node.left);
             queue.offer(node.right);
         }
@@ -70,6 +85,7 @@ public class Codec {
     }
 
     // Decodes your encoded data to tree.
+    // 反序列化：把一个string 转换为 一个root 二叉树
     public TreeNode deserialize(String data) {
         //base case
         if(data == null || data.length() == 0){
@@ -81,7 +97,8 @@ public class Codec {
 
         //create a root tree and add the first node value into root
         TreeNode root = new TreeNode(Integer.parseInt(str[0]));
-        //BFS method list
+
+        //BFS method list，queue是用来遍历组装的
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root); //把root根节点加入到queue队列中，进行组装tree
 
