@@ -29,34 +29,6 @@ Constraints:
 1 <= k <= 109
 */
 
-//First Try: Two Ponter ====> Wrong (Time Limit Exceeded)
-class Solution {
-    public int shortestSubarray(int[] nums, int k) {
-        int start = -1;
-        int end = -1;
-        int minLength = Integer.MAX_VALUE;
-
-        for(int i = 0; i < nums.length; i++){
-            int currSum = 0;
-            for(int j = i; j < nums.length && (j - i + 1) < minLength; j++){
-                currSum += nums[j];
-                if(currSum >= k){
-                    start = i;
-                    end = j;
-                    minLength = end - start + 1;
-                }
-            }
-        }
-
-        if(start == -1 || end == -1){
-            return -1;
-        }
-
-        return minLength;
-    }
-}
-
-
 //Correct Solution: Used Deque + Prefix sum
 //Prefix sum[] save the sum of range in the nums[] array start at 0 ==> can save much time
 //Deque: save the index of prefixSum ==> Used to find the range length
@@ -98,6 +70,7 @@ class Solution {
         for(int i = 0; i < prefixSum.length; i++){
             long currSum = prefixSum[i]; //get the frist sum element
 
+            // ==> 用来保证符合要求的区域内尽量不要有负数
             while(!deque.isEmpty() && prefixSum[deque.peekLast()] >= currSum){
                 deque.pollLast(); //所以需要一个单调队列来存放, 遍历到比队列尾对应的前缀和小的时候, 弹出队尾的index
             } //因为Deque里面储存的计算前缀和的坐标，我们希望找到一个坐标更新: 区域值更大，但index值越小。
@@ -105,6 +78,10 @@ class Solution {
             //renew the min length of Shortest Subarray  with Sum at Least K
             while(!deque.isEmpty() && currSum - prefixSum[deque.peekFirst()] >= k){
                 minLength = Math.min( minLength, i - deque.peekFirst());
+                System.out.println(prefixSum[deque.peekFirst()]);
+
+                //因为Deque里面存的坐标可以看成子数组的起点，当找到第一个符合要求的子数组时，
+                // ==> 一定是以这个起点开始的最短子数组，所以更新完最小长度后 可以poll掉
                 deque.pollFirst(); //used for check all the element in deque list
             }
 
@@ -113,5 +90,33 @@ class Solution {
 
         //最后需要判断是否存在结果满足 k
         return minLength == Integer.MAX_VALUE ? -1 : minLength;
+    }
+}
+
+
+****************************  //First Try: Two Ponter ====> Wrong (Time Limit Exceeded)*******************************************
+class Solution {
+    public int shortestSubarray(int[] nums, int k) {
+        int start = -1;
+        int end = -1;
+        int minLength = Integer.MAX_VALUE;
+
+        for(int i = 0; i < nums.length; i++){
+            int currSum = 0;
+            for(int j = i; j < nums.length && (j - i + 1) < minLength; j++){
+                currSum += nums[j];
+                if(currSum >= k){
+                    start = i;
+                    end = j;
+                    minLength = end - start + 1;
+                }
+            }
+        }
+
+        if(start == -1 || end == -1){
+            return -1;
+        }
+
+        return minLength;
     }
 }
