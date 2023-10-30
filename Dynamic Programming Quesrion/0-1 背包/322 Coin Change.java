@@ -41,14 +41,15 @@ class Solution {
         dp[0] = 0; //dp initialize 
         
         /*
-        dp state: dp[i] means there is min coins used for every amount
-        dp initialize: dp[0] = 0
-        dp function: dp[i] = Math.min(dp[i], dp[i - coin] + 1);
+        dp state: dp[i] means there is min coins used for every amount，每个值需要多少个硬币
+        dp initialize: dp[0] = 0 初始化
+        dp function: dp[i] = Math.min(dp[i], dp[i - coin] + 1);   // 和为i的最小coin数量 为 i - 当前coin值的数量 + 1
         dp return: return dp[amount] == Integer.MAX_VALUE ? -1 : dp[amount];
         */
         
         //travser all the coins value from coins[] list
         for(int i = 0; i <= amount; i++){
+          // 和为i的最小coin数量 为 i - 当前coin值的数量 + 1
             for(int coin : coins){
                 if(i - coin >= 0){ //choose the coins kinds to use, that find use min numbers of coin
                     dp[i] = Math.min(dp[i], dp[i - coin] + 1); // dp function:
