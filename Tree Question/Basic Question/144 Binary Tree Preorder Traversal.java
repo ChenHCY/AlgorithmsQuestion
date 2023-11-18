@@ -42,21 +42,21 @@ The number of nodes in the tree is in the range [0, 100].
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
-        helper(root, res); //recursion function
+        dfsRecursion(root, res); //call the recursion function
         return res;
     }
-  
-    //helper function
-    public static void helper(TreeNode root, List<Integer> list){
+
+    //recursion function ==> dfs
+    public static void dfsRecursion(TreeNode root, List<Integer> res){
         //exit condition
         if(root == null){
             return;
         }
-
-        list.add(root.val); //add every node value into list
+     
+        res.add(root.val);
         //move to next level
-        helper(root.left, list);
-        helper(root.right, list);
+        dfsRecursion(root.left, res);
+        dfsRecursion(root.right, res);
     }
 }
 
@@ -65,18 +65,20 @@ class Solution {
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
-        Stack<TreeNode> stack = new Stack<>(); // Stack是后进先出的集合
-        stack.push(root);
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.push(root); //首先加入根节点
 
-        while (!stack.isEmpty()) {
-            TreeNode node = stack.pop();
-            if (node != null) {
+        //主遍历，类似于BFS
+        while(!stack.isEmpty()){
+            TreeNode node = stack.pollLast();
+            if(node != null){
+             // Deque是一个双向队列，push()从左边加入数值，pop()从左边拿数值，pollLast()从右边拿数值
                 res.add(node.val);
-                //Stack是后进先出的集合, 所以先加右边 再加左边
-                stack.push(node.right);
-                stack.push(node.left);
+                stack.add(node.right);
+                stack.add(node.left);
             }
         }
+
         return res;
     }
 }
