@@ -34,7 +34,7 @@ The number of the nodes in the tree is in the range [0, 100].
  *     }
  * }
  */
-//Recursive solution
+//Recursive solution ==> 类似于 DFS
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
@@ -50,5 +50,34 @@ class Solution {
         helper(root.left, list);
         helper(root.right, list);
         list.add(root.val);
+    }
+}
+
+// iteratively 迭代 ==> 类似于 BFS
+class Solution {
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> res = new ArrayList<>();
+        //base case 
+        if(root == null){
+            return res;
+        }
+
+        Deque<TreeNode> stack = new LinkedList<>();
+        stack.addLast(root);
+
+        // Deque是一个双向队列，add()从左边加入数值，pop()从左边拿数值，pollLast()从右边拿数值
+        while(!stack.isEmpty()){
+            TreeNode node = stack.pollLast();
+            res.add(node.val);
+            if(node.left != null){
+                stack.add(node.left);
+            }
+            if(node.right != null){
+                stack.add(node.right);
+            }
+        }
+
+        Collections.reverse(res);
+        return res;
     }
 }
