@@ -44,6 +44,7 @@ class Solution {
 
 
 // Solution 2: iteratively 迭代 （类似于 BFS）
+// 中序遍历顺序: 左-中-右 入栈顺序： 左-右
 class Solution {
     public List<Integer> inorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
@@ -52,14 +53,15 @@ class Solution {
 
         //中序遍历：从最左边的节点开始添加，左子树 -> 根节点 -> 右子树
         while(!stack.isEmpty() || currNode != null){
-            // 首先找到最左边的节点，把路径上的节点添加进队列中
-            while(currNode != null){
+            // 首先找到最左边的节点，把路径上的所有非null的节点添加进stack队列中
+            if(currNode != null){
                 stack.addLast(currNode);
-                currNode = currNode.left; 
+                currNode = currNode.left;
+            } else{ //如果发现null节点，开始检查stack队列中的每个节点，是否存在右节点，如果有 则加入
+                currNode = stack.pollLast();
+                res.add(currNode.val);
+                currNode = currNode.right;
             }
-            currNode = stack.pollLast();
-            res.add(currNode.val);
-            currNode = currNode.right;
         }
 
         return res;
