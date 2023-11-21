@@ -72,7 +72,7 @@ class Solution {
         while(!stack.isEmpty()){
             TreeNode node = stack.pollLast();
             if(node != null){
-             // Deque是一个双向队列，push()从左边加入数值，pop()从左边拿数值，pollLast()从右边拿数值
+             // Deque是一个双向队列，add()从左边加入数值，pop()从左边拿数值，pollLast()从右边拿数值
                 res.add(node.val);
                 stack.add(node.right);
                 stack.add(node.left);
