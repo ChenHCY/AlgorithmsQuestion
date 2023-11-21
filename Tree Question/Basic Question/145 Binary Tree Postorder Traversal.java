@@ -54,6 +54,7 @@ class Solution {
 }
 
 // iteratively 迭代 ==> 类似于 BFS
+// 后序遍历顺序 左-右-中 入栈顺序：中-左-右 出栈顺序：中-右-左， 最后翻转结果
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
