@@ -62,6 +62,7 @@ class Solution {
 
 
 //Solution 2:  iteratively method (similar with BFS)
+// 前序遍历顺序：中-左-右，入栈顺序：中-右-左
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
