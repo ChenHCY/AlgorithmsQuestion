@@ -65,16 +65,25 @@ class Solution {
 class Solution {
     public List<Integer> preorderTraversal(TreeNode root) {
         List<Integer> res = new ArrayList<>();
+        //base case
+        if(root == null){
+            return res;
+        }
+
         Deque<TreeNode> stack = new LinkedList<>();
-        stack.push(root); //首先加入根节点
+        stack.addLast(root); //首先加入根节点
 
         //主遍历，类似于BFS
+     // Deque是一个双向队列，add()从左边加入数值，pop()从左边拿数值，pollLast()从右边拿数值
         while(!stack.isEmpty()){
             TreeNode node = stack.pollLast();
-            if(node != null){
-             // Deque是一个双向队列，add()从左边加入数值，pop()从左边拿数值，pollLast()从右边拿数值
-                res.add(node.val);
+            res.add(node.val);
+
+            if(node.right != null){
                 stack.add(node.right);
+            }
+
+            if(node.left != null){
                 stack.add(node.left);
             }
         }
