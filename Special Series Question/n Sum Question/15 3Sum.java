@@ -33,7 +33,10 @@ Constraints:
 3 <= nums.length <= 3000
 -105 <= nums[i] <= 10^5
 */
-
+// 因为要找到所有三数之和为0的情况：
+// 所以我们首先把nums按照升序排列，然后从左往右遍历，以每一个数作为三数之和中的第一个数，
+// 然后在当前数右边的区域内，使用二数之和的办法，找到所有满足要求总和为 -nums[i]的组成方式，==> 最后全部加入到结果中
+// Time: O(n^2)   Space: O(n^2)
 class Solution {
     public List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ans = new ArrayList<>();
