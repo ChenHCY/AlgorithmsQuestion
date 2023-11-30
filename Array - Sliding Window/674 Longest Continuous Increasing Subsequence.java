@@ -25,6 +25,25 @@ Constraints:
 -10^9 <= nums[i] <= 10^9
 */
 
+// Solution 1: 
+class Solution {
+    public int findLengthOfLCIS(int[] nums) {
+        int res = 1;
+        int currMax = 1;
+
+        for(int i = 1; i < nums.length; i++){
+            if(nums[i] > nums[i - 1]){
+                currMax += 1; //递增长度 + 1
+                res = Math.max(res, currMax); // 统计最长递增长度
+            } else{
+                currMax = 1;
+            }
+        }
+        return res;
+    }
+}
+
+//Solution 2：
 class Solution {
     public int findLengthOfLCIS(int[] nums) {
         int res = 1;
