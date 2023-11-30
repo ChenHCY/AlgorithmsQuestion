@@ -43,3 +43,45 @@ Constraints:
 1 <= nums[i] <= 10^9
 1 <= limit <= 10^9
 */
+
+// 时间复杂度：O(nlog⁡n) 其中 n  为 nums 的长度。
+// 空间复杂度：O(n) 
+
+class Solution {
+    // 在limit的限制下，交换得到字典序最小的nums[] array
+    // 也就是尽量把小的数值往前放
+    public int[] lexicographicallySmallestArray(int[] nums, int limit) {
+        int n = nums.length;
+        Integer[] indexArr = new Integer[n]; //储存nums中的下标idex,使其可以和nums中的值对应
+        for (int i = 0; i < n; i++){
+           indexArr[i] = i;
+        }
+
+        // 排序indexArr, 按照每个index对应的nums[i]值的升序 
+        Arrays.sort(indexArr, (a, b) -> nums[a] - nums[b]); 
+
+        //主遍历：首先根据limit的范围进行切割，保证每个子数组内的可以随意交换，
+        // 然后 arrays.sort() 直接可以得到子数组的最小字典序情况，
+        // 然后根据对应的index，把对应的nums[index]存入最后的结果数组
+        int[] res = new int[n];
+
+        for(int i = 0; i < n;){
+            int startRange = i;
+
+            //根据limit进行划分，保证每个区域的子数组内可以随意交换
+            for (i++; i < n && nums[indexArr[i]] - nums[indexArr[i - 1]] <= limit; i++) ;
+
+            // 复制划分好子数组，然后进行排序，这样可以保证是按照nums中的相对顺序进行加入
+            Integer[] subArr = Arrays.copyOfRange(indexArr, startRange, i);
+            Arrays.sort(subArr); 
+        
+            //最后根据对应的index, 储存对应的nums[index]值 到res结果中
+            for(int j = 0; j < subArr.length; j++){
+                // 按照numsArr的相对顺序进行添加，从而得到limit限制交换下，最小的字典序
+                res[subArr[j]] = nums[indexArr[startRange + j]];
+            }
+        }
+
+        return res;
+    }
+}
