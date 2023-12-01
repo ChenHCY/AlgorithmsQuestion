@@ -77,7 +77,6 @@ class Solution {
                 }
             }
             
-            //System.out.println(i);
             // 复制划分好子数组，然后进行排序，这样可以保证是按照nums中的相对顺序进行加入
             Integer[] subArr = Arrays.copyOfRange(indexArr, startRange, i);
             Arrays.sort(subArr); 
