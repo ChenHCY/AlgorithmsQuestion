@@ -46,7 +46,6 @@ Constraints:
 
 // 时间复杂度：O(nlog⁡n) 其中 n  为 nums 的长度。
 // 空间复杂度：O(n) 
-
 class Solution {
     // 在limit的限制下，交换得到字典序最小的nums[] array
     // 也就是尽量把小的数值往前放
@@ -67,10 +66,18 @@ class Solution {
 
         for(int i = 0; i < n;){
             int startRange = i;
-
-            //根据limit进行划分，保证每个区域的子数组内可以随意交换
-            for (i++; i < n && nums[indexArr[i]] - nums[indexArr[i - 1]] <= limit; i++) ;
-
+            i += 1;
+           
+            // 根据limit进行划分区域，保证每个区域组成的子数组内可以随意交换
+            while (i < n){
+                if(nums[indexArr[i]] - nums[indexArr[i - 1]] <= limit){
+                    i++;
+                } else{
+                    break;
+                }
+            }
+            
+            //System.out.println(i);
             // 复制划分好子数组，然后进行排序，这样可以保证是按照nums中的相对顺序进行加入
             Integer[] subArr = Arrays.copyOfRange(indexArr, startRange, i);
             Arrays.sort(subArr); 
