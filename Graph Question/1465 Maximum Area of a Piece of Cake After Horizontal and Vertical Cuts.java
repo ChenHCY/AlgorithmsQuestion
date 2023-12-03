@@ -34,7 +34,7 @@ All the elements in verticalCuts are distinct.
 */
 
 // 时间复杂度：O(nlog⁡n+mlog⁡m) 其中 n  为 horizontalCuts 的长度，m 为 verticalCuts 的长度。
-// 空间复杂度：O(n)\mathcal{O}(n)O(n) 或 O(1)\mathcal{O}(1)O(1)。
+// 空间复杂度：O(1)
 class Solution {
     // 题意是找到根据horizontalCuts 和 verticalCuts 切割后，蛋糕最大的一块的面积
     // 所以我们需要 找到根据horizontalCuts 和 verticalCuts 切割后，高度 和 宽度 可能存在的最大间隔 ==》 长度
