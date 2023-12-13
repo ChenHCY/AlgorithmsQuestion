@@ -21,7 +21,7 @@ n == mat[i].length
 1 <= m, n <= 100
 mat[i][j] is either 0 or 1.
 */
-
+//Time: O(m * n)  Space: O(m + n)
 class Solution {
     public int numSpecial(int[][] mat) {
         int m = mat.length;
