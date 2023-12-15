@@ -33,48 +33,46 @@ Constraints:
 */
 
 class Solution {
-    //检查每一个长度为k的滑动窗口中，是否有m个不同的数字
+    // 检查每一个长度为k的滑动窗口中，是否有m个不同的数字
     // ==> 然后统计这个 sildwindow中的 总和sum, 比较得到最大的 maxsum
     public long maxSum(List<Integer> nums, int m, int k) {
-        //用来记录nums中的 数字组成的形式
-        HashMap<Integer, Integer> map = new HashMap<>();
+        HashMap<Integer, Integer> map = new HashMap<>(); //使用hashmap来记录窗口里面的数字种类
 
         int n = nums.size();
-        long maxSum = 0; //如果找不到一个长度为k里面有m个不同数字的子数组，输出0
-        long windowSum = 0;
+        long maxSum = 0; //总的最大值
+        long windowsSum = 0; //滑动窗口的总和
 
-        //从左往右遍历，首先统计第一个sildwindow中的数字组成和总和
+        //记录第一个长度为k的窗口内的数字组成情况
         for(int i = 0; i < k; i++){
-            //统计数字的组成情况
             map.put(nums.get(i), map.getOrDefault(nums.get(i), 0) + 1);
-            windowSum += nums.get(i); //统计滑动窗口的总和sum
+            windowsSum += nums.get(i); //计算滑动窗口的总和
         }
 
-        //如果sildwindow里面有m个不同的数字，则记录到最大总和值
+        //如果第一个长度为k的窗口内就有m个不同的数字，记录当前的windowsSum到结果最大值
         if(map.size() >= m){
-            maxSum = Math.max(maxSum, windowSum);
+            maxSum = windowsSum;
         }
 
-        //然后开始移动滑动窗口，完成后续遍历
+        //继续完成剩余数组的遍历
         for(int j = k; j < n; j++){
-          
-            //首先删除需要被移除滑动窗口的数值
-            windowSum -= nums.get(j - k);
-            map.put(nums.get(j - k), map.get(nums.get(j - k))-1);
+            //因为我们是要找到长度为k的每个子数组中，最大总和是多少
+            //所以 每次移动右指针 加入新元素的同时，也要移动左指针删除最左边的元素
+            windowsSum -= nums.get(j - k); 
+            map.put(nums.get(j - k), map.get(nums.get(j - k)) - 1);
 
-            // 检查需要删除的是这个数字 是否是 最后一个
+            // 检查需要删除的是这个数字 是否是窗口内的最后一个
             if(map.get(nums.get(j - k)) == 0){
-                map.remove(nums.get(j - k));
+                map.remove(nums.get(j - k)); //如果是的，则删除这个空间，减少种类
             }
 
-            //加入遍历到的新数值
-            windowSum += nums.get(j); //纪录滑动窗口的总和
-            map.put(nums.get(j), map.getOrDefault(nums.get(j), 0) + 1); //记录数值的次数
+            //添加新元素
+            windowsSum += nums.get(j); 
+            map.put(nums.get(j), map.getOrDefault(nums.get(j), 0) + 1);
 
-            //如果sildwindow里面有m个不同的数字，则记录到最大总和值
+            //判断当前窗口中数字的种类是否至少有m
             if(map.size() >= m){
-                //System.out.println(map.size());
-                maxSum = Math.max(maxSum, windowSum);
+                //如果是的，检查更新最大子数组的最大总和
+                maxSum = Math.max(maxSum, windowsSum);
             }
         }
 
