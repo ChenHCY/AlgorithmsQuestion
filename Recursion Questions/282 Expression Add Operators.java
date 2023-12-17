@@ -27,11 +27,6 @@ num consists of only digits.
 -2^31 <= target <= 2^31 - 1
 */
 
-/**
- * @param {string} num
- * @param {number} target
- * @return {string[]}
- */
 class Solution {
     List<String> res;
     int n; // String num.length();
