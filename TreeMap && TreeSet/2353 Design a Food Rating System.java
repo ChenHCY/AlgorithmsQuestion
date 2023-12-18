@@ -6,7 +6,8 @@ Design a food rating system that can do the following:
     · Return the highest-rated food item for a type of cuisine in the system.
 
 Implement the FoodRatings class:
-    · FoodRatings(String[] foods, String[] cuisines, int[] ratings) Initializes the system. The food items are described by foods, cuisines and ratings, all of which have a length of n.
+    · FoodRatings(String[] foods, String[] cuisines, int[] ratings) Initializes the system. The food items are described by foods, cuisines and ratings, all of which 
+      have a length of n.
         · foods[i] is the name of the ith food,
         · cuisines[i] is the type of cuisine of the ith food, and
         · ratings[i] is the initial rating of the ith food.
@@ -18,10 +19,12 @@ Note that a string x is lexicographically smaller than string y if x comes befor
 prefix of y, or if i is the first position such that x[i] != y[i], then x[i] comes before y[i] in alphabetic order.
 
 Example 1:
-Input
+Input:
 ["FoodRatings", "highestRated", "highestRated", "changeRating", "highestRated", "changeRating", "highestRated"]
-[[["kimchi", "miso", "sushi", "moussaka", "ramen", "bulgogi"], ["korean", "japanese", "japanese", "greek", "japanese", "korean"], [9, 12, 8, 15, 14, 7]], ["korean"], ["japanese"], ["sushi", 16], ["japanese"], ["ramen", 16], ["japanese"]]
-Output
+[[["kimchi", "miso", "sushi", "moussaka", "ramen", "bulgogi"], ["korean", "japanese", "japanese", "greek", "japanese", "korean"], [9, 12, 8, 15, 14, 7]], ["korean"], ["japanese"], 
+["sushi", 16], ["japanese"], ["ramen", 16], ["japanese"]]
+
+Output:
 [null, "kimchi", "ramen", null, "sushi", null, "ramen"]
 
 Explanation
