@@ -42,6 +42,8 @@ original[i], changed[i] are lowercase English letters.
 original[i] != changed[i]
 */
 
+// 时间复杂度：O(n + m + 26^3) n 为 source 的长度，m  为 cost 的长度。
+// 空间复杂度：O(26^2)
 class Solution {
     // 可以看成多源路径中的最短权值路径
     // cost数组来代表点与点（及一个字符到另一个字符）之间的权值。
