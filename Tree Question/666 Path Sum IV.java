@@ -1,4 +1,4 @@
-/* Leetcode 666 Binary Tree Path Sum IV
+/* Leetcode 666 Path Sum IV
 
 If the depth of a tree is smaller than 5, this tree can be represented by a list of three-digits integers.
 
