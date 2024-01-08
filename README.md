@@ -128,7 +128,7 @@ computeIfAbsent() 方法的语法为：hashmap.computeIfAbsent(K key, Function r
 
 key - 键  /  remappingFunction - 重新映射函数，用于重新计算值
 
-For example: ==> hashmap.computeIfAbsent(start, value -> new ArrayList<Integer>()).add(end);
+For example: ==> hashmap.computeIfAbsent(start, key -> new ArrayList<Integer>()).add(node.val);
 
 
 # Collections.sort in JAVA
