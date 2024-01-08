@@ -55,11 +55,11 @@ class Solution {
 
         // 1. 白车rook可以直接抓到：检查bishop是否会阻挡，会：2次移动，不会：1次移动
         if((rook[0] == queen[0]) || (rook[1] == queen[1])){
-            // 检查bishop是否会阻挡, 如果阻挡，则需要bishop使用2次移动抓到queen 
+            // 检查bishop是否会阻挡, 如果阻挡，则移走bishop, 再使用rook直接抓到  ==> 一共两步
             if((rook[0] == queen[0]) && (rook[0] == bishop[0]) && ((bishop[1] - rook[1]) * (bishop[1] - queen[1]) < 0)){
                 return 2;
             }
-            // 检查bishop是否会阻挡, 如果阻挡，则需要bishop使用2次移动抓到queen 
+            // 检查bishop是否会阻挡, 如果阻挡，则移走bishop, 再使用rook直接抓到 ==> 一共两步
             if((rook[1] == queen[1]) && (rook[1] == bishop[1]) && ((bishop[0] - rook[0]) * (bishop[0] - queen[0]) < 0)){
                 return 2;
             }
@@ -69,7 +69,7 @@ class Solution {
 
         // 2. 白主教bishop可以直接抓到：黑皇后和白主教bishop在同一条对角线上，并且检查白车rook是否阻挡，会：2次移动，不会：1次移动
         if(Math.abs(bishop[0] - queen[0]) == Math.abs(bishop[1] - queen[1])){
-            // 检查 rook 是否会阻挡, 如果阻挡，则需要rook使用2次移动抓到queen
+            // 检查 rook 是否会阻挡, 如果阻挡，则移走rook, 再使用bishop直接抓到 ==> 一共两步
             if((Math.abs(bishop[0] - rook[0]) == Math.abs(bishop[1] - rook[1])) && ((rook[1] - bishop[1]) * (rook[1] - queen[1]) < 0)){
                 return 2;
             }
