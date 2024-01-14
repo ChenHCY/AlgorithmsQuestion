@@ -27,26 +27,22 @@ The list is guaranteed to be sorted in ascending order.
  */
 //Time: O(n)   Space: O(1)
 class Solution {
+    //检查相邻两个节点是不是重复的值，如果是的，则跳过，并且链接当前节点和下下个节点
     public ListNode deleteDuplicates(ListNode head) {
         if(head == null){
             return null;
         }
-        
-        ListNode dummy = new ListNode(-1); //dummy node
-        dummy.next = head; //connect dummy with ListNode head
-        ListNode curr = dummy;
-        
-        /* dummy(curr) -> 1 -> 1 -> 2  ==> curr start at dummy node*/
-        
-        //travser all the element ListNode from head
-        while(curr.next != null){
-            int value = curr.next.val;
-            while(curr.next.next != null && curr.next.next.val == value){
-                curr.next = curr.next.next; //jump next one, and connect with the one next the next one
+
+        ListNode cur = head;
+
+        while(cur != null && cur.next != null){
+            if(cur.val == cur.next.val){
+                cur.next = cur.next.next; //跳过下一个节点，链接当前节点和下下个节点
+            } else{
+                cur = cur.next; //如果不是重复的，直接移动cur指针到下一个节点
             }
-            curr = curr.next; //check one by one and save last one from duplicates node
         }
-        
-        return dummy.next; //return the result after remove all the duplicates node
+
+        return head;
     }
 }
