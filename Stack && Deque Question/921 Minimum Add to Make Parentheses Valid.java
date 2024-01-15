@@ -24,7 +24,7 @@ Constraints:
 s[i] is either '(' or ')'.
 */
 
-/*
+/* Solution 1: Used ArrayDeque 记录不符合要求的括号，也就是需要add的数量
 使用stack来检查括号能否相互抵消
 
 if: 当遇见右括号的时候，查找stack的第一个元素是否是左括号
@@ -35,7 +35,7 @@ if: 当遇见右括号的时候，查找stack的第一个元素是否是左括�
 
 else: 全部加入stack中
 
-最好无法抵消的都存在于stack中，stack.size()也就是需要加多少个的括号
+最后无法抵消的都存在于stack中，stack.size()也就是需要加多少个的括号
 */
 
 //Time: O(n)  Space: O(n)
@@ -52,5 +52,27 @@ class Solution {
         }
 
         return stack.size();
+    }
+}
+
+// Solution 2: Used two-pointer to 记录有多少括号不符合要求
+//Time: O(n)  Space: O(1)
+class Solution {
+    public int minAddToMakeValid(String s) {
+        int leftCount = 0;
+        int wrongRightCount = 0;
+
+        for(int i = 0; i < s.length(); i++){
+            // 遍历到右括号，并且可以形成好的括号组合
+            if(leftCount > 0 && s.charAt(i) == ')'){
+                leftCount--;
+            } else if(leftCount == 0 && s.charAt(i) == ')'){
+                wrongRightCount++;
+            } else if(s.charAt(i) == '('){
+                leftCount++;
+            }
+        }
+        
+        return wrongRightCount + leftCount;
     }
 }
