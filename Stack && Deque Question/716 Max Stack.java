@@ -60,7 +60,7 @@ class MaxStack {
 
     // Pushes element x onto the stack.
     // 将元素 x 压入栈中。
-    public void push(int x) {
+    public void push(int x) { // ==> O(logN), 将元素添加进heap需要O（logn）, 添加进stack需要O(1)
         stack.push(new int[]{x, cntIndex}); //x是数字值，cntIndex是每个数字的识别符号
         heap.add(new int[]{x, cntIndex}); //x是数字值，cntIndex是每个数字的识别符号
         cntIndex++; //数字的识别符号不能一样
@@ -68,7 +68,7 @@ class MaxStack {
     
     // Removes the element on top of the stack and returns it.
     // 移除栈顶元素并返回这个元素
-    public int pop() {
+    public int pop() { // ==> O(logN)
         //我们要检查栈顶的数字有没有被删除, 也就是识别removed list中有没有栈顶数字的cntIndex标识
         while(removed.contains(stack.peek()[1])){
             stack.pop(); //如果有，则从栈顶中删除 ==> 直到遇见没有被删除的栈顶数字
@@ -80,7 +80,7 @@ class MaxStack {
     
     // Gets the element on the top of the stack without removing it.
     // 返回栈顶元素，无需移除
-    public int top() {
+    public int top() { // O(1) 直接从stack中提取和返回
         //首先判断栈顶的元素是否已经被删除 ==> 识别标识符
         while(removed.contains(stack.peek()[1])){
             stack.pop(); //如果有，则从栈顶中删除 ==> 直到遇见没有被删除的栈顶数字
@@ -90,7 +90,7 @@ class MaxStack {
     
     // Retrieves the maximum element in the stack without removing it.
     // 检索并返回栈中最大元素，无需移除
-    public int peekMax() {
+    public int peekMax() {  // O(1) 直接从stack中提取和返回
         //首先判断优先队列中栈顶的元素是否已经被删除 ==> 识别标识符
         while(removed.contains(heap.peek()[1])){
             heap.poll(); //如果有，则从栈顶中删除 ==> 直到遇见没有被删除的栈顶数字
@@ -100,7 +100,7 @@ class MaxStack {
     
     // Retrieves the maximum element in the stack and removes it. 
     // 检索并返回栈中最大元素，并将其移除, 如果有多个最大元素，只要移除 最靠近栈顶 的那个
-    public int popMax() {
+    public int popMax() { //  ==> O(logN) 
         //首先判断优先队列中栈顶的元素是否已经被删除 ==> 识别标识符
         while(removed.contains(heap.peek()[1])){
             heap.poll(); //如果有，则从栈顶中删除 ==> 直到遇见没有被删除的栈顶数字
