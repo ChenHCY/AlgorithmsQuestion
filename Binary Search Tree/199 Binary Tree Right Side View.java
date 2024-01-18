@@ -37,7 +37,7 @@ The number of nodes in the tree is in the range [0, 100].
  */
 
 /* 
-Solution 1: Used BFS
+Solution 1: Used BFS 宽度优先遍历 ==> 层级遍历 每一层每一层的查找，发现是最后一个节点时，加入结果list
 Time: O(n)  Space: O(n)
 Thought: According to the image, the returned output is the rightmost node of each row
 so it is the last one of each row
@@ -83,7 +83,7 @@ class Solution {
 }
 
 
-// Solution 2: Used DFS
+// Solution 2: Used DFS ==> 深度优先遍历，首先遍历右子树节点，同时统计层级，==》 每一层最先访问都是右子树，可以直接加入
 // Time: O(n)  Space: O(n)
 class Solution {
     private List<Integer> res = new ArrayList<>();
