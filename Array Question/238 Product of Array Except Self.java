@@ -20,57 +20,26 @@ Constraints:
 The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
 */
 
-//My thought:  ===> Wrong and out of the time
-class Solution {
-    public int[] productExceptSelf(int[] nums) {
-        List<Integer> list = new ArrayList<>();
-        boolean[] remove = new boolean[nums.length];
-        
-        for(int i = 0; i < nums.length; i++){
-            remove[i] = true;
-        }
-        
-        for(int i = 0; i < nums.length; i++){
-            int temp = 1;
-            remove[i] = false;
-            for(int j = 0; j < nums.length; j++){
-                if(remove[j]){
-                    temp *= nums[j];
-                }
-            }
-            remove[i] = true;
-            list.add(temp);
-        }
-        
-        int[] res = new int[list.size()];
-        
-        for(int i = 0; i < list.size(); i++){
-            res[i] = list.get(i);
-        }
-        
-        return res;
-    }
-}
 
-//Correct solution: ===> Time: O(n)  Space: O(N)
+//Correct solution: ===> Time: O(n)  Space: O(1)
 class Solution {
+    // 一个数字的左边部分 * 右边部分 = 除这个数字之外所有数字的乘积
+    // 所以两个for-loop 一个计算每个数字 左边的乘积，一个计算 右边的乘积
     public int[] productExceptSelf(int[] nums) {
         int n = nums.length;
         int[] res = new int[n];
-        res[0] = 1;
-        int right = 1;
 
-        //首先从左往右遍历一次，进行乘法
-        //==》计算当前number，左边的部分的乘法
-        for(int i = 1; i < nums.length; i++){
+        res[0] = 1; //因为是计算每个数 左边所有数字的乘积，第一个数字没有左边数字，所以直接设定为1
+        for(int i = 1; i < n; i++){
             res[i] = res[i - 1] * nums[i - 1];
         }
 
-        //再从右往左遍历一次，进行乘法
-        //==》计算当前number, 右边部分的乘法
+        //再从右边开始计算乘积
+        int R = 1; //因为是计算每个数 右边所有数字的乘积，然后再和之前得到左边乘积 进行乘积总和
+        //因为是最右边的数字，所以直接设定为1
         for(int j = n - 1; j >= 0; j--){
-            res[j] *= right;
-            right *= nums[j];
+            res[j] *= R;
+            R *= nums[j]; //每次更新，因为指针往右移动，会增加右边的数字
         }
 
         return res;
