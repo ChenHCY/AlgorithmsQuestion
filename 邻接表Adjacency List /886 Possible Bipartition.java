@@ -25,6 +25,7 @@ All the pairs of dislikes are unique.
 */
 
 /* Solution: Used 染色法 + DFS 查找  Time: O(n + m)  Space: O(n + m)*/ 
+// 其中 n 题目给定的人数，m 为给定的 dislike 数组的大小
 // 题意：有n个人，同时存在dislike关系，检查能否把他们分成两组，其中不能存在dislike关系
 // 思路：使用color[]进行染色标明分组情况，每次交替染色 ==> 然后检查dislike关系中 存不存在相同的颜色 
 // 如果存在，表示无法完成分组  /  如果不存在，则可完成分组
