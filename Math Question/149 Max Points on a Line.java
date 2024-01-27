@@ -48,4 +48,45 @@ class Solution {
     }
 }
 
-// Solution 2：使用HashMap对于斜率储存进行一个优化 ==> Time: O(n^3) Space: O(1)
+// Solution 2：使用HashMap对于斜率储存进行一个优化 
+// ==> Time: O(n^2 * logm) : 嵌套for-loop is n^2 and gcd 复杂度为 O(log⁡m)
+// Space: O(n): create a hashmap to save the points
+class Solution {
+    // 遍历points整个数组，从左右往右，每次取两个点，确定斜率
+    // 然后统计总共有多少个点和他们斜率一样，表示在这条直线上
+    public int maxPoints(int[][] points) {
+        int n = points.length;
+        int res = 1;
+
+        //遍历每个点的位置，然后计算斜率，找到由当前点 x 发出的直线所经过的最多点数量
+        for(int i = 0; i < n; i++){
+            HashMap<String, Integer> map = new HashMap<>();
+            int max = 0;
+            int[] x = points[i];
+            
+            for(int j = i + 1; j < n; j++){
+                int cnt = 2;
+                int[] y = points[j];
+
+                int a = x[0] - y[0]; 
+                int b = x[1] - y[1];
+
+                //gcd方法用于计算两个整数a和b的最大公约数（GCD）
+                int k = gcd(a, b); // 这里使用 GCD 的目的是将斜率 (a/b) 简化为其最小形式。避免出现误差。
+                String key = (a / k) + "_" + (b / k); //因为integer储存会出现误差，使用string字符串形式进行储存
+
+                map.put(key, map.getOrDefault(key, 0) + 1);
+                max = Math.max(max, map.get(key)); //比较最大值是否有更新
+            }
+
+            res = Math.max(res, max + 1); //起始点也是存在于线上，所以要添加进结果
+        }
+
+        return res;
+    }
+
+    //计算两个数字的最大公约数 ==> gcd 复杂度为 O(log⁡m)
+    public int gcd(int a, int b){
+        return b == 0 ? a : gcd(b, a % b);
+    }
+}
