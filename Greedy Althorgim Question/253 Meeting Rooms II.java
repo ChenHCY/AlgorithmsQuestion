@@ -51,3 +51,34 @@ class Solution {
         return count;
     }
 }
+
+
+// Solution 2: 差分数组
+// 时间复杂度：O(nlogn)
+// 空间复杂度：O(n)
+class Solution {
+    //差分数组，会议开始时间+1，会议结束时间-1
+    //然后统计最大值，就是需要的会议室数量
+    public int minMeetingRooms(int[][] intervals) {
+        //使用treemap对于key值（开始时间）进行升序排序
+        TreeMap<Integer, Integer> map = new TreeMap<>();
+
+        //差分的思路：k开始时间+1个，结束时间-1个
+        for(int[] interval : intervals){
+            int start = interval[0];
+            int end = interval[1];
+            map.put(start, map.getOrDefault(start, 0) + 1);
+            map.put(end, map.getOrDefault(end, 0) - 1);
+        }
+
+        int res = 0; //最多的会议室数量要求
+        int room = 0;
+        //使用前缀和的形式，计算有多少时间是重叠的，得到需要的会议室数量
+        for(int num : map.values()){
+           room += num;
+           res = Math.max(res, room);
+        }
+
+        return res;
+    }
+}
