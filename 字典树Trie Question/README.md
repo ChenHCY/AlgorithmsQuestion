@@ -11,11 +11,11 @@ Trie树也称字典树，因为其效率很高，所以在在字符串查找、�
 ```Java
 private class TrieNode{
     public boolean isWord; // isWord表示这个结点是否为一个单词的结尾，是否形成一个Word String  
-    public Node[] next;  // next[]表示当前字母节点的下一个26个字母节点
+    public TrieNode[] next;  // next[]表示当前字母节点的下一个26个字母节点
         
     public TrieNode() {
         this.isWord = false;
-        this.next = new Node[26];
+        this.next = new TrieNode[26];
     }
 }
 ```
